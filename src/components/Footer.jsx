@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { MapPin, Phone, Mail, Link2, ExternalLink } from 'lucide-react'
-import rashmiMetaliksLogo from '../assets/Logo-01.png'
+import rashmiMetaliksFooterLogo from '../assets/Logo-01.png'
 
 const productLinks = [
   ['/products/di-pipes', 'DI Pipes'],
@@ -30,15 +30,17 @@ export function Footer() {
         <div className="grid min-w-0 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* brand column */}
           <div className="lg:col-span-1">
-            <Link to="/" className="inline-flex shrink-0 items-center">
-              <img
-                src={rashmiMetaliksLogo}
-                alt="Rashmi Metaliks UK Ltd."
-                className="h-14 w-auto max-w-full sm:h-16"
-              />
+            <Link to="/" className="block w-full max-w-sm">
+              <span className="block rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-[0_12px_32px_-20px_rgba(15,23,42,0.75)]">
+                <img
+                  src={rashmiMetaliksFooterLogo}
+                  alt="Rashmi Metaliks UK Ltd."
+                  className="block h-auto w-full max-h-24 object-contain object-left sm:max-h-28"
+                />
+              </span>
             </Link>
-            <p className="mt-4 text-sm leading-7 text-slate-400">
-              Rashmi Metaliks UK Limited — supplying world-class ductile iron pipes, fittings, and infrastructure solutions to the United Kingdom. Part of the USD 5 billion Rashmi Group.
+            <p className="mt-4 max-w-sm text-sm leading-7 text-slate-400">
+              Rashmi Metaliks UK Ltd. — supplying world-class ductile iron pipes, fittings, and infrastructure solutions to the United Kingdom. Part of the USD 5 billion Rashmi Group.
             </p>
             <div className="mt-5 flex gap-3">
               <a
