@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Cylinder } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import manholeRound from '../assets/manhole-cover-round.png'
-import pipesBlueOutdoor from '../assets/pipes-blue-outdoor.jpg'
-import fittingsRealLargeBends from '../assets/fittings-real-large-bends.jpg'
-import flangedRashmiAqua from '../assets/flanged-rashmi-aqua.jpg'
+import manholeProductBanner from '../assets/manhole-cover-product-banner.png'
+import diPipesBanner from '../assets/di-pipes-rashmi-aqua-banner.png'
+import fittingsReducers from '../assets/fittings-reducers.png'
+import diFlangedPipesBanner from '../assets/di-flanged-pipes-product-banner.png'
 
 const productImageMap = {
-  'di-pipes': pipesBlueOutdoor,
-  'di-fittings': fittingsRealLargeBends,
-  'di-flanged-pipes': flangedRashmiAqua,
-  'di-manhole-covers': manholeRound,
+  'di-pipes': diPipesBanner,
+  'di-fittings': fittingsReducers,
+  'di-flanged-pipes': diFlangedPipesBanner,
+  'di-manhole-covers': manholeProductBanner,
 }
 
 export function ProductCard({ product }) {
@@ -27,11 +27,27 @@ export function ProductCard({ product }) {
       <div className="flex flex-1 flex-col p-7">
         {/* product image — real photo or placeholder */}
         {realImage ? (
-          <div className="mb-5 flex h-36 w-full items-center justify-center overflow-hidden rounded-xl bg-slate-50">
+          <div
+            className={`mb-5 flex h-52 w-full items-center justify-center overflow-hidden rounded-xl p-2 sm:h-56 ${
+              product.slug === 'di-pipes' ||
+              product.slug === 'di-fittings' ||
+              product.slug === 'di-flanged-pipes' ||
+              product.slug === 'di-manhole-covers'
+                ? 'bg-white ring-1 ring-slate-200/80'
+                : 'bg-slate-100'
+            }`}
+          >
             <img
               src={realImage}
               alt={product.name}
-              className="h-full w-full object-contain p-3 transition-transform duration-300 group-hover:scale-105"
+              className={`h-full w-full transition-transform duration-300 group-hover:scale-105 ${
+                product.slug === 'di-pipes' ||
+                product.slug === 'di-fittings' ||
+                product.slug === 'di-flanged-pipes' ||
+                product.slug === 'di-manhole-covers'
+                  ? 'object-contain'
+                  : 'object-cover'
+              }`}
             />
           </div>
         ) : product.imagePlaceholder ? (

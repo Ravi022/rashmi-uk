@@ -13,5 +13,13 @@ export function ScrollProgress() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  return <div className="fixed left-0 top-0 z-[90] h-1 bg-amber-700" style={{ width: `${progress}%` }} />
+  return (
+    <div
+      className="fixed left-0 top-0 z-[90] h-[2px] origin-left bg-amber-600/70"
+      style={{
+        width: `${progress}%`,
+        transition: 'width 80ms linear',
+      }}
+    />
+  )
 }

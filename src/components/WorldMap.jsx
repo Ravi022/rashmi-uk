@@ -117,7 +117,7 @@ export function WorldMap() {
       </ComposableMap>
 
       {/* legend */}
-      <div className="relative z-10 flex flex-wrap items-center gap-5 border-t border-slate-700/60 bg-slate-900/75 px-6 pb-5 pt-4 backdrop-blur-sm">
+      <div className="relative z-10 flex flex-wrap items-center gap-3 border-t border-slate-700/60 bg-slate-900/75 px-3 pb-4 pt-3 backdrop-blur-sm sm:gap-5 sm:px-6 sm:pb-5 sm:pt-4">
         <div className="flex items-center gap-2">
           <span className="inline-block h-3 w-3 rounded-full bg-amber-400 ring-2 ring-amber-200/30" />
           <span className="font-condensed text-[10px] font-bold uppercase tracking-[0.12em] text-slate-200">UK / Primary Office</span>

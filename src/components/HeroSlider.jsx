@@ -5,7 +5,7 @@ import { ChevronRight, ChevronLeft, ShieldCheck, Droplets, CheckCircle } from 'l
 import { MagneticButton } from './MagneticButton'
 import heroPipes from '../assets/hero-pipes.jpg'
 import heroCasting from '../assets/hero-casting.jpg'
-import heroFittings from '../assets/hero-fittings.jpg'
+import heroFittings from '../assets/hero-fittings.png'
 import heroFlanged from '../assets/hero-flanged.jpg'
 import heroPlant from '../assets/hero-plant.jpg'
 import dwiBannerSlide1 from '../assets/dwi-banner-slide1.png'
@@ -56,17 +56,17 @@ export function HeroSlider({ slides }) {
   const bgAlt      = slideAlts[current]      ?? ''
 
   return (
-    <section className="relative min-h-[100svh] overflow-hidden bg-slate-950 sm:min-h-[92vh]">
+    <section className="relative min-h-[100svh] w-full max-w-[100vw] overflow-hidden bg-slate-950 sm:min-h-[92vh]">
 
       {/* ── Background image (shared by all slides) ── */}
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={`bg-${current}`}
           custom={direction}
-          initial={{ opacity: 0, scale: 1.06 }}
+          initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.98 }}
-          transition={{ duration: 1.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          exit={{ opacity: 0, scale: 1 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="absolute inset-0"
         >
           <img
@@ -90,19 +90,17 @@ export function HeroSlider({ slides }) {
           backgroundSize: '72px 72px',
         }}
       />
-      {/* Amber accent line */}
-      <div className="pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-gradient-to-b from-amber-500/0 via-amber-500/60 to-amber-500/0" />
 
       {/* ── DWI Advertisement Banner — direct child of section for reliable positioning ── */}
       <AnimatePresence>
         {isDWI && (
           <motion.div
             key="dwi-ad-banner"
-            initial={{ opacity: 0, x: 60, scale: 0.92 }}
+            initial={{ opacity: 0, x: 48, scale: 0.94 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: 40, scale: 0.95 }}
-            transition={{ duration: 0.7, delay: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="absolute right-8 top-[80px] z-20 hidden w-[290px] sm:block lg:right-14 lg:w-[350px]"
+            exit={{ opacity: 0, x: 24, scale: 0.97 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute right-3 top-4 z-20 w-[68px] sm:right-4 sm:w-[88px] md:right-6 md:w-[110px] xl:top-[80px] xl:right-10 xl:w-[280px] 2xl:right-14 2xl:w-[330px]"
           >
             <img
               src={dwiBannerSlide1}
@@ -114,8 +112,8 @@ export function HeroSlider({ slides }) {
       </AnimatePresence>
 
       {/* ── Text content ── */}
-      <div className="section-shell relative flex min-h-[100svh] flex-col justify-center pb-40 pt-20 sm:min-h-[92vh] sm:pb-36 sm:pt-28">
-        <div className="max-w-3xl">
+      <div className="section-shell relative flex min-h-[100svh] min-w-0 flex-col justify-center pb-40 pt-20 sm:min-h-[92vh] sm:pb-36 sm:pt-28">
+        <div className="min-w-0 max-w-3xl pr-2 sm:pr-0">
 
           {/* Slide counter */}
           <div className="mb-4 flex items-center gap-3 sm:mb-6">
@@ -133,10 +131,10 @@ export function HeroSlider({ slides }) {
               /* ── DWI slide content ── */
               <motion.div
                 key="dwi-content"
-                initial={{ opacity: 0, y: 28 }}
+                initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
               >
                 {/* Marketing eyebrow */}
                 <p className="font-condensed text-xs font-bold uppercase tracking-[0.28em] text-amber-400">
@@ -190,10 +188,10 @@ export function HeroSlider({ slides }) {
               /* ── Standard cinematic slide content ── */
               <motion.div
                 key={`content-${current}`}
-                initial={{ opacity: 0, y: 28 }}
+                initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
               >
                 <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-amber-400">
                   {slide.tag}
@@ -270,7 +268,9 @@ export function HeroSlider({ slides }) {
                 }`}
               >
                 <p className="font-condensed text-lg font-bold leading-none text-amber-400 sm:text-2xl">{s.value}</p>
-                <p className="mt-1 text-[8px] font-bold uppercase tracking-[0.12em] text-slate-400 sm:mt-1.5 sm:text-[9px] sm:tracking-[0.14em]">{s.label}</p>
+                <p className="mt-1 max-w-[11rem] break-words text-[8px] font-bold uppercase tracking-[0.12em] text-slate-400 sm:mt-1.5 sm:max-w-none sm:text-[9px] sm:tracking-[0.14em]">
+                  {s.label}
+                </p>
               </div>
             ))}
           </div>

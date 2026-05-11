@@ -1,5 +1,8 @@
 import { MapPin, Globe2, Truck, Users, Warehouse, ShieldCheck, Clock, FileText, Factory } from 'lucide-react'
+import globalPresenceHeroBg from '../assets/global-presence-hero-bg.png'
 import { CTASection } from '../components/CTASection'
+import { DWIBannerBadge } from '../components/DWIBannerBadge'
+import { IndiaUkMap } from '../components/IndiaUkMap'
 import { Reveal } from '../components/Reveal'
 import { SectionHeader } from '../components/SectionHeader'
 import { WorldMap } from '../components/WorldMap'
@@ -75,29 +78,34 @@ const whyNetworkPoints = [
 
 export function GlobalPresencePage() {
   useSeo({
-    title: 'Global Presence | Rashmi Metaliks UK Ltd.',
+    title: 'Global Presence | Rashmi Metaliks UK Limited',
     description: 'Connecting Infrastructure Across the Globe — 50+ countries, 5 continents, UK office in Leytonstone London.',
   })
 
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-slate-950 pb-20 pt-24 text-white">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
-        <div className="pointer-events-none absolute -right-32 top-0 h-[400px] w-[400px] rounded-full bg-sky-600/10 blur-[100px]" />
-        <div className="section-shell relative">
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-sky-400">Global Presence</p>
-          <h1 className="font-display mt-4 max-w-4xl text-4xl leading-tight text-white md:text-6xl">
+      <section className="relative min-h-[280px] overflow-hidden bg-slate-950 pb-20 pt-24 text-white sm:min-h-[320px]">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <img
+            src={globalPresenceHeroBg}
+            alt=""
+            aria-hidden
+            className="h-full w-full min-h-[420px] object-cover object-[center_45%] sm:min-h-[480px]"
+          />
+        </div>
+        {/* Scrims: readable copy on the left; globe / network stays visible toward the right */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-slate-950/92 via-slate-950/58 to-slate-950/25" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/45" />
+        <DWIBannerBadge wideHeading />
+        <div className="section-shell relative max-w-[min(100%,40rem)] sm:max-w-none">
+          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-sky-400 [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
+            Global Presence
+          </p>
+          <h1 className="font-display mt-4 max-w-4xl text-4xl leading-tight text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.5)] md:text-6xl">
             Connecting Infrastructure Across the Globe
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 [text-shadow:0_1px_14px_rgba(0,0,0,0.45)]">
             With manufacturing in India and commercial operations across the UK, Europe, Middle East, Africa, and Asia — Rashmi Metaliks delivers world-class DI infrastructure to every major market. Our global network is built for reliability, speed, and total project support.
           </p>
         </div>
@@ -182,7 +190,7 @@ export function GlobalPresencePage() {
                   title="Established in the United Kingdom"
                 />
                 <p className="mt-5 text-sm leading-8 text-slate-600">
-                  Rashmi Metaliks UK Ltd. is incorporated in England & Wales and operates from our London office in Leytonstone. Our UK team provides local technical sales, project specification support, and supply chain coordination — bringing world-class DI manufacturing capacity directly to the UK market.
+                  Rashmi Metaliks UK Limited is incorporated in England & Wales and operates from our London office in Leytonstone. Our UK team provides local technical sales, project specification support, and supply chain coordination — bringing world-class DI manufacturing capacity directly to the UK market.
                 </p>
                 <div className="mt-6 flex flex-col gap-4">
                   <div className="flex items-start gap-4 rounded-xl border border-amber-200 bg-white p-5">
@@ -207,13 +215,7 @@ export function GlobalPresencePage() {
                   </div>
                 </div>
               </div>
-              <div className="flex h-72 items-center justify-center rounded-2xl border-2 border-dashed border-amber-200 bg-white">
-                <div className="text-center">
-                  <Globe2 size={36} className="mx-auto text-slate-300" />
-                  <p className="mt-3 font-condensed text-xs font-bold uppercase tracking-[0.14em] text-slate-400">India & UK Highlighted on Map</p>
-                  <p className="mt-1 text-xs text-slate-300">Image Placeholder</p>
-                </div>
-              </div>
+              <IndiaUkMap className="h-72 border-amber-200 shadow-sm" />
             </div>
           </Reveal>
         </div>

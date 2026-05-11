@@ -1,4 +1,4 @@
-# Rashmi Metaliks UK Ltd. — Premium React Website
+# Rashmi Metaliks UK Limited — Premium React Website
 
 World-class corporate frontend built with React + Vite + Tailwind + Framer Motion + React Router + Lucide Icons.
 

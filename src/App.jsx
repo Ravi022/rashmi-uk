@@ -6,7 +6,6 @@ import { ScrollToTop } from './components/ScrollToTop'
 import { RouteTransition } from './components/RouteTransition'
 import { AboutPage } from './pages/AboutPage'
 import { ContactPage } from './pages/ContactPage'
-import { DownloadsPage } from './pages/DownloadsPage'
 import { GlobalPresencePage } from './pages/GlobalPresencePage'
 import { HomePage } from './pages/HomePage'
 import { ProductDetailPage } from './pages/ProductDetailPage'
@@ -16,7 +15,7 @@ import { SustainabilityPage } from './pages/SustainabilityPage'
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800">
+    <div className="min-h-screen w-full min-w-0 max-w-[100vw] overflow-x-clip bg-slate-50 text-slate-800">
       <ScrollProgress />
       <ScrollToTop />
       <Navbar />
@@ -27,7 +26,6 @@ function App() {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/:productSlug" element={<ProductDetailPage />} />
           <Route path="/quality" element={<QualityPage />} />
-          <Route path="/downloads" element={<DownloadsPage />} />
           <Route path="/sustainability" element={<SustainabilityPage />} />
           <Route path="/global-presence" element={<GlobalPresencePage />} />
           <Route path="/contact" element={<ContactPage />} />

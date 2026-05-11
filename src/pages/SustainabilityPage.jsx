@@ -3,9 +3,19 @@ import {
   CheckCircle, Download, Globe2,
 } from 'lucide-react'
 import { CTASection } from '../components/CTASection'
+import { DWIBannerBadge } from '../components/DWIBannerBadge'
 import { Reveal } from '../components/Reveal'
 import { SectionHeader } from '../components/SectionHeader'
 import { useSeo } from '../hooks/useSeo'
+import sustainabilityHeroBg from '../assets/sustainability-hero-bg.png'
+import waterRecyclingPhoto from '../assets/sustainability-water-recycling.png'
+import zeroWasteCircularPhoto from '../assets/sustainability-zero-waste-circular.png'
+import biomassPelletsPhoto from '../assets/sustainability-biomass-pellets.png'
+import captivePowerEnergyPhoto from '../assets/sustainability-captive-power-energy.png'
+import furnaceGasUtilisationPhoto from '../assets/sustainability-furnace-gas-utilisation.png'
+import sustainableManufacturingPhoto from '../assets/sustainability-manufacturing-practices.png'
+import responsibleInfrastructurePhoto from '../assets/sustainability-responsible-infrastructure.png'
+import csrCommunityImpactPhoto from '../assets/sustainability-csr-community-impact.png'
 
 const sustainabilityPillars = [
   {
@@ -21,6 +31,10 @@ const sustainabilityPillars = [
       'Replaces equivalent LPG/coal consumption across factory floors',
       'Real-time gas flow metering for energy efficiency auditing',
     ],
+    image: furnaceGasUtilisationPhoto,
+    imageFit: 'contain',
+    imageHeight: 'h-80 lg:h-96',
+    imageBgClass: 'bg-white',
   },
   {
     icon: Zap,
@@ -35,12 +49,14 @@ const sustainabilityPillars = [
       'Integrated energy monitoring across all production lines',
       'Continuous improvement programme targeting efficiency gains',
     ],
+    image: captivePowerEnergyPhoto,
+    imageFit: 'cover',
   },
   {
     icon: Leaf,
     category: 'Renewable & Clean Energy Initiatives',
     title: 'Biomass Pellet Manufacturing',
-    stat: '500 MT',
+    stat: '10000 MT',
     statLabel: 'Monthly Biomass Capacity',
     description:
       'We operate a 500 MT/month biomass pellet manufacturing unit, producing eco-friendly biofuel co-fired with coal in our thermal power plant. This initiative directly reduces coal consumption, lowers carbon emissions, and supports the transition to cleaner energy sources across our operations.',
@@ -49,6 +65,8 @@ const sustainabilityPillars = [
       'Co-fired with coal in thermal plant — reducing coal consumption',
       'Supports India\'s National Biomass Utilisation Programme targets',
     ],
+    image: biomassPelletsPhoto,
+    imageFit: 'cover',
   },
   {
     icon: Droplets,
@@ -63,6 +81,7 @@ const sustainabilityPillars = [
       'Closed-loop cooling water system for the blast furnace and casting lines',
       'Rainwater harvesting integrated with on-site storage and reuse',
     ],
+    image: waterRecyclingPhoto,
   },
   {
     icon: Recycle,
@@ -77,6 +96,8 @@ const sustainabilityPillars = [
       'Iron fines and process dust recovered and remelted',
       'Scrap and off-spec material recycled back into the melt stream',
     ],
+    image: zeroWasteCircularPhoto,
+    imageFit: 'cover',
   },
   {
     icon: Factory,
@@ -91,6 +112,10 @@ const sustainabilityPillars = [
       'Annual environmental performance reporting and third-party audit',
       'Emission monitoring systems at all combustion points',
     ],
+    image: sustainableManufacturingPhoto,
+    imageFit: 'contain',
+    imageHeight: 'h-80 lg:h-96',
+    imageBgClass: 'bg-slate-100',
   },
   {
     icon: Building2,
@@ -105,6 +130,10 @@ const sustainabilityPillars = [
       'Leak-proof joints prevent water loss across the network lifecycle',
       'Fully recyclable at end of life — 100% material recovery',
     ],
+    image: responsibleInfrastructurePhoto,
+    imageFit: 'contain',
+    imageHeight: 'h-80 lg:h-96',
+    imageBgClass: 'bg-white',
   },
   {
     icon: Heart,
@@ -119,46 +148,55 @@ const sustainabilityPillars = [
       'Healthcare camps and mobile medical units for local communities',
       'Women\'s self-help group support and rural livelihood programmes',
     ],
+    image: csrCommunityImpactPhoto,
+    imageFit: 'contain',
+    imageHeight: 'h-80 lg:h-96',
+    imageBgClass: 'bg-zinc-100',
+    imageFrameClass: 'max-w-sm mx-auto',
   },
 ]
 
 export function SustainabilityPage() {
   useSeo({
-    title: 'Sustainability | Rashmi Metaliks UK Ltd.',
+    title: 'Sustainability | Rashmi Metaliks UK Limited',
     description: 'Engineering Growth. Sustaining the Future. Real sustainability data: 70,000 Nm³ gas recovered, 45MW captive power, 100% water recycling, zero waste to landfill.',
   })
 
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-slate-950 pb-20 pt-24 text-white">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
-        <div className="pointer-events-none absolute -right-32 top-0 h-[400px] w-[400px] rounded-full bg-emerald-600/10 blur-[100px]" />
-        <div className="section-shell relative">
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-emerald-400">Sustainability</p>
-          <h1 className="font-display mt-4 max-w-4xl text-4xl leading-tight text-white md:text-6xl">
+      <section className="relative min-h-[280px] overflow-hidden bg-slate-950 pb-20 pt-24 text-white sm:min-h-[320px]">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <img
+            src={sustainabilityHeroBg}
+            alt=""
+            aria-hidden
+            className="h-full w-full min-h-[420px] object-cover object-[center_40%] sm:min-h-[480px]"
+          />
+        </div>
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/55 to-slate-950/20" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/15 to-slate-950/35" />
+        <DWIBannerBadge wideHeading />
+        <div className="section-shell relative max-w-[min(100%,40rem)] sm:max-w-none">
+          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-emerald-400 [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
+            Sustainability
+          </p>
+          <h1 className="font-display mt-4 max-w-4xl text-4xl leading-tight text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.55)] md:text-6xl">
             Engineering Growth. Sustaining the Future.
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 [text-shadow:0_1px_14px_rgba(0,0,0,0.45)]">
             Sustainability at Rashmi Metaliks is embedded in every tonne of steel we melt, every pipe we cast, and every community we touch. Here we share the real data behind our environmental and social performance.
           </p>
-          <div className="mt-8 flex flex-wrap gap-6">
+          <div className="mt-8 flex flex-wrap gap-6 sm:gap-8">
             {[
               { value: '70K Nm³', label: 'Gas Recovered Daily' },
               { value: '100%', label: 'Water Recycled' },
               { value: 'Zero', label: 'Waste to Landfill' },
               { value: '100+ Yrs', label: 'DI Product Lifecycle' },
             ].map(({ value, label }) => (
-              <div key={label} className="text-center">
-                <p className="font-condensed text-2xl font-bold text-amber-400">{value}</p>
-                <p className="mt-1 font-condensed text-[9px] font-bold uppercase tracking-[0.14em] text-slate-400">{label}</p>
+              <div key={label} className="text-center sm:text-left">
+                <p className="font-condensed text-2xl font-bold text-amber-300 [text-shadow:0_1px_10px_rgba(0,0,0,0.5)]">{value}</p>
+                <p className="mt-1 font-condensed text-[9px] font-bold uppercase tracking-[0.14em] text-slate-200 [text-shadow:0_1px_8px_rgba(0,0,0,0.45)]">{label}</p>
               </div>
             ))}
           </div>
@@ -202,15 +240,29 @@ export function SustainabilityPage() {
                       ))}
                     </ul>
                   </div>
-                  {/* Image placeholder */}
+                  {/* Section image */}
                   <div className={!isEven ? 'lg:order-1' : ''}>
-                    <div className="flex h-72 items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50">
-                      <div className="text-center">
-                        <Icon size={36} className="mx-auto text-slate-300" />
-                        <p className="mt-3 font-condensed text-xs font-bold uppercase tracking-[0.14em] text-slate-400">{pillar.title} Photo</p>
-                        <p className="mt-1 text-xs text-slate-300">Image Placeholder</p>
+                    {pillar.image ? (
+                      <div className={`${pillar.imageFrameClass || 'w-full'} ${pillar.imageHeight || 'h-72'} overflow-hidden rounded-2xl border border-slate-200 ${pillar.imageBgClass || 'bg-white'} shadow-sm ${pillar.imageFit === 'cover' ? 'p-0' : 'p-3'}`}>
+                        <img
+                          src={pillar.image}
+                          alt={`${pillar.title} at Rashmi Metaliks facility`}
+                          className={`h-full w-full ${
+                            pillar.imageFit === 'cover' ? 'object-cover' : 'object-contain'
+                          } ${
+                            pillar.imageRotate === '90' ? 'rotate-90 scale-[1.35]' : ''
+                          }`}
+                        />
                       </div>
-                    </div>
+                    ) : (
+                      <div className="flex h-72 items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50">
+                        <div className="text-center">
+                          <Icon size={36} className="mx-auto text-slate-300" />
+                          <p className="mt-3 font-condensed text-xs font-bold uppercase tracking-[0.14em] text-slate-400">{pillar.title} Photo</p>
+                          <p className="mt-1 text-xs text-slate-300">Image Placeholder</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </Reveal>
@@ -220,16 +272,16 @@ export function SustainabilityPage() {
       })}
 
       {/* ── Net Zero Alignment ── */}
-      <section className="border-t border-slate-100 bg-slate-950 py-20 text-white">
+      <section className="border-t border-amber-100 bg-amber-50 py-20 text-slate-900">
         <div className="section-shell">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
               <div>
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">Supporting UK Policy</p>
-                <h2 className="font-display mt-4 text-3xl leading-snug text-white md:text-4xl">
+                <p className="font-condensed text-xs font-bold uppercase tracking-[0.2em] text-emerald-600">Supporting UK Policy</p>
+                <h2 className="font-display mt-4 text-3xl leading-snug text-slate-900 md:text-4xl">
                   Aligned with UK Water Sector Net Zero 2030
                 </h2>
-                <p className="mt-5 text-sm leading-8 text-slate-300">
+                <p className="mt-5 text-sm leading-8 text-slate-600">
                   The UK water sector has committed to Net Zero carbon by 2030. Long-life DI infrastructure directly reduces embodied carbon in network renewal programmes — cutting the frequency of excavation, material consumption, and construction activity across the asset lifecycle.
                 </p>
                 <ul className="mt-6 space-y-3">
@@ -239,8 +291,8 @@ export function SustainabilityPage() {
                     'Leak-proof systems reduce energy wasted pumping lost water',
                     'Lower maintenance frequency reduces construction disruption carbon',
                   ].map((point) => (
-                    <li key={point} className="flex items-start gap-2.5 text-sm leading-6 text-slate-300">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+                    <li key={point} className="flex items-start gap-2.5 text-sm leading-6 text-slate-700">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
                       {point}
                     </li>
                   ))}
@@ -253,9 +305,9 @@ export function SustainabilityPage() {
                   { value: '100%', label: 'Recyclable at EOL', accent: false },
                   { value: 'C=140', label: 'Hazen-Williams Coefficient', accent: true },
                 ].map(({ value, label, accent }) => (
-                  <div key={label} className={`rounded-2xl border p-6 text-center ${accent ? 'border-amber-700/50 bg-amber-900/20' : 'border-white/10 bg-white/5'}`}>
-                    <p className="font-condensed text-3xl font-bold text-amber-400">{value}</p>
-                    <p className="mt-2 font-condensed text-[10px] font-bold uppercase leading-5 tracking-[0.1em] text-slate-400">{label}</p>
+                  <div key={label} className={`rounded-2xl border p-6 text-center ${accent ? 'border-amber-300 bg-amber-50' : 'border-slate-200 bg-slate-50'}`}>
+                    <p className="font-condensed text-3xl font-bold text-amber-600">{value}</p>
+                    <p className="mt-2 font-condensed text-[10px] font-bold uppercase leading-5 tracking-[0.1em] text-slate-500">{label}</p>
                   </div>
                 ))}
               </div>

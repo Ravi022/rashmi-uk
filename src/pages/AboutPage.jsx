@@ -1,14 +1,21 @@
 import { Factory, Globe2, Award, Users, Layers, FlaskConical, CheckCircle } from 'lucide-react'
+import aboutHeroRashmiGroup from '../assets/about-hero-rashmi-group.png'
 import mfgFurnaceSparks from '../assets/mfg-furnace-sparks.jpg'
 import mfgMoltenPour from '../assets/mfg-molten-pour.jpg'
 import mfgCentrifugal from '../assets/mfg-centrifugal.jpg'
 import mfgFurnaceWorkers from '../assets/mfg-furnace-workers.jpg'
 import mfgAnnealing from '../assets/mfg-annealing.jpg'
-import stockyardBlueCrane from '../assets/stockyard-blue-crane.jpg'
-import stockyardBlueRashmi from '../assets/stockyard-blue-rashmi.jpg'
-import stockyardBlackRashmi from '../assets/stockyard-black-rashmi.jpg'
-import stockyardTrucks from '../assets/stockyard-trucks.jpg'
+import rashmiGroupBrandCollage from '../assets/rashmi-group-brand-collage.png'
+import stockyardLogistics1 from '../assets/stockyard-logistics-1.png'
+import stockyardLogistics2 from '../assets/stockyard-logistics-2.png'
+import stockyardLogistics3 from '../assets/stockyard-logistics-3.png'
+import stockyardLogistics4 from '../assets/stockyard-logistics-4.png'
+import stockyardLogistics5 from '../assets/stockyard-logistics-5.png'
+import stockyardLogistics6 from '../assets/stockyard-logistics-6.png'
+import stockyardLogistics7 from '../assets/stockyard-logistics-7.png'
 import { CTASection } from '../components/CTASection'
+import { DWIBannerBadge } from '../components/DWIBannerBadge'
+import { IndiaUkMap } from '../components/IndiaUkMap'
 import { Reveal } from '../components/Reveal'
 import { SectionHeader } from '../components/SectionHeader'
 import { timelineItems } from '../data/siteData'
@@ -38,22 +45,32 @@ const manholeNeeds = [
 
 export function AboutPage() {
   useSeo({
-    title: 'About | Rashmi Metaliks UK Ltd.',
-    description: 'Learn about Rashmi Metaliks UK Ltd., a part of the USD 5 billion Rashmi Group with global ductile iron manufacturing leadership.',
+    title: 'About | Rashmi Metaliks UK Limited',
+    description: 'Learn about Rashmi Metaliks UK Limited, a part of the USD 5 billion Rashmi Group with global ductile iron manufacturing leadership.',
   })
 
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-slate-950 pb-16 pt-20 text-white sm:pb-20 sm:pt-24">
-        <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-        <div className="pointer-events-none absolute -right-32 top-0 h-[400px] w-[400px] rounded-full bg-amber-600/10 blur-[100px]" />
-        <div className="section-shell relative">
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-amber-400">About Rashmi Metaliks UK</p>
-          <h1 className="font-display mt-4 max-w-4xl text-3xl leading-tight text-white sm:text-4xl md:text-6xl">
+      <section className="relative min-h-[300px] overflow-hidden pb-16 pt-20 sm:min-h-[360px] sm:pb-20 sm:pt-24">
+        <img
+          src={aboutHeroRashmiGroup}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 h-full w-full object-cover object-[center_35%] sm:object-[center_32%]"
+        />
+        {/* Light left scrim — strong band under copy; fades so photo stays visible on the right */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/95 via-white/58 to-transparent sm:from-white/92 sm:via-white/42" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-white/22" />
+        <DWIBannerBadge wideHeading />
+        <div className="section-shell relative max-w-[min(100%,42rem)] sm:max-w-none">
+          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-amber-900">
+            About Rashmi Metaliks UK
+          </p>
+          <h1 className="font-display mt-4 max-w-4xl text-3xl leading-tight text-slate-950 sm:text-4xl md:text-6xl [text-shadow:0_1px_0_rgba(255,255,255,0.9),0_0_24px_rgba(255,255,255,0.75)]">
             A Legacy of Strength. Delivering Infrastructure for the Future.
           </h1>
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:mt-6 sm:text-base sm:leading-8">
+          <p className="mt-4 max-w-2xl text-sm font-medium leading-7 text-slate-800 sm:mt-6 sm:text-base sm:leading-8 [text-shadow:0_1px_12px_rgba(255,255,255,0.85)]">
             From India to the United Kingdom — engineering reliable, high-performance ductile iron solutions for critical infrastructure across the globe.
           </p>
         </div>
@@ -106,13 +123,12 @@ export function AboutPage() {
                   <p>From steel and cement to advanced manufacturing and infrastructure solutions, Rashmi Group has consistently contributed to nation-building and global development. Its integrated approach to manufacturing, combined with sustainable practices and technological advancement, has positioned it as a trusted partner for large-scale infrastructure projects worldwide.</p>
                 </div>
               </div>
-              {/* Brand Logo Collage Placeholder */}
-              <div className="flex h-64 items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-white">
-                <div className="text-center">
-                  <Globe2 size={36} className="mx-auto text-slate-300" />
-                  <p className="mt-3 font-condensed text-xs font-bold uppercase tracking-[0.14em] text-slate-400">Rashmi Group Brand Logo Collage</p>
-                  <p className="mt-1 text-xs text-slate-300">Image Placeholder</p>
-                </div>
+              <div className="w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-3 shadow-sm">
+                <img
+                  src={rashmiGroupBrandCollage}
+                  alt="Rashmi Group brand logo collage"
+                  className="aspect-[21/5] w-full rounded-lg object-contain"
+                />
               </div>
             </div>
           </Reveal>
@@ -198,27 +214,44 @@ export function AboutPage() {
               centered
             />
           </Reveal>
-          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <Reveal delay={0.04}>
-              <div className="overflow-hidden rounded-2xl lg:col-span-2 lg:row-span-2">
-                <img src={stockyardBlueCrane} alt="Rashmi stockyard — large stock of blue DI pipes at outdoor yard" className="h-64 w-full object-cover transition-transform duration-500 hover:scale-105 lg:h-full" />
-              </div>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <div className="overflow-hidden rounded-2xl">
-                <img src={stockyardBlueRashmi} alt="Rashmi branded blue epoxy-coated DI pipes stacked at yard" className="h-48 w-full object-cover transition-transform duration-500 hover:scale-105" />
-              </div>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <div className="overflow-hidden rounded-2xl">
-                <img src={stockyardBlackRashmi} alt="Rashmi Aqua black DI pipes at outdoor stockyard" className="h-48 w-full object-cover transition-transform duration-500 hover:scale-105" />
-              </div>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <div className="col-span-1 overflow-hidden rounded-2xl sm:col-span-2">
-                <img src={stockyardTrucks} alt="Rashmi DI pipes loaded on trucks for dispatch from Kharagpur plant" className="h-48 w-full object-cover object-center transition-transform duration-500 hover:scale-105" />
-              </div>
-            </Reveal>
+          <div className="mt-12 overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+            <div className="grid gap-0 md:auto-rows-[220px] md:grid-cols-3">
+              <Reveal delay={0.02} className="md:col-span-2 md:row-span-2">
+                <div className="h-[420px] overflow-hidden bg-slate-100 md:h-full">
+                  <img src={stockyardLogistics6} alt="Large stockyard lot of wrapped DI pipes in warehouse" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                </div>
+              </Reveal>
+              <Reveal delay={0.04}>
+                <div className="h-[220px] overflow-hidden bg-slate-100 md:h-full">
+                  <img src={stockyardLogistics1} alt="Stacked DI pipe lengths ready for loading" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                </div>
+              </Reveal>
+              <Reveal delay={0.06}>
+                <div className="h-[220px] overflow-hidden bg-slate-100 md:h-full">
+                  <img src={stockyardLogistics3} alt="Wrapped DI pipe bundles in warehouse for dispatch" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                </div>
+              </Reveal>
+              <Reveal delay={0.08}>
+                <div className="h-[220px] overflow-hidden bg-slate-100 md:h-full">
+                  <img src={stockyardLogistics4} alt="Truck loaded with bundled DI pipes indoors" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                </div>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <div className="h-[220px] overflow-hidden bg-slate-100 md:h-full">
+                  <img src={stockyardLogistics5} alt="Front view of loaded DI pipes prepared for shipment" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                </div>
+              </Reveal>
+              <Reveal delay={0.12}>
+                <div className="h-[220px] overflow-hidden bg-slate-100 md:h-full">
+                  <img src={stockyardLogistics2} alt="DI pipes loaded on truck at logistics yard" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                </div>
+              </Reveal>
+              <Reveal delay={0.14} className="md:col-span-3 md:row-span-3">
+                <div className="h-[420px] overflow-hidden bg-slate-100 md:h-full">
+                  <img src={stockyardLogistics7} alt="Outdoor logistics dispatch with DI pipes on trailers" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                </div>
+              </Reveal>
+            </div>
           </div>
           <Reveal delay={0.08}>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -270,7 +303,7 @@ export function AboutPage() {
       <section className="py-24 bg-white">
         <div className="section-shell">
           <Reveal>
-            <SectionHeader label="UK Market" title="Expanding into the United Kingdom" subtitle="The United Kingdom is undergoing significant infrastructure modernisation — in water distribution, wastewater management, and urban road safety. Rashmi Metaliks UK Ltd. has been established to directly support these evolving requirements." centered />
+            <SectionHeader label="UK Market" title="Expanding into the United Kingdom" subtitle="The United Kingdom is undergoing significant infrastructure modernisation — in water distribution, wastewater management, and urban road safety. Rashmi Metaliks UK Limited has been established to directly support these evolving requirements." centered />
           </Reveal>
 
           <div className="mt-14 grid gap-8 lg:grid-cols-2">
@@ -309,15 +342,9 @@ export function AboutPage() {
             </Reveal>
           </div>
 
-          {/* India/UK map placeholder */}
+          {/* India/UK map */}
           <Reveal delay={0.1}>
-            <div className="mt-8 flex h-52 items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50">
-              <div className="text-center">
-                <Globe2 size={36} className="mx-auto text-slate-300" />
-                <p className="mt-3 font-condensed text-xs font-bold uppercase tracking-[0.14em] text-slate-400">India & UK Highlighted on Map</p>
-                <p className="mt-1 text-xs text-slate-300">Image Placeholder</p>
-              </div>
-            </div>
+            <IndiaUkMap className="mt-8 h-56 shadow-sm" />
           </Reveal>
         </div>
       </section>

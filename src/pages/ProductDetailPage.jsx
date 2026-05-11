@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Accordion } from '../components/Accordion'
 import { CTASection } from '../components/CTASection'
+import { DWIBannerBadge } from '../components/DWIBannerBadge'
 import { SectionHeader } from '../components/SectionHeader'
 import { Table } from '../components/Table'
 import { Tabs } from '../components/Tabs'
@@ -14,34 +15,36 @@ import manholeFront from '../assets/manhole-cover-front.png'
 import manholeSquare from '../assets/manhole-cover-square.png'
 import manholeBlueRound from '../assets/manhole-cover-blue-round.png'
 import manholeBlueGrating from '../assets/manhole-cover-blue-grating.png'
-import fittingsRealLargeBends from '../assets/fittings-real-large-bends.jpg'
-import fittingsRealFactory from '../assets/fittings-real-factory.jpg'
-import fittingsRealReducers from '../assets/fittings-real-reducers.jpg'
-import fittingsRealSocketTee from '../assets/fittings-real-socket-tee.jpg'
-import fittingsRealBend45 from '../assets/fittings-real-bend-45.jpg'
-import fittingsRealBlackTee from '../assets/fittings-real-black-tee.jpg'
+import fittingsBendsElbows from '../assets/fittings-bends-elbows.png'
+import fittingsTeesCrosses from '../assets/fittings-tees-crosses.png'
+import fittingsReducers from '../assets/fittings-reducers.png'
+import fittingsFlangedAdapters from '../assets/fittings-flanged-adapters.png'
+import fittingsSockets from '../assets/fittings-sockets.png'
+import fittingsEndCaps from '../assets/fittings-end-caps.png'
+import diFittingsHeroBg from '../assets/di-fittings-hero-bg.png'
+import diPipesHeroBg from '../assets/di-pipes-hero-bg.png'
+import diFlangedPipesHeroBg from '../assets/di-flanged-pipes-hero-bg.png'
+import manholeHeroBg from '../assets/manhole-cover-product-banner.png'
 import flangedRashmiAqua from '../assets/flanged-rashmi-aqua.jpg'
 import flangedRedPipeEnd from '../assets/flanged-red-pipe-end.jpg'
 import flangedWhitePipe from '../assets/flanged-white-pipe.jpg'
 import flangedBlueReducers from '../assets/flanged-blue-reducers.jpg'
-import pipesBlackSockets from '../assets/pipes-black-sockets.jpg'
-import pipesBlueOutdoor from '../assets/pipes-blue-outdoor.jpg'
-import pipesCradles from '../assets/pipes-factory-cradles.jpg'
-import pipesBlackSky from '../assets/pipes-black-sky.jpg'
-import pipesRedHall from '../assets/pipes-red-flanged-hall.jpg'
 import pipesFlangedEnds from '../assets/pipes-flanged-ends.jpg'
-import pipesRedAqua from '../assets/pipes-red-rashmi-aqua.jpg'
-import pipesGreyBsen from '../assets/pipes-grey-bsen.jpg'
+import diPipesBanner from '../assets/di-pipes-rashmi-aqua-banner.png'
+import diPipesNew1 from '../assets/di-pipes-new-1.png'
+import diPipesNew2 from '../assets/di-pipes-new-2.png'
+import diPipesNew3 from '../assets/di-pipes-new-3.png'
+import diPipesNew4 from '../assets/di-pipes-new-4.png'
+import diPipesNew5 from '../assets/di-pipes-new-5.png'
 
 const productImageGallery = {
   'di-pipes': [
-    { src: pipesBlueOutdoor, caption: 'Blue Epoxy-Coated DI Pipes — Ready for Export' },
-    { src: pipesCradles, caption: 'Rashmi Aqua DI Pipes — Factory Transport Cradles' },
-    { src: pipesBlackSky, caption: 'Socket & Spigot DI Pipes — Stacked for Dispatch' },
-    { src: pipesBlackSockets, caption: 'Large DI Pipes — Cement Mortar Lined Sockets' },
-    { src: pipesRedHall, caption: 'Rashmi Aqua Flanged Pipe — BS EN 598 Compliant' },
-    { src: pipesRedAqua, caption: 'Rashmi Aqua — Red Epoxy External Coating' },
-    { src: pipesGreyBsen, caption: 'DN 200 Pipe — BS EN 545, C64 Class Marked' },
+    { src: diPipesBanner, caption: 'Rashmi Aqua — epoxy coated DI pipe (DN 150)' },
+    { src: diPipesNew1, caption: 'Red Coated Ductile Iron Pipes — Yard View' },
+    { src: diPipesNew2, caption: 'Blue DI Pipes — Stacked for Export Dispatch' },
+    { src: diPipesNew3, caption: 'Rashmi Aqua Blue Pipes — Outdoor Stack' },
+    { src: diPipesNew4, caption: 'Coating Line — Red Pipe Processing' },
+    { src: diPipesNew5, caption: 'Heat-Treatment Stage — DI Pipe Production' },
   ],
   'di-manhole-covers': [
     { src: manholeRound, caption: 'Round Manhole Cover with Frame — BS EN 124' },
@@ -51,12 +54,37 @@ const productImageGallery = {
     { src: manholeBlueGrating, caption: 'Recessed Grating Cover — Blue Coated' },
   ],
   'di-fittings': [
-    { src: fittingsRealLargeBends, caption: 'Large Flanged Bends & Reducers — Blue Epoxy Coated' },
-    { src: fittingsRealFactory, caption: 'DN 1200 Flanged Bend — Factory Pre-dispatch Inspection' },
-    { src: fittingsRealReducers, caption: 'Flanged Concentric Reducers — EN 545 Compliant' },
-    { src: fittingsRealSocketTee, caption: 'Socket Equal Tee — Push-fit Joint, Blue Epoxy Coated' },
-    { src: fittingsRealBend45, caption: '45° Flanged Bend — Cement Mortar Lined Interior' },
-    { src: fittingsRealBlackTee, caption: 'Flanged Tee & Bends — Black Bitumen Coated' },
+    {
+      src: fittingsBendsElbows,
+      caption: 'Bends & Elbows',
+      description:
+        'Available in angles of 11.25°, 22.5°, 45°, and 90° to create directional changes in pipeline systems.',
+    },
+    {
+      src: fittingsTeesCrosses,
+      caption: 'Tees & Crosses',
+      description: 'Connect three or four pipes at junction points for branch connections or distribution networks.',
+    },
+    {
+      src: fittingsReducers,
+      caption: 'Reducers',
+      description: 'Connect pipes of different diameters while maintaining flow efficiency and system integrity.',
+    },
+    {
+      src: fittingsFlangedAdapters,
+      caption: 'Flanged Adapters',
+      description: 'Create connections between spigot ends and flanged components for versatile system integration.',
+    },
+    {
+      src: fittingsSockets,
+      caption: 'Sockets',
+      description: 'Join pipe sections securely while allowing for easy maintenance and system expansion.',
+    },
+    {
+      src: fittingsEndCaps,
+      caption: 'End Caps',
+      description: 'Seal the ends of pipelines securely for terminations, testing, or future extensions.',
+    },
   ],
   'di-flanged-pipes': [
     { src: flangedRashmiAqua, caption: 'Rashmi Aqua Flanged Pipes — BS EN 598 Marked' },
@@ -79,47 +107,139 @@ export function ProductDetailPage() {
   const product = useMemo(() => products.find((p) => p.slug === productSlug) || products[0], [productSlug])
   const [active, setActive] = useState('Overview')
   const [activeImage, setActiveImage] = useState(0)
-  useSeo({ title: `${product.name} | Rashmi Metaliks UK Ltd.`, description: `${product.name} technical details, specs, applications, and compliance information.` })
+  useSeo({ title: `${product.name} | Rashmi Metaliks UK Limited`, description: `${product.name} technical details, specs, applications, and compliance information.` })
   const productStandards = standards[product.slug] || []
   const gallery = productImageGallery[product.slug] || []
+
+  const heroPhoto =
+    product.slug === 'di-fittings'
+      ? {
+          src: diFittingsHeroBg,
+          position: 'object-[center_42%] sm:object-[center_38%]',
+        }
+      : product.slug === 'di-pipes'
+        ? {
+            src: diPipesHeroBg,
+            position: 'object-[32%_center] sm:object-[28%_center] lg:object-[26%_center]',
+          }
+        : product.slug === 'di-flanged-pipes'
+          ? {
+              src: diFlangedPipesHeroBg,
+              position: 'object-[56%_center] sm:object-[50%_center] lg:object-[48%_center]',
+            }
+          : product.slug === 'di-manhole-covers'
+            ? {
+                src: manholeHeroBg,
+                position: 'object-[52%_center] sm:object-[48%_center] lg:object-[46%_center]',
+              }
+            : null
+
+  const photoHero = Boolean(heroPhoto)
 
   return (
     <>
       {/* hero banner */}
-      <section className="relative overflow-hidden bg-slate-950 pb-14 pt-18 text-white sm:pb-20 sm:pt-24">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
-        <div className="pointer-events-none absolute -right-32 top-0 h-[400px] w-[400px] rounded-full bg-amber-600/10 blur-[100px]" />
+      <section
+        className={`relative overflow-hidden pb-14 pt-18 sm:pb-20 sm:pt-24 ${
+          photoHero ? 'min-h-[280px] sm:min-h-[340px]' : 'bg-slate-950 text-white'
+        }`}
+      >
+        {heroPhoto ? (
+          <>
+            <img
+              src={heroPhoto.src}
+              alt=""
+              aria-hidden
+              className={`absolute inset-0 h-full w-full object-cover ${heroPhoto.position}`}
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/95 via-white/52 to-transparent sm:from-white/90 sm:via-white/36" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/32 via-transparent to-white/18" />
+          </>
+        ) : (
+          <>
+            <div
+              className="pointer-events-none absolute inset-0 opacity-[0.04]"
+              style={{
+                backgroundImage:
+                  'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)',
+                backgroundSize: '60px 60px',
+              }}
+            />
+            <div className="pointer-events-none absolute -right-32 top-0 h-[400px] w-[400px] rounded-full bg-amber-600/10 blur-[100px]" />
+          </>
+        )}
+        <DWIBannerBadge />
 
-        <div className="section-shell relative">
-          <nav className="mb-6 flex items-center gap-2 font-condensed text-xs uppercase tracking-[0.12em] text-slate-400">
-            <Link to="/products" className="hover:text-amber-400 transition">Products</Link>
-            <ChevronRight size={12} />
-            <span className="text-slate-300">{product.name}</span>
+        <div className={`section-shell relative ${photoHero ? 'max-w-[min(100%,42rem)] sm:max-w-none' : ''}`}>
+          <nav
+            className={`mb-6 flex items-center gap-2 font-condensed text-xs font-semibold uppercase tracking-[0.12em] ${
+              photoHero ? 'text-slate-700 [text-shadow:0_1px_8px_rgba(255,255,255,0.9)]' : 'text-slate-400'
+            }`}
+          >
+            <Link
+              to="/products"
+              className={`transition ${photoHero ? 'text-slate-800 hover:text-amber-800' : 'hover:text-amber-400'}`}
+            >
+              Products
+            </Link>
+            <ChevronRight size={12} className={photoHero ? 'shrink-0 text-slate-600' : ''} />
+            <span className={photoHero ? 'text-slate-950' : 'text-slate-300'}>{product.name}</span>
           </nav>
 
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-amber-400">
-            Rashmi Metaliks UK Ltd.
+          <p
+            className={`font-condensed text-xs font-bold uppercase tracking-[0.22em] ${
+              photoHero ? 'text-amber-900 [text-shadow:0_1px_8px_rgba(255,255,255,0.85)]' : 'text-amber-400'
+            }`}
+          >
+            Rashmi Metaliks UK Limited
           </p>
-          <h1 className="font-display mt-4 text-3xl leading-tight text-white sm:text-4xl md:text-6xl">{product.name}</h1>
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:mt-5 sm:text-base sm:leading-8">{product.overview}</p>
+          <h1
+            className={`font-display mt-4 text-3xl leading-tight sm:text-4xl md:text-6xl ${
+              photoHero
+                ? 'text-slate-950 [text-shadow:0_1px_0_rgba(255,255,255,0.9),0_0_24px_rgba(255,255,255,0.75)]'
+                : 'text-white'
+            }`}
+          >
+            {product.name}
+          </h1>
+          <p
+            className={`mt-4 max-w-2xl text-sm font-medium leading-7 sm:mt-5 sm:text-base sm:leading-8 ${
+              photoHero
+                ? 'text-slate-800 [text-shadow:0_1px_12px_rgba(255,255,255,0.85)]'
+                : 'text-slate-300'
+            }`}
+          >
+            {product.overview}
+          </p>
 
           {productStandards.length > 0 && (
             <div className="mt-8 flex flex-wrap gap-2">
               {productStandards.map((std) => (
                 std === 'DWI Approved'
-                  ? <span key={std} className="inline-flex items-center gap-1.5 rounded border border-blue-400/40 bg-blue-500/15 px-3 py-1 font-condensed text-xs uppercase tracking-[0.12em] text-blue-300 shadow-[0_0_12px_rgba(59,130,246,0.15)]">
-                      <ShieldCheck size={11} /> {std}
-                    </span>
-                  : <span key={std} className="inline-flex items-center gap-1.5 rounded border border-amber-600/30 bg-amber-600/10 px-3 py-1 font-condensed text-xs uppercase tracking-[0.12em] text-amber-300">
-                      <ShieldCheck size={11} /> {std}
-                    </span>
+                  ? (
+                      <span
+                        key={std}
+                        className={`inline-flex items-center gap-1.5 rounded border px-3 py-1 font-condensed text-xs uppercase tracking-[0.12em] ${
+                          photoHero
+                            ? 'border-blue-200 bg-blue-50 text-blue-900'
+                            : 'border-blue-400/40 bg-blue-500/15 text-blue-300 shadow-[0_0_12px_rgba(59,130,246,0.15)]'
+                        }`}
+                      >
+                        <ShieldCheck size={11} /> {std}
+                      </span>
+                    )
+                  : (
+                      <span
+                        key={std}
+                        className={`inline-flex items-center gap-1.5 rounded border px-3 py-1 font-condensed text-xs uppercase tracking-[0.12em] ${
+                          photoHero
+                            ? 'border-amber-200 bg-amber-50 text-amber-900'
+                            : 'border-amber-600/30 bg-amber-600/10 text-amber-300'
+                        }`}
+                      >
+                        <ShieldCheck size={11} /> {std}
+                      </span>
+                    )
               ))}
             </div>
           )}
@@ -154,31 +274,47 @@ export function ProductDetailPage() {
                 <div className="mt-14">
                   <p className="font-condensed text-xs font-bold uppercase tracking-[0.18em] text-amber-700 mb-6">Product Gallery</p>
                   {/* Main image */}
-                  <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
-                    <div className="flex h-80 items-center justify-center p-8">
+                  <div
+                    className={`overflow-hidden rounded-2xl border border-slate-200 ${product.slug === 'di-fittings' ? 'bg-white' : 'bg-slate-50'}`}
+                  >
+                    <div className="flex h-80 items-center justify-center p-6 sm:h-96 sm:p-8">
                       <img
                         src={gallery[activeImage].src}
                         alt={gallery[activeImage].caption}
                         className="h-full w-full object-contain"
                       />
                     </div>
-                    <div className="border-t border-slate-200 bg-white px-6 py-3">
-                      <p className="text-xs text-slate-500">{gallery[activeImage].caption}</p>
+                    <div className="border-t border-slate-200 bg-white px-5 py-4 sm:px-6">
+                      {gallery[activeImage].description ? (
+                        <>
+                          <p className="font-condensed text-sm font-bold uppercase tracking-[0.08em] text-slate-900">
+                            {gallery[activeImage].caption}
+                          </p>
+                          <p className="mt-2 text-sm leading-7 text-slate-600">{gallery[activeImage].description}</p>
+                        </>
+                      ) : (
+                        <p className="text-sm leading-7 text-slate-600">{gallery[activeImage].caption}</p>
+                      )}
                     </div>
                   </div>
                   {/* Thumbnails */}
-                  <div className="mt-4 grid grid-cols-5 gap-3 sm:grid-cols-6">
+                  <div
+                    className={`mt-4 grid gap-2 sm:gap-3 ${gallery.length === 6 ? 'grid-cols-3 sm:grid-cols-6' : 'grid-cols-5 sm:grid-cols-6'}`}
+                  >
                     {gallery.map((img, idx) => (
                       <button
                         key={idx}
+                        type="button"
                         onClick={() => setActiveImage(idx)}
-                        className={`overflow-hidden rounded-xl border-2 bg-slate-50 p-2 transition ${
+                        className={`overflow-hidden rounded-xl border-2 p-2 transition ${
+                          product.slug === 'di-fittings' ? 'bg-white' : 'bg-slate-50'
+                        } ${
                           idx === activeImage
                             ? 'border-amber-500 shadow-sm'
                             : 'border-slate-200 hover:border-amber-300'
                         }`}
                       >
-                        <img src={img.src} alt={img.caption} className="h-14 w-full object-contain" />
+                        <img src={img.src} alt={img.caption} className="h-12 w-full object-contain sm:h-14" />
                       </button>
                     ))}
                   </div>

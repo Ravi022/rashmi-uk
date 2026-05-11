@@ -1,13 +1,20 @@
 import { ChevronUp } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+
+function scrollWindowToTop() {
+  window.scrollTo(0, 0)
+  document.documentElement.scrollTop = 0
+  document.body.scrollTop = 0
+}
 
 export function ScrollToTop() {
   const [show, setShow] = useState(false)
   const { pathname } = useLocation()
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+  // Run before paint so route changes always start at the top (mobile + desktop)
+  useLayoutEffect(() => {
+    scrollWindowToTop()
   }, [pathname])
 
   useEffect(() => {

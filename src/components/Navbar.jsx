@@ -2,6 +2,7 @@ import { Menu, X, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import rashmiMetaliksLogo from '../assets/Logo-01.png'
 
 const links = [
   ['/', 'Home'],
@@ -10,7 +11,6 @@ const links = [
   ['/quality', 'Quality'],
   ['/sustainability', 'Sustainability'],
   ['/global-presence', 'Global Presence'],
-  ['/downloads', 'Downloads'],
   ['/contact', 'Contact'],
 ]
 
@@ -31,11 +31,14 @@ export function Navbar() {
 
   return (
     <header className={`sticky top-0 z-40 transition-shadow ${scrolled ? 'shadow-lg shadow-slate-950/10' : ''} border-b border-slate-200 bg-white/95 backdrop-blur`}>
-      <div className="section-shell flex h-16 items-center justify-between">
-        {/* logo */}
-        <Link to="/" className="flex items-baseline gap-2">
-          <span className="font-display text-xl font-bold text-slate-900">Rashmi Metaliks</span>
-          <span className="font-condensed text-[10px] font-bold uppercase tracking-[0.2em] text-amber-700">UK Ltd.</span>
+      <div className="section-shell flex min-h-[4.5rem] items-center justify-between gap-3 py-2.5 sm:min-h-20 sm:gap-4 sm:py-3">
+        {/* logo — stack on very narrow viewports to avoid horizontal overflow */}
+        <Link to="/" className="inline-flex min-w-0 shrink-0 items-center">
+          <img
+            src={rashmiMetaliksLogo}
+            alt="Rashmi Metaliks UK Ltd."
+            className="h-12 w-auto max-w-[min(100%,16rem)] sm:h-14 md:h-16 lg:h-[4.5rem]"
+          />
         </Link>
 
         {/* desktop nav */}
@@ -68,7 +71,8 @@ export function Navbar() {
 
         {/* mobile toggle */}
         <button
-          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-slate-600 lg:hidden"
+          type="button"
+          className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-slate-200 text-slate-600 touch-manipulation lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? 'Close menu' : 'Open menu'}
         >

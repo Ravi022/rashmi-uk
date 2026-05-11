@@ -1,5 +1,7 @@
 import { MapPin, Phone, Mail, Clock, MessageSquare } from 'lucide-react'
+import contactHeroBg from '../assets/contact-hero-bg.png'
 import { ContactForm } from '../components/ContactForm'
+import { DWIBannerBadge } from '../components/DWIBannerBadge'
 import { Reveal } from '../components/Reveal'
 import { SectionHeader } from '../components/SectionHeader'
 import { useSeo } from '../hooks/useSeo'
@@ -11,14 +13,37 @@ const contactDetails = [
     value: 'Suite 102, Oceanair House, 750–760 High Road, Leytonstone, London, E11 3AW',
   },
   {
-    icon: Phone,
-    label: 'Phone',
-    value: '+44 (0) 123 456 7890',
-  },
-  {
     icon: Mail,
     label: 'Email',
-    value: 'info@rashmimetaliks.co.uk',
+    value: (
+      <a
+        href="mailto:london@rashmigroup.com"
+        className="text-amber-800 underline-offset-2 hover:underline"
+      >
+        london@rashmigroup.com
+      </a>
+    ),
+  },
+  {
+    icon: Phone,
+    label: 'Alternative contact',
+    value: (
+      <>
+        <a href="tel:+919830085749" className="text-amber-800 underline-offset-2 hover:underline">
+          +91 9830085749
+        </a>{' '}
+        (Indranil Bhattacharya)
+        <span className="mt-2 block font-normal text-slate-600">
+          Export enquiries:{' '}
+          <a
+            href="mailto:mahesh.agarwal@rashmigroup.com"
+            className="font-medium text-amber-800 underline-offset-2 hover:underline"
+          >
+            mahesh.agarwal@rashmigroup.com
+          </a>
+        </span>
+      </>
+    ),
   },
   {
     icon: Clock,
@@ -29,29 +54,33 @@ const contactDetails = [
 
 export function ContactPage() {
   useSeo({
-    title: 'Contact | Rashmi Metaliks UK Ltd.',
-    description: 'Contact Rashmi Metaliks UK Ltd. for project enquiries, technical consultations, and product specifications.',
+    title: 'Contact | Rashmi Metaliks UK Limited',
+    description: 'Contact Rashmi Metaliks UK Limited for project enquiries, technical consultations, and product specifications.',
   })
 
   return (
     <>
       {/* hero */}
-      <section className="relative overflow-hidden bg-slate-950 pb-20 pt-24 text-white">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
-        <div className="pointer-events-none absolute -right-32 top-0 h-[400px] w-[400px] rounded-full bg-amber-600/10 blur-[100px]" />
-        <div className="section-shell relative">
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-amber-400">Contact Us</p>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl leading-tight text-white md:text-6xl">
+      <section className="relative min-h-[260px] overflow-hidden bg-sky-100 pb-20 pt-24 text-slate-900 sm:min-h-[300px]">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <img
+            src={contactHeroBg}
+            alt=""
+            aria-hidden
+            className="h-full w-full min-h-[380px] object-cover object-[72%_center] sm:min-h-[440px] lg:object-[68%_center]"
+          />
+        </div>
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/90 via-white/48 to-transparent sm:from-white/85 sm:via-white/28" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/25 via-transparent to-white/18" />
+        <DWIBannerBadge />
+        <div className="section-shell relative max-w-[min(100%,40rem)] sm:max-w-none">
+          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-amber-800 [text-shadow:0_1px_8px_rgba(255,255,255,0.9)]">
+            Contact Us
+          </p>
+          <h1 className="font-display mt-4 max-w-3xl text-4xl leading-tight text-slate-950 [text-shadow:0_1px_0_rgba(255,255,255,0.95),0_0_20px_rgba(255,255,255,0.7)] md:text-6xl">
             Partner with Rashmi Metaliks UK
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-800 [text-shadow:0_1px_10px_rgba(255,255,255,0.85)]">
             Whether you're a water utility, contractor, or consultant — our UK team is ready to discuss your project requirements and deliver reliable DI solutions on time.
           </p>
         </div>
@@ -77,7 +106,7 @@ export function ContactPage() {
                       </span>
                       <div>
                         <p className="font-condensed text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400">{label}</p>
-                        <p className="mt-0.5 text-sm font-medium text-slate-800">{value}</p>
+                        <div className="mt-0.5 text-sm font-medium text-slate-800">{value}</div>
                       </div>
                     </div>
                   ))}

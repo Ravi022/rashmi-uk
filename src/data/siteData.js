@@ -1,7 +1,7 @@
 // ─── Hero Slides (5 banners as per wireframe) ────────────────────────────────
 export const heroSlides = [
   {
-    tag: 'Rashmi Metaliks UK Ltd.',
+    tag: 'Rashmi Metaliks UK Limited',
     title: 'Engineering Lifelines for the United Kingdom',
     subtitle: 'Premium Ductile Iron Infrastructure Solutions from Rashmi Metaliks Ltd.',
     cta: 'Explore Products',
@@ -78,7 +78,7 @@ export const products = [
     table: [
       ['Range', 'DN 80 – DN 1600'],
       ['Standards', 'EN 545 / EN 598'],
-      ['Types', 'Bends, Tees, Reducers, Flanged Fittings'],
+      ['Types', 'Bends & Elbows, Tees & Crosses, Reducers, Flanged Adapters, Sockets, End Caps'],
       ['Coating', 'Epoxy / Cement / Bitumen'],
     ],
     imagePlaceholder: 'DI fittings assortment',
@@ -337,6 +337,6 @@ export const timelineItems = [
   {
     year: '2024',
     title: 'UK Establishment',
-    description: 'Rashmi Metaliks UK Ltd. incorporated in London — bringing world-class DI solutions directly to the UK infrastructure market.',
+    description: 'Rashmi Metaliks UK Limited incorporated in London — bringing world-class DI solutions directly to the UK infrastructure market.',
   },
 ]

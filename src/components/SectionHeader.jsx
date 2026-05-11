@@ -1,16 +1,54 @@
 import { motion } from 'framer-motion'
 
-export function SectionHeader({ label, title, subtitle, centered = false }) {
+const EASE = [0.16, 1, 0.3, 1]
+
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.09,
+    },
+  },
+}
+
+const item = {
+  hidden: { opacity: 0, y: 16 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: EASE },
+  },
+}
+
+export function SectionHeader({ label, title, subtitle, centered = false, compact = false }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      variants={container}
+      initial="hidden"
+      whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
       className={centered ? 'text-center' : ''}
     >
-      <p className="font-condensed text-xs font-bold uppercase tracking-[0.2em] text-amber-700">{label}</p>
-      <h2 className="font-display mt-2 text-2xl leading-tight text-slate-900 sm:text-3xl md:text-5xl">{title}</h2>
-      {subtitle ? <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600">{subtitle}</p> : null}
+      <motion.p
+        variants={item}
+        className="font-condensed text-sm font-extrabold uppercase tracking-[0.16em] text-amber-700 md:text-base"
+      >
+        {label}
+      </motion.p>
+      <motion.h2
+        variants={item}
+        className={`font-display font-bold tracking-tight text-3xl leading-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl ${compact ? 'mt-1.5' : 'mt-2'}`}
+      >
+        {title}
+      </motion.h2>
+      {subtitle ? (
+        <motion.p
+          variants={item}
+          className={`max-w-2xl text-sm text-slate-600 ${compact ? 'mt-2.5 leading-6' : 'mt-4 leading-7'} ${centered ? 'mx-auto' : ''}`}
+        >
+          {subtitle}
+        </motion.p>
+      ) : null}
     </motion.div>
   )
 }

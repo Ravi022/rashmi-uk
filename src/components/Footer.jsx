@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { MapPin, Phone, Mail, Link2, ExternalLink } from 'lucide-react'
+import rashmiMetaliksLogo from '../assets/Logo-01.png'
 
 const productLinks = [
   ['/products/di-pipes', 'DI Pipes'],
@@ -14,7 +15,6 @@ const companyLinks = [
   ['/quality', 'Quality & Certifications'],
   ['/sustainability', 'Sustainability'],
   ['/global-presence', 'Global Presence'],
-  ['/downloads', 'Downloads'],
   ['/contact', 'Contact Us'],
 ]
 
@@ -27,15 +27,18 @@ export function Footer() {
     <footer className="bg-slate-950 text-slate-400">
       {/* main footer grid */}
       <div className="section-shell py-16">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid min-w-0 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* brand column */}
           <div className="lg:col-span-1">
-            <Link to="/" className="inline-block">
-              <span className="font-display text-xl font-bold text-white">Rashmi Metaliks</span>
-              <span className="ml-2 font-condensed text-xs uppercase tracking-[0.2em] text-amber-500">UK</span>
+            <Link to="/" className="inline-flex shrink-0 items-center">
+              <img
+                src={rashmiMetaliksLogo}
+                alt="Rashmi Metaliks UK Ltd."
+                className="h-14 w-auto max-w-full sm:h-16"
+              />
             </Link>
             <p className="mt-4 text-sm leading-7 text-slate-400">
-              Rashmi Metaliks UK Ltd. — supplying world-class ductile iron pipes, fittings, and infrastructure solutions to the United Kingdom. Part of the USD 5 billion Rashmi Group.
+              Rashmi Metaliks UK Limited — supplying world-class ductile iron pipes, fittings, and infrastructure solutions to the United Kingdom. Part of the USD 5 billion Rashmi Group.
             </p>
             <div className="mt-5 flex gap-3">
               <a
@@ -98,12 +101,25 @@ export function Footer() {
                 Suite 102, Oceanair House, 750–760 High Road, Leytonstone, London, E11 3AW
               </li>
               <li className="flex items-center gap-2.5 text-sm text-slate-400">
-                <Phone size={14} className="shrink-0 text-amber-600" />
-                +44 (0) 123 456 7890
-              </li>
-              <li className="flex items-center gap-2.5 text-sm text-slate-400">
                 <Mail size={14} className="shrink-0 text-amber-600" />
-                info@rashmimetaliks.co.uk
+                <a href="mailto:london@rashmigroup.com" className="transition hover:text-amber-400">
+                  london@rashmigroup.com
+                </a>
+              </li>
+              <li className="flex items-start gap-2.5 text-sm text-slate-400">
+                <Phone size={14} className="mt-0.5 shrink-0 text-amber-600" />
+                <span>
+                  Alternative:{' '}
+                  <a href="tel:+919830085749" className="transition hover:text-amber-400">
+                    +91 9830085749
+                  </a>{' '}
+                  (Indranil Bhattacharya)
+                  <br />
+                  Export enquiries:{' '}
+                  <a href="mailto:mahesh.agarwal@rashmigroup.com" className="transition hover:text-amber-400">
+                    mahesh.agarwal@rashmigroup.com
+                  </a>
+                </span>
               </li>
             </ul>
           </div>
@@ -112,12 +128,14 @@ export function Footer() {
 
       {/* certifications strip */}
       <div className="border-t border-slate-800 py-6">
-        <div className="section-shell flex flex-wrap items-center gap-3">
-          <span className="font-condensed text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500 mr-2">Certified:</span>
+        <div className="section-shell flex min-w-0 flex-wrap items-center justify-center gap-2.5 sm:justify-start sm:gap-3">
+          <span className="mr-1 font-condensed text-[10px] font-bold uppercase tracking-[0.16em] text-amber-500">
+            Certified:
+          </span>
           {certBadges.map((badge) => (
             <span
               key={badge}
-              className="rounded border border-slate-700 bg-slate-900 px-2.5 py-1 font-condensed text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400"
+              className="rounded-md border border-amber-600/80 bg-amber-500/15 px-2.5 py-1 font-condensed text-[10px] font-bold uppercase tracking-[0.12em] text-amber-300 shadow-[0_0_0_1px_rgba(217,119,6,0.15)]"
             >
               {badge}
             </span>
@@ -129,7 +147,7 @@ export function Footer() {
       <div className="border-t border-slate-800 py-5">
         <div className="section-shell flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-slate-600">
-            © {year} Rashmi Metaliks UK Ltd. All rights reserved. Company registered in England & Wales.
+            © {year} Rashmi Metaliks UK Limited. All rights reserved. Company registered in England & Wales.
           </p>
           <p className="text-xs text-slate-600">
             Part of the{' '}

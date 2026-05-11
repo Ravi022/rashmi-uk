@@ -4,15 +4,16 @@ import { Link } from 'react-router-dom'
 export function MagneticButton({ to, children, className = '' }) {
   const x = useMotionValue(0)
   const y = useMotionValue(0)
-  const springX = useSpring(x, { stiffness: 180, damping: 14 })
-  const springY = useSpring(y, { stiffness: 180, damping: 14 })
+  // Softer spring — higher damping reduces overshoot for a calm feel
+  const springX = useSpring(x, { stiffness: 140, damping: 20 })
+  const springY = useSpring(y, { stiffness: 140, damping: 20 })
 
   const move = (e) => {
     const rect = e.currentTarget.getBoundingClientRect()
     const cx = rect.left + rect.width / 2
     const cy = rect.top + rect.height / 2
-    x.set((e.clientX - cx) * 0.14)
-    y.set((e.clientY - cy) * 0.14)
+    x.set((e.clientX - cx) * 0.12)
+    y.set((e.clientY - cy) * 0.12)
   }
 
   const reset = () => {

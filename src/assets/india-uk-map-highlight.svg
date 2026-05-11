@@ -1,0 +1,41 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#1E293B"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" rx="28" fill="url(#bg)"/>
+
+  <!-- Stylized continents -->
+  <path d="M120 220C170 170 265 155 330 178C395 201 425 236 472 238C510 239 543 218 582 218C626 218 675 247 686 285C697 322 670 346 634 355C593 365 548 352 504 370C468 385 451 416 419 432C356 463 255 463 190 420C122 374 96 283 120 220Z" fill="#2E4B6D" opacity="0.92"/>
+  <path d="M670 170C723 132 835 126 909 163C968 193 990 256 956 309C932 347 885 364 861 396C836 430 839 474 797 501C748 534 672 529 621 500C562 466 544 390 583 338C611 300 665 282 686 248C705 217 645 204 670 170Z" fill="#32577E" opacity="0.92"/>
+  <path d="M918 184C959 169 1011 178 1043 206C1077 235 1084 276 1067 312C1053 341 1025 360 996 369C963 379 927 373 903 350C877 325 874 283 884 250C891 227 898 198 918 184Z" fill="#2E4B6D" opacity="0.92"/>
+  <path d="M984 428C1017 412 1066 414 1098 434C1130 455 1137 492 1126 525C1115 558 1088 585 1054 600C1016 617 969 615 937 592C907 570 897 533 904 499C911 468 936 441 966 430C973 427 979 426 984 428Z" fill="#2E4B6D" opacity="0.92"/>
+
+  <!-- Route -->
+  <path d="M448 204C566 134 665 128 761 196C838 250 856 287 878 316" stroke="#F59E0B" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 11" opacity="0.95"/>
+
+  <!-- UK highlight -->
+  <circle cx="448" cy="204" r="16" fill="#F59E0B" filter="url(#glow)"/>
+  <circle cx="448" cy="204" r="8" fill="#FEF3C7"/>
+  <path d="M448 170C460 188 470 198 470 208C470 220 460 230 448 230C436 230 426 220 426 208C426 198 436 188 448 170Z" fill="#F59E0B"/>
+  <text x="358" y="172" fill="#F8FAFC" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">UK (Office &amp; Logistics)</text>
+
+  <!-- India highlight -->
+  <circle cx="878" cy="316" r="16" fill="#F59E0B" filter="url(#glow)"/>
+  <circle cx="878" cy="316" r="8" fill="#FEF3C7"/>
+  <path d="M878 282C890 300 900 310 900 320C900 332 890 342 878 342C866 342 856 332 856 320C856 310 866 300 878 282Z" fill="#F59E0B"/>
+  <text x="792" y="362" fill="#F8FAFC" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">India (Manufacturing)</text>
+
+  <!-- Subtle frame -->
+  <rect x="10" y="10" width="1180" height="655" rx="24" stroke="#334155" stroke-width="2"/>
+</svg>
