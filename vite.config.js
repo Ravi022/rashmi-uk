@@ -4,10 +4,20 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+
   server: {
-    allowedHosts: ['rashmimetaliks.uk'],
+    host: '0.0.0.0',
+    allowedHosts: [
+      'rashmimetaliks.uk',
+      'www.rashmimetaliks.uk'
+    ],
   },
+
   preview: {
-    allowedHosts: ['rashmimetaliks.uk'],
+    host: '0.0.0.0',
+    allowedHosts: [
+      'rashmimetaliks.uk',
+      'www.rashmimetaliks.uk'
+    ],
   },
 })

@@ -17,10 +17,10 @@ const contactDetails = [
     label: 'Email',
     value: (
       <a
-        href="mailto:london@rashmigroup.com"
+        href="mailto:info.uk@rashmigroup.com"
         className="text-amber-800 underline-offset-2 hover:underline"
       >
-        london@rashmigroup.com
+        info.uk@rashmigroup.com
       </a>
     ),
   },
