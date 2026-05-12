@@ -7,15 +7,15 @@ import { DWIBannerBadge } from '../components/DWIBannerBadge'
 import { Reveal } from '../components/Reveal'
 import { SectionHeader } from '../components/SectionHeader'
 import { useSeo } from '../hooks/useSeo'
-import sustainabilityHeroBg from '../assets/real/sustainability/hero-sustainability.jpg'
-import furnaceGasPhoto from '../assets/real/sustainability/furnace-gas.jpg'
-import captivePowerPhoto from '../assets/real/sustainability/captive-power.jpg'
-import biomassPelletsPhoto from '../assets/real/sustainability/biomass-pellets.jpg'
-import waterRecyclingPhoto from '../assets/real/sustainability/water-recycling.jpg'
-import zeroWastePhoto from '../assets/real/sustainability/zero-waste.jpg'
-import sustainableManufacturingPhoto from '../assets/real/sustainability/sustainable-manufacturing.jpg'
-import responsibleInfrastructurePhoto from '../assets/real/sustainability/responsible-infrastructure.jpg'
-import csrCommunityPhoto from '../assets/real/sustainability/csr-community.jpg'
+import sustainabilityHeroBg from '../assets/sustainability-hero-bg.png'
+import waterRecyclingPhoto from '../assets/sustainability-water-recycling.png'
+import zeroWasteCircularPhoto from '../assets/sustainability-zero-waste-circular.png'
+import biomassPelletsPhoto from '../assets/sustainability-biomass-pellets.png'
+import captivePowerEnergyPhoto from '../assets/sustainability-captive-power-energy.png'
+import furnaceGasUtilisationPhoto from '../assets/sustainability-furnace-gas-utilisation.png'
+import sustainableManufacturingPhoto from '../assets/sustainability-manufacturing-practices.png'
+import responsibleInfrastructurePhoto from '../assets/sustainability-responsible-infrastructure.png'
+import csrCommunityImpactPhoto from '../assets/sustainability-csr-community-impact.png'
 
 const sustainabilityPillars = [
   {
@@ -31,7 +31,10 @@ const sustainabilityPillars = [
       'Replaces equivalent LPG/coal consumption across factory floors',
       'Real-time gas flow metering for energy efficiency auditing',
     ],
-    image: furnaceGasPhoto,
+    image: furnaceGasUtilisationPhoto,
+    imageFit: 'contain',
+    imageHeight: 'h-80 lg:h-96',
+    imageBgClass: 'bg-white',
   },
   {
     icon: Zap,
@@ -46,7 +49,8 @@ const sustainabilityPillars = [
       'Integrated energy monitoring across all production lines',
       'Continuous improvement programme targeting efficiency gains',
     ],
-    image: captivePowerPhoto,
+    image: captivePowerEnergyPhoto,
+    imageFit: 'cover',
   },
   {
     icon: Leaf,
@@ -62,6 +66,7 @@ const sustainabilityPillars = [
       'Supports India\'s National Biomass Utilisation Programme targets',
     ],
     image: biomassPelletsPhoto,
+    imageFit: 'cover',
   },
   {
     icon: Droplets,
@@ -91,7 +96,8 @@ const sustainabilityPillars = [
       'Iron fines and process dust recovered and remelted',
       'Scrap and off-spec material recycled back into the melt stream',
     ],
-    image: zeroWastePhoto,
+    image: zeroWasteCircularPhoto,
+    imageFit: 'cover',
   },
   {
     icon: Factory,
@@ -107,6 +113,9 @@ const sustainabilityPillars = [
       'Emission monitoring systems at all combustion points',
     ],
     image: sustainableManufacturingPhoto,
+    imageFit: 'contain',
+    imageHeight: 'h-80 lg:h-96',
+    imageBgClass: 'bg-slate-100',
   },
   {
     icon: Building2,
@@ -122,6 +131,9 @@ const sustainabilityPillars = [
       'Fully recyclable at end of life — 100% material recovery',
     ],
     image: responsibleInfrastructurePhoto,
+    imageFit: 'contain',
+    imageHeight: 'h-80 lg:h-96',
+    imageBgClass: 'bg-white',
   },
   {
     icon: Heart,
@@ -136,7 +148,11 @@ const sustainabilityPillars = [
       'Healthcare camps and mobile medical units for local communities',
       'Women\'s self-help group support and rural livelihood programmes',
     ],
-    image: csrCommunityPhoto,
+    image: csrCommunityImpactPhoto,
+    imageFit: 'contain',
+    imageHeight: 'h-80 lg:h-96',
+    imageBgClass: 'bg-zinc-100',
+    imageFrameClass: 'max-w-sm mx-auto',
   },
 ]
 
@@ -199,6 +215,7 @@ export function SustainabilityPage() {
             <div className="section-shell">
               <Reveal>
                 <div className={`grid gap-14 lg:grid-cols-2 lg:items-center ${!isEven ? 'lg:flex-row-reverse' : ''}`}>
+                  {/* Text block */}
                   <div className={!isEven ? 'lg:order-2' : ''}>
                     <p className="font-condensed text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600">
                       {pillar.category}
@@ -223,14 +240,29 @@ export function SustainabilityPage() {
                       ))}
                     </ul>
                   </div>
+                  {/* Section image */}
                   <div className={!isEven ? 'lg:order-1' : ''}>
-                    <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
-                      <img
-                        src={pillar.image}
-                        alt={`${pillar.title} at Rashmi Metaliks facility`}
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
+                    {pillar.image ? (
+                      <div className={`${pillar.imageFrameClass || 'w-full'} ${pillar.imageHeight || 'h-72'} overflow-hidden rounded-2xl border border-slate-200 ${pillar.imageBgClass || 'bg-white'} shadow-sm ${pillar.imageFit === 'cover' ? 'p-0' : 'p-3'}`}>
+                        <img
+                          src={pillar.image}
+                          alt={`${pillar.title} at Rashmi Metaliks facility`}
+                          className={`h-full w-full ${
+                            pillar.imageFit === 'cover' ? 'object-cover' : 'object-contain'
+                          } ${
+                            pillar.imageRotate === '90' ? 'rotate-90 scale-[1.35]' : ''
+                          }`}
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex h-72 items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50">
+                        <div className="text-center">
+                          <Icon size={36} className="mx-auto text-slate-300" />
+                          <p className="mt-3 font-condensed text-xs font-bold uppercase tracking-[0.14em] text-slate-400">{pillar.title} Photo</p>
+                          <p className="mt-1 text-xs text-slate-300">Image Placeholder</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </Reveal>
