@@ -3,13 +3,12 @@ import { useEffect, useState, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronRight, ChevronLeft, ShieldCheck, Droplets, CheckCircle } from 'lucide-react'
 import { MagneticButton } from './MagneticButton'
+import { DWIBannerBadge } from './DWIBannerBadge'
 import heroPipes from '../assets/hero-pipes.jpg'
 import heroCasting from '../assets/hero-casting.jpg'
 import heroFittings from '../assets/hero-fittings.png'
 import heroFlanged from '../assets/hero-flanged.jpg'
 import heroPlant from '../assets/hero-plant.jpg'
-import dwiBannerSlide1 from '../assets/dwi-banner-slide1.png'
-
 const statItems = [
   { value: '2.4M MT', label: 'Annual DI Pipe Capacity' },
   { value: '50+', label: 'Countries Served' },
@@ -91,25 +90,7 @@ export function HeroSlider({ slides }) {
         }}
       />
 
-      {/* ── DWI Advertisement Banner — direct child of section for reliable positioning ── */}
-      <AnimatePresence>
-        {isDWI && (
-          <motion.div
-            key="dwi-ad-banner"
-            initial={{ opacity: 0, x: 48, scale: 0.94 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: 24, scale: 0.97 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute right-3 top-4 z-20 w-[68px] sm:right-4 sm:w-[88px] md:right-6 md:w-[110px] xl:top-[80px] xl:right-10 xl:w-[280px] 2xl:right-14 2xl:w-[330px]"
-          >
-            <img
-              src={dwiBannerSlide1}
-              alt="DWI approved drinking water inspectorate banner"
-              className="h-auto w-full rounded-2xl object-contain shadow-[0_8px_56px_rgba(0,0,0,0.6)] ring-1 ring-white/15"
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <DWIBannerBadge className="w-[68px] sm:w-[88px] md:w-[110px] xl:top-[80px] xl:right-10 xl:w-[280px] 2xl:right-14 2xl:w-[330px]" />
 
       {/* ── Text content ── */}
       <div className="section-shell relative flex min-h-[100svh] min-w-0 flex-col justify-center pb-40 pt-20 sm:min-h-[92vh] sm:pb-36 sm:pt-28">
