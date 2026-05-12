@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-         with:
+        with:
           fetch-depth: 1
           lfs: false
 
@@ -64,11 +64,3 @@ jobs:
             docker image prune -f
 
             docker ps
-
-
-
-
-
-
-
-
