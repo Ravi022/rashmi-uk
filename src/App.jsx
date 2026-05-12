@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { Footer } from './components/Footer'
+import { GtmPageTracker } from './components/GtmPageTracker'
 import { Navbar } from './components/Navbar'
 import { ScrollProgress } from './components/ScrollProgress'
 import { ScrollToTop } from './components/ScrollToTop'
@@ -16,6 +17,7 @@ import { SustainabilityPage } from './pages/SustainabilityPage'
 function App() {
   return (
     <div className="min-h-screen w-full min-w-0 max-w-[100vw] overflow-x-clip bg-slate-50 text-slate-800">
+      <GtmPageTracker />
       <ScrollProgress />
       <ScrollToTop />
       <Navbar />
