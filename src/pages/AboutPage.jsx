@@ -306,10 +306,10 @@ export function AboutPage() {
             <SectionHeader label="UK Market" title="Expanding into the United Kingdom" subtitle="The United Kingdom is undergoing significant infrastructure modernisation — in water distribution, wastewater management, and urban road safety. Rashmi Metaliks UK Limited has been established to directly support these evolving requirements." centered />
           </Reveal>
 
-          <div className="mt-14 grid gap-8 lg:grid-cols-2">
+          <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-2">
             {/* Water Infrastructure */}
-            <Reveal delay={0.05}>
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
+            <Reveal delay={0.05} className="h-full">
+              <div className="h-full rounded-3xl border border-slate-200 bg-slate-50 p-8">
                 <p className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-amber-700 mb-4">Supporting Water Infrastructure</p>
                 <h3 className="font-display text-2xl text-slate-900">High-Performance Pipeline Solutions</h3>
                 <p className="mt-4 text-sm leading-7 text-slate-600">Ductile iron pipes remain the preferred choice for water transportation due to their strength, durability, and long lifecycle. With increasing focus on reducing water leakage, improving network efficiency, and ensuring long-term reliability, the UK market demands:</p>
@@ -325,8 +325,8 @@ export function AboutPage() {
             </Reveal>
 
             {/* Urban Road Safety */}
-            <Reveal delay={0.08}>
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
+            <Reveal delay={0.08} className="h-full">
+              <div className="h-full rounded-3xl border border-slate-200 bg-slate-50 p-8">
                 <p className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-amber-700 mb-4">Enhancing Urban Road Safety</p>
                 <h3 className="font-display text-2xl text-slate-900">BS EN 124 Manhole Cover Solutions</h3>
                 <p className="mt-4 text-sm leading-7 text-slate-600">Urban infrastructure in the UK requires robust access solutions, particularly manhole covers and gratings, which play a critical role in road safety. Our BS EN 124 compliant covers with load classes A15 to F900 are engineered for:</p>

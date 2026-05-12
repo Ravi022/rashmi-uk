@@ -75,9 +75,9 @@ export function HeroSlider({ slides }) {
             className="h-full w-full object-cover"
             style={{ objectPosition: bgPosition }}
           />
-          {/* Cinematic dark overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/92 via-slate-950/65 to-slate-950/25" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-slate-950/35" />
+          {/* Lighter overlays — darkens left for text readability, right stays vivid */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
         </motion.div>
       </AnimatePresence>
 

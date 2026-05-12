@@ -297,15 +297,14 @@ export function QualityPage() {
                   </div>
                 </Reveal>
               </div>
-              {/* Full-bleed width (full viewport with same horizontal padding as section-shell) */}
-              <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 px-4 sm:px-6 lg:px-12">
+              <div className="section-shell">
                 <div
-                  className={`mx-auto grid w-full justify-items-stretch gap-4 sm:grid-cols-2 ${block.images.length >= 6 ? 'lg:grid-cols-3' : 'lg:grid-cols-2'}`}
+                  className={`grid w-full gap-4 sm:grid-cols-2 ${block.images.length >= 6 ? 'lg:grid-cols-3' : 'lg:grid-cols-2'} xl:grid-cols-${Math.min(block.images.length, 4)}`}
                 >
                   {block.images.map((img, i) => (
                     <Reveal key={`${block.title}-${i}`} delay={blockIdx * 0.04 + i * 0.03}>
                       <figure className="group h-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
-                        <div className="aspect-[4/3] h-full min-h-[12rem] w-full overflow-hidden bg-slate-100 sm:aspect-[3/2] sm:min-h-[14rem]">
+                        <div className="aspect-[4/3] w-full overflow-hidden bg-slate-100">
                           <img
                             src={img.src}
                             alt={img.alt}
@@ -483,7 +482,7 @@ export function QualityPage() {
                 Original documents shown as uploaded
               </p>
             </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {certificateGallery.map((cert, idx) => (
                 <Reveal key={cert.name} delay={idx * 0.04}>
                   <article className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
@@ -492,12 +491,14 @@ export function QualityPage() {
                       onClick={() => setCertificateViewer(cert)}
                       className="w-full bg-white p-3 text-left transition hover:bg-slate-50"
                     >
-                      <img
-                        src={cert.image}
-                        alt={cert.name}
-                        className="pointer-events-none h-56 w-full rounded-lg border border-slate-200 object-contain bg-white"
-                        loading="lazy"
-                      />
+                      <div className="aspect-[210/297] w-full overflow-hidden rounded-lg border border-slate-200 bg-white">
+                        <img
+                          src={cert.image}
+                          alt={cert.name}
+                          className="pointer-events-none h-full w-full object-contain"
+                          loading="lazy"
+                        />
+                      </div>
                     </button>
                     <div className="flex items-center justify-between gap-3 border-t border-slate-200 px-4 py-3">
                       <p className="line-clamp-2 text-xs font-semibold leading-5 text-slate-800">{cert.name}</p>
@@ -560,7 +561,8 @@ export function QualityPage() {
           aria-labelledby="certificate-viewer-title"
         >
           <div
-            className="relative max-h-[min(92vh,900px)] w-full max-w-5xl"
+            className="relative w-full"
+            style={{ maxWidth: 'min(540px, 90vw)' }}
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -571,11 +573,11 @@ export function QualityPage() {
             >
               <X size={20} strokeWidth={2} />
             </button>
-            <div className="overflow-hidden rounded-xl border border-white/10 bg-white shadow-2xl">
+            <div className="overflow-hidden rounded-xl border border-white/10 bg-white shadow-2xl" style={{ aspectRatio: '210 / 297', maxHeight: '88vh' }}>
               <img
                 src={certificateViewer.image}
                 alt={certificateViewer.name}
-                className="max-h-[min(85vh,820px)] w-full object-contain"
+                className="h-full w-full object-contain"
               />
             </div>
             <p
