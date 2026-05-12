@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { trackEvent } from '../utils/gtm'
 
 export function ContactForm() {
   const [ok, setOk] = useState(false)
@@ -13,7 +14,13 @@ export function ContactForm() {
     if (!/^[\d\s+()-]{7,}$/.test(String(data.phone || '').trim())) next.phone = true
     if (!String(data.message || '').trim()) next.message = true
     setErrors(next)
-    if (Object.keys(next).length === 0) setOk(true)
+    if (Object.keys(next).length === 0) {
+      trackEvent('contact_form_submit', {
+        form_name: 'contact',
+        form_location: 'contact_page',
+      })
+      setOk(true)
+    }
   }
 
   if (ok) {
