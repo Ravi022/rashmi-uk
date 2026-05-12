@@ -1,0 +1,64 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  IMAGE_NAME: ghcr.io/${{ github.repository }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.IMAGE_NAME }}:latest
+            ${{ env.IMAGE_NAME }}:${{ github.sha }}
+          build-args: |
+            VITE_GTM_ID=${{ secrets.VITE_GTM_ID || 'GTM-TN6SPLVR' }}
+
+      - name: Deploy static files to server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          script: |
+            set -euo pipefail
+            IMAGE='${{ env.IMAGE_NAME }}:latest'
+            WEB_ROOT='${{ secrets.WEB_ROOT }}'
+            CONTAINER="rashmi-metaliks-static-${{ github.sha }}"
+
+            docker pull "$IMAGE"
+            docker create --name "$CONTAINER" "$IMAGE"
+            mkdir -p "$WEB_ROOT"
+            docker cp "$CONTAINER:/usr/share/html/." "$WEB_ROOT/"
+            docker rm "$CONTAINER"
+            sudo nginx -t
+            sudo systemctl reload nginx
