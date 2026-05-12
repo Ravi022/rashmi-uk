@@ -31,7 +31,7 @@ export function HomePage() {
             centered
           />
         </Reveal>
-        <div className="mt-12 grid items-stretch gap-6 sm:grid-cols-2">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {products.map((product, idx) => (
             <Reveal key={product.slug} delay={idx * 0.07}>
               <ProductCard product={product} />
@@ -64,8 +64,8 @@ export function HomePage() {
                 <img
                   src={aboutRashmiUkPlant}
                   alt="Rashmi Aqua ductile iron pipe at integrated manufacturing plant at sunrise"
-                  className="aspect-[4/3] w-full scale-110 object-cover transition-transform duration-700 ease-out group-hover:scale-[1.12] sm:aspect-[16/10] lg:aspect-[5/4] lg:min-h-[min(100%,22rem)] xl:aspect-[16/10]"
-                  style={{ objectPosition: 'center 15%' }}
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02] sm:aspect-[16/10] lg:aspect-[5/4] lg:min-h-[min(100%,22rem)] xl:aspect-[16/10]"
+                  style={{ objectPosition: 'center 42%' }}
                 />
                 <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/75 via-slate-950/25 to-transparent px-4 pb-3 pt-16 text-[10px] font-condensed font-bold uppercase tracking-[0.14em] text-white/90 sm:px-5 sm:pb-4 sm:text-[11px]">
                   Integrated manufacturing — Rashmi Group

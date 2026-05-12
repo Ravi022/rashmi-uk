@@ -1,12 +1,12 @@
 import { Droplets, Factory, Flame, Wheat, Car, Waves } from 'lucide-react'
 import { Reveal } from '../components/Reveal'
 import { SectionHeader } from '../components/SectionHeader'
-import waterUtilitiesImg from '../assets/real/industries/water-utilities.jpg'
-import wastewaterImg from '../assets/real/industries/wastewater.jpg'
-import industrialProcessImg from '../assets/real/industries/industrial-process.jpg'
-import highwayCivilImg from '../assets/real/industries/highway-civil.jpg'
-import powerGenerationImg from '../assets/real/industries/power-generation.jpg'
-import irrigationImg from '../assets/real/industries/irrigation.jpg'
+import marketsServed01 from '../assets/markets-served-01.png'
+import marketsServed02 from '../assets/markets-served-02.png'
+import marketsServed03 from '../assets/markets-served-03.png'
+import marketsServed04 from '../assets/markets-served-04.png'
+import marketsServed05 from '../assets/markets-served-05.png'
+import marketsServed06 from '../assets/markets-served-06.png'
 
 const iconMap = {
   'Water Utilities': Droplets,
@@ -18,17 +18,36 @@ const iconMap = {
 }
 
 const marketVisuals = [
-  { src: waterUtilitiesImg, alt: 'Water treatment plant with circular clarifier tanks under blue sky' },
-  { src: wastewaterImg, alt: 'Aerial view of sewage treatment facility with processing tanks' },
-  { src: industrialProcessImg, alt: 'Industrial pipelines at a factory facility' },
-  { src: highwayCivilImg, alt: 'Highway construction with road drainage infrastructure' },
-  { src: powerGenerationImg, alt: 'Power generation plant with cooling tower and chimneys' },
-  { src: irrigationImg, alt: 'Irrigation canal running through agricultural farmland' },
+  {
+    src: marketsServed01,
+    alt: 'Water utilities collage: trunk mains at treatment works, trench installation, valve line, and residential meter connection',
+  },
+  {
+    src: marketsServed02,
+    alt: 'Industrial wastewater outfall — pressurised sewerage and environmental conveyance',
+  },
+  {
+    src: marketsServed03,
+    alt: 'Heavy-duty process piping at mining and industrial fluid handling site',
+  },
+  {
+    src: marketsServed04,
+    alt: 'Highway culverts, storm drainage, and utility pipe installations for civil works',
+  },
+  {
+    src: marketsServed05,
+    alt: 'Power generation facility with large cooling water and process pipework',
+  },
+  {
+    src: marketsServed06,
+    alt: 'Bulk water transfer pipeline and irrigation canal serving agricultural land',
+  },
 ]
 
 export function IndustriesSection({ industries }) {
   return (
     <section className="relative border-t border-slate-200/90 bg-slate-100 py-8 sm:py-10 lg:py-12">
+      {/* Light structural texture — different from Why Choose Us (gradient + orbs) */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.5]"
         aria-hidden
@@ -49,6 +68,7 @@ export function IndustriesSection({ industries }) {
           />
         </Reveal>
 
+        {/* Editorial strips: alternating image rail + copy (not the same grid-card pattern as Why Choose Us) */}
         <div className="mt-5 w-full sm:mt-6">
           <ul className="space-y-2 sm:space-y-2.5">
             {industries.map((industry, idx) => {
@@ -67,11 +87,16 @@ export function IndustriesSection({ industries }) {
                         reverse ? 'sm:flex-row-reverse' : '',
                       ].join(' ')}
                     >
-                      <div className="relative aspect-[3/2] w-full shrink-0 overflow-hidden bg-slate-100 sm:w-[36%] sm:aspect-[2/1]">
+                      <div
+                        className={[
+                          'relative aspect-[3/2] w-full shrink-0 overflow-hidden bg-slate-100 sm:w-[36%] sm:self-auto sm:max-w-none sm:aspect-[2/1]',
+                          'ring-1 ring-inset ring-slate-200/80',
+                        ].join(' ')}
+                      >
                         <img
                           src={visual.src}
                           alt={visual.alt}
-                          className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.02]"
+                          className="h-full w-full object-contain object-center transition duration-500 group-hover:scale-[1.02]"
                           loading={idx < 2 ? 'eager' : 'lazy'}
                         />
                         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/[0.07] to-transparent sm:bg-gradient-to-r sm:from-transparent sm:to-slate-950/[0.06]" />

@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Cylinder } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import diPipesReal from '../assets/real/products/di-pipes-yard.jpg'
-import fittingsImg from '../assets/fittings-blue-flanged.png'
-import flangedPipesReal from '../assets/real/products/di-pipes-branded.jpg'
 import manholeProductBanner from '../assets/manhole-cover-product-banner.png'
+import diPipesBanner from '../assets/di-pipes-rashmi-aqua-banner.png'
+import fittingsReducers from '../assets/fittings-reducers.png'
+import diFlangedPipesBanner from '../assets/di-flanged-pipes-product-banner.png'
 
 const productImageMap = {
-  'di-pipes': diPipesReal,
-  'di-fittings': fittingsImg,
-  'di-flanged-pipes': flangedPipesReal,
+  'di-pipes': diPipesBanner,
+  'di-fittings': fittingsReducers,
+  'di-flanged-pipes': diFlangedPipesBanner,
   'di-manhole-covers': manholeProductBanner,
 }
 
@@ -19,25 +19,50 @@ export function ProductCard({ product }) {
   return (
     <motion.article
       whileHover={{ y: -6 }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg hover:border-amber-200"
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg hover:border-amber-200"
     >
+      {/* top accent bar */}
       <div className="h-1 w-full bg-gradient-to-r from-amber-600 to-amber-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
       <div className="flex flex-1 flex-col p-7">
+        {/* product image — real photo or placeholder */}
         {realImage ? (
-          <div className="mb-5 aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100 ring-1 ring-slate-200/80">
+          <div
+            className={`mb-5 flex h-52 w-full items-center justify-center overflow-hidden rounded-xl p-2 sm:h-56 ${
+              product.slug === 'di-pipes' ||
+              product.slug === 'di-fittings' ||
+              product.slug === 'di-flanged-pipes' ||
+              product.slug === 'di-manhole-covers'
+                ? 'bg-white ring-1 ring-slate-200/80'
+                : 'bg-slate-100'
+            }`}
+          >
             <img
               src={realImage}
               alt={product.name}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              className={`h-full w-full transition-transform duration-300 group-hover:scale-105 ${
+                product.slug === 'di-pipes' ||
+                product.slug === 'di-fittings' ||
+                product.slug === 'di-flanged-pipes' ||
+                product.slug === 'di-manhole-covers'
+                  ? 'object-contain'
+                  : 'object-cover'
+              }`}
             />
           </div>
-        ) : (
-          <div className="mb-5 aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100 ring-1 ring-slate-200/80 flex items-center justify-center">
-            <p className="font-condensed text-xs font-bold uppercase tracking-[0.12em] text-slate-400">
-              {product.imagePlaceholder || product.name}
-            </p>
+        ) : product.imagePlaceholder ? (
+          <div className="mb-5 flex h-36 w-full items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-slate-50">
+            <div className="text-center">
+              <Cylinder size={28} className="mx-auto text-slate-300" />
+              <p className="mt-1.5 font-condensed text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">
+                {product.imagePlaceholder}
+              </p>
+            </div>
           </div>
+        ) : (
+          <span className="mb-5 inline-flex w-fit rounded-xl border border-amber-200 bg-amber-50 p-3 text-amber-700">
+            <Cylinder size={22} />
+          </span>
         )}
 
         <h3 className="font-display text-xl text-slate-900">{product.name}</h3>
@@ -46,6 +71,7 @@ export function ProductCard({ product }) {
         )}
         <p className="mt-3 text-sm leading-7 text-slate-500 line-clamp-3">{product.overview}</p>
 
+        {/* specs preview */}
         <div className="mt-5 space-y-2 rounded-lg bg-slate-50 px-4 py-3">
           {product.table.slice(0, 3).map(([k, v]) => (
             <div key={k} className="flex items-center justify-between gap-3 text-xs">
