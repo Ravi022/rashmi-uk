@@ -18,20 +18,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Log in to GitHub Container Registry
+      - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push image
+      - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -42,7 +42,7 @@ jobs:
           build-args: |
             VITE_GTM_ID=${{ secrets.VITE_GTM_ID || 'GTM-TN6SPLVR' }}
 
-      - name: Deploy static files to server
+      - name: Deploy on Server
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -50,13 +50,14 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT || 22 }}
           script: |
-            set -euo pipefail
-            IMAGE='${{ env.IMAGE_NAME }}:latest'
-            WEB_ROOT='${{ secrets.WEB_ROOT }}'
-            CONTAINER="rashmi-metaliks-static-${{ github.sha }}"
+            set -e
 
-            docker pull "$IMAGE"
-            docker create --name "$CONTAINER" "$IMAGE"
-            mkdir -p "$WEB_ROOT"
-            docker cp "$CONTAINER:/usr/share/html/." "$WEB_ROOT/"
-            docker rm "$CONTAINER"
+            cd ~/uk_rashmimetaliks
+
+            docker compose -f docker.yml pull
+            docker compose -f docker.yml down
+            docker compose -f docker.yml up -d
+
+            docker image prune -f
+
+            docker ps
