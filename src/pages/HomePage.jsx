@@ -31,9 +31,9 @@ export function HomePage() {
             centered
           />
         </Reveal>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2" style={{ gridAutoRows: '1fr' }}>
           {products.map((product, idx) => (
-            <Reveal key={product.slug} delay={idx * 0.07}>
+            <Reveal key={product.slug} delay={idx * 0.07} className="h-full">
               <ProductCard product={product} />
             </Reveal>
           ))}
