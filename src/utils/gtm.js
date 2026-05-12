@@ -1,4 +1,4 @@
-const GTM_ID = import.meta.env.VITE_GTM_ID?.trim();
+const GTM_ID = import.meta.env.VITE_GTM_ID?.trim() || 'GTM-TN6SPLVR'
 
 const routeNames = {
   '/': 'Home',
@@ -24,7 +24,7 @@ export function isGtmEnabled() {
 }
 
 export function pushToDataLayer(payload) {
-  if (!isGtmEnabled() || typeof window === 'undefined') return
+  if (typeof window === 'undefined') return
   window.dataLayer = window.dataLayer || []
   window.dataLayer.push(payload)
 }
