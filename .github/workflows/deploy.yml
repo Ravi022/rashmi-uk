@@ -60,5 +60,3 @@ jobs:
             mkdir -p "$WEB_ROOT"
             docker cp "$CONTAINER:/usr/share/html/." "$WEB_ROOT/"
             docker rm "$CONTAINER"
-            sudo nginx -t
-            sudo systemctl reload nginx
