@@ -14,8 +14,10 @@ ENV VITE_GTM_ID=$VITE_GTM_ID
 
 RUN npm run build
 
-FROM alpine:3.20
+FROM nginx:alpine
 
-WORKDIR /usr/share/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
-COPY --from=build /app/dist ./
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
