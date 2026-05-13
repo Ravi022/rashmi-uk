@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { setMeta } from '../utils/seo'
 
-export function useSeo(meta) {
+export function useSeo({ title, description } = {}) {
   useEffect(() => {
-    setMeta(meta)
-  }, [meta])
+    setMeta({ title, description })
+  }, [title, description])
 }
