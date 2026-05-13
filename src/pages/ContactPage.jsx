@@ -18,7 +18,7 @@ const contactDetails = [
     value: (
       <a
         href="mailto:info.uk@rashmigroup.com"
-        className="text-amber-800 underline-offset-2 hover:underline"
+        className="text-red-700 underline-offset-2 hover:underline"
       >
         info.uk@rashmigroup.com
       </a>
@@ -29,7 +29,7 @@ const contactDetails = [
     label: 'Alternative contact',
     value: (
       <>
-        <a href="tel:+919830085749" className="text-amber-800 underline-offset-2 hover:underline">
+        <a href="tel:+919830085749" className="text-red-700 underline-offset-2 hover:underline">
           +91 9830085749
         </a>{' '}
         (Indranil Bhattacharya)
@@ -37,7 +37,7 @@ const contactDetails = [
           Export enquiries:{' '}
           <a
             href="mailto:mahesh.agarwal@rashmigroup.com"
-            className="font-medium text-amber-800 underline-offset-2 hover:underline"
+            className="font-medium text-red-700 underline-offset-2 hover:underline"
           >
             mahesh.agarwal@rashmigroup.com
           </a>
@@ -61,7 +61,7 @@ export function ContactPage() {
   return (
     <>
       {/* hero */}
-      <section className="relative min-h-[260px] overflow-hidden bg-sky-100 pb-20 pt-24 text-slate-900 sm:min-h-[300px]">
+      <section className="relative min-h-[260px] overflow-hidden bg-white pb-20 pt-24 text-slate-900 sm:min-h-[300px]">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <img
             src={contactHeroBg}
@@ -74,7 +74,7 @@ export function ContactPage() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/25 via-transparent to-white/18" />
         <DWIBannerBadge />
         <div className="section-shell relative max-w-[min(100%,40rem)] sm:max-w-none">
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-amber-800 [text-shadow:0_1px_8px_rgba(255,255,255,0.9)]">
+          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-700 [text-shadow:0_1px_8px_rgba(255,255,255,0.9)]">
             Contact Us
           </p>
           <h1 className="font-display mt-4 max-w-3xl text-4xl leading-tight text-slate-950 [text-shadow:0_1px_0_rgba(255,255,255,0.95),0_0_20px_rgba(255,255,255,0.7)] md:text-6xl">
@@ -101,7 +101,7 @@ export function ContactPage() {
                 <div className="flex flex-col gap-3">
                   {contactDetails.map(({ icon: Icon, label, value }) => (
                     <div key={label} className="flex items-start gap-4 rounded-xl border border-slate-100 bg-slate-50 p-4">
-                      <span className="mt-0.5 inline-flex shrink-0 rounded-lg border border-amber-200 bg-amber-50 p-2 text-amber-700">
+                      <span className="mt-0.5 inline-flex shrink-0 rounded-lg border border-red-200 bg-red-50 p-2 text-red-600">
                         <Icon size={16} />
                       </span>
                       <div>
@@ -113,10 +113,10 @@ export function ContactPage() {
                 </div>
 
                 {/* what to expect */}
-                <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
+                <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
                   <div className="flex items-center gap-2 mb-3">
-                    <MessageSquare size={15} className="text-amber-700" />
-                    <p className="font-condensed text-xs font-bold uppercase tracking-[0.14em] text-amber-700">What to Expect</p>
+                    <MessageSquare size={15} className="text-red-600" />
+                    <p className="font-condensed text-xs font-bold uppercase tracking-[0.14em] text-red-600">What to Expect</p>
                   </div>
                   <ul className="space-y-2">
                     {[
@@ -125,8 +125,8 @@ export function ContactPage() {
                       'Project-specific pricing on request',
                       'Compliance documentation provided',
                     ].map((point) => (
-                      <li key={point} className="flex items-start gap-2 text-xs leading-6 text-amber-900">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
+                      <li key={point} className="flex items-start gap-2 text-xs leading-6 text-red-900">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-red-500" />
                         {point}
                       </li>
                     ))}
@@ -138,7 +138,7 @@ export function ContactPage() {
             {/* form — spans 3 of 5 cols */}
             <Reveal delay={0.08} className="lg:col-span-3">
               <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 lg:p-10">
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-amber-700 mb-6">Send an Enquiry</p>
+                <p className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-red-600 mb-6">Send an Enquiry</p>
                 <ContactForm />
               </div>
             </Reveal>
@@ -158,7 +158,7 @@ export function ContactPage() {
                 { value: '50+ Countries', label: 'Active Export Markets' },
               ].map(({ value, label }) => (
                 <div key={label} className="flex flex-col items-center gap-1.5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                  <p className="font-condensed text-2xl font-bold text-amber-600">{value}</p>
+                  <p className="font-condensed text-2xl font-bold stat-value">{value}</p>
                   <p className="font-condensed text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">{label}</p>
                 </div>
               ))}

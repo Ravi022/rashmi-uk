@@ -178,7 +178,7 @@ export function SustainabilityPage() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/15 to-slate-950/35" />
         <DWIBannerBadge wideHeading />
         <div className="section-shell relative max-w-[min(100%,40rem)] sm:max-w-none">
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-emerald-400 [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
+          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-400">
             Sustainability
           </p>
           <h1 className="font-display mt-4 max-w-4xl text-4xl leading-tight text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.55)] md:text-6xl">
@@ -195,7 +195,7 @@ export function SustainabilityPage() {
               { value: '100+ Yrs', label: 'DI Product Lifecycle' },
             ].map(({ value, label }) => (
               <div key={label} className="text-center sm:text-left">
-                <p className="font-condensed text-2xl font-bold text-amber-300 [text-shadow:0_1px_10px_rgba(0,0,0,0.5)]">{value}</p>
+                <p className="font-condensed text-2xl font-bold stat-value">{value}</p>
                 <p className="mt-1 font-condensed text-[9px] font-bold uppercase tracking-[0.14em] text-slate-200 [text-shadow:0_1px_8px_rgba(0,0,0,0.45)]">{label}</p>
               </div>
             ))}
@@ -217,11 +217,11 @@ export function SustainabilityPage() {
                 <div className={`grid gap-14 lg:grid-cols-2 lg:items-center ${!isEven ? 'lg:flex-row-reverse' : ''}`}>
                   {/* Text block */}
                   <div className={!isEven ? 'lg:order-2' : ''}>
-                    <p className="font-condensed text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600">
+                    <p className="font-condensed text-[10px] font-bold uppercase tracking-[0.2em] text-red-600">
                       {pillar.category}
                     </p>
                     <div className="mt-3 flex items-center gap-4">
-                      <span className="inline-flex rounded-xl border border-amber-200 bg-amber-50 p-3 text-amber-700">
+                      <span className="inline-flex rounded-xl border border-red-200 bg-red-50 p-3 text-red-600">
                         <Icon size={22} />
                       </span>
                       <div>
@@ -234,7 +234,7 @@ export function SustainabilityPage() {
                     <ul className="mt-5 space-y-2.5">
                       {pillar.points.map((point) => (
                         <li key={point} className="flex items-start gap-3 text-sm leading-6 text-slate-700">
-                          <CheckCircle size={15} className="mt-0.5 shrink-0 text-emerald-600" />
+                          <CheckCircle size={15} className="mt-0.5 shrink-0 text-red-600" />
                           {point}
                         </li>
                       ))}
@@ -272,12 +272,12 @@ export function SustainabilityPage() {
       })}
 
       {/* ── Net Zero Alignment ── */}
-      <section className="border-t border-amber-100 bg-amber-50 py-20 text-slate-900">
+      <section className="border-t border-slate-100 bg-slate-50 py-20 text-slate-900">
         <div className="section-shell">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
               <div>
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.2em] text-emerald-600">Supporting UK Policy</p>
+                <p className="font-condensed text-xs font-bold uppercase tracking-[0.2em] text-red-600">Supporting UK Policy</p>
                 <h2 className="font-display mt-4 text-3xl leading-snug text-slate-900 md:text-4xl">
                   Aligned with UK Water Sector Net Zero 2030
                 </h2>
@@ -292,7 +292,7 @@ export function SustainabilityPage() {
                     'Lower maintenance frequency reduces construction disruption carbon',
                   ].map((point) => (
                     <li key={point} className="flex items-start gap-2.5 text-sm leading-6 text-slate-700">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-red-500" />
                       {point}
                     </li>
                   ))}
@@ -305,8 +305,8 @@ export function SustainabilityPage() {
                   { value: '100%', label: 'Recyclable at EOL', accent: false },
                   { value: 'C=140', label: 'Hazen-Williams Coefficient', accent: true },
                 ].map(({ value, label, accent }) => (
-                  <div key={label} className={`rounded-2xl border p-6 text-center ${accent ? 'border-amber-300 bg-amber-50' : 'border-slate-200 bg-slate-50'}`}>
-                    <p className="font-condensed text-3xl font-bold text-amber-600">{value}</p>
+                  <div key={label} className={`rounded-2xl border p-6 text-center ${accent ? 'border-red-200 bg-red-50' : 'border-slate-200 bg-slate-50'}`}>
+                    <p className="font-condensed text-3xl font-bold stat-value">{value}</p>
                     <p className="mt-2 font-condensed text-[10px] font-bold uppercase leading-5 tracking-[0.1em] text-slate-500">{label}</p>
                   </div>
                 ))}

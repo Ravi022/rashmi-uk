@@ -55,9 +55,9 @@ const reasons = [
 
 export function WhyChooseUsSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-amber-50/40 py-20 text-slate-900 sm:py-28">
-      <div className="pointer-events-none absolute -left-24 top-20 h-80 w-80 rounded-full bg-amber-200/25 blur-3xl" />
-      <div className="pointer-events-none absolute -right-24 bottom-20 h-96 w-96 rounded-full bg-sky-200/20 blur-3xl" />
+    <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 py-20 text-slate-900 sm:py-28">
+      <div className="pointer-events-none absolute -left-24 top-20 h-80 w-80 rounded-full bg-red-200/25 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-20 h-96 w-96 rounded-full bg-slate-200/30 blur-3xl" />
 
       <div className="section-shell relative">
         <Reveal>
@@ -75,7 +75,7 @@ export function WhyChooseUsSection() {
             const n = String(idx + 1).padStart(2, '0')
             return (
               <Reveal key={reason.title} delay={idx * 0.05}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_4px_24px_rgba(15,23,42,0.06)] ring-1 ring-slate-900/[0.04] transition duration-300 hover:-translate-y-1 hover:border-amber-300/70 hover:shadow-[0_20px_48px_rgba(15,23,42,0.12)] hover:ring-amber-500/10">
+                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_4px_24px_rgba(15,23,42,0.06)] ring-1 ring-slate-900/[0.04] transition duration-300 hover:-translate-y-1 hover:border-red-300/70 hover:shadow-[0_20px_48px_rgba(15,23,42,0.12)] hover:ring-red-500/10">
                   <div className="relative aspect-[5/3] overflow-hidden bg-slate-200">
                     <img
                       src={reason.image}
@@ -84,7 +84,7 @@ export function WhyChooseUsSection() {
                       loading={idx < 3 ? 'eager' : 'lazy'}
                     />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/55 via-slate-950/10 to-transparent" />
-                    <span className="absolute left-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/25 bg-white/90 font-condensed text-xs font-bold text-amber-800 shadow-md backdrop-blur-sm">
+                    <span className="absolute left-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/25 bg-white/90 font-condensed text-xs font-bold text-red-700 shadow-md backdrop-blur-sm">
                       {n}
                     </span>
                     <span className="absolute bottom-3 right-3 inline-flex rounded-lg border border-white/20 bg-white/15 p-2 text-white shadow-sm backdrop-blur-md">
@@ -97,7 +97,7 @@ export function WhyChooseUsSection() {
                     </h3>
                     <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">{reason.text}</p>
                     <div
-                      className="mt-5 h-1 w-12 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 transition-all duration-300 group-hover:w-20"
+                      className="mt-5 h-1 w-12 rounded-full bg-gradient-to-r from-red-500 to-red-600 transition-all duration-300 group-hover:w-20"
                       aria-hidden
                     />
                   </div>

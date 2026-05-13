@@ -83,7 +83,7 @@ export function IndustriesSection({ industries }) {
                     <div
                       className={[
                         'group flex flex-col gap-2 overflow-hidden rounded-lg border border-slate-200/90 bg-white/95 p-2.5 shadow-sm backdrop-blur-sm transition sm:flex-row sm:items-center sm:gap-0 sm:p-0 sm:shadow-[0_2px_16px_rgba(15,23,42,0.035)]',
-                        'hover:border-amber-300/60 hover:shadow-[0_12px_36px_-12px_rgba(15,23,42,0.12)]',
+                        'hover:border-red-300/60 hover:shadow-[0_12px_36px_-12px_rgba(15,23,42,0.12)]',
                         reverse ? 'sm:flex-row-reverse' : '',
                       ].join(' ')}
                     >
@@ -96,25 +96,25 @@ export function IndustriesSection({ industries }) {
                         <img
                           src={visual.src}
                           alt={visual.alt}
-                          className="h-full w-full object-contain object-center transition duration-500 group-hover:scale-[1.02]"
+                          className="absolute inset-0 h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.03]"
                           loading={idx < 2 ? 'eager' : 'lazy'}
                         />
                         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/[0.07] to-transparent sm:bg-gradient-to-r sm:from-transparent sm:to-slate-950/[0.06]" />
                       </div>
 
-                      <div className="flex min-w-0 flex-1 flex-col justify-center gap-1.5 px-0.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-3">
-                        <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
-                          <span className="font-condensed text-[10px] font-bold tabular-nums tracking-[0.2em] text-amber-700/90">
+                      <div className="flex min-w-0 flex-1 flex-col justify-center gap-2.5 px-2 sm:px-6 sm:py-5 lg:px-8 lg:py-6">
+                        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+                          <span className="font-condensed text-xs font-bold tabular-nums tracking-[0.2em] text-red-600">
                             {n}
                           </span>
-                          <span className="inline-flex rounded-md border border-slate-200 bg-slate-50 p-1.5 text-amber-700">
-                            <Icon size={16} aria-hidden />
+                          <span className="inline-flex rounded-md border border-slate-200 bg-slate-50 p-1.5 text-red-600">
+                            <Icon size={18} aria-hidden />
                           </span>
-                          <h3 className="font-display text-base font-semibold leading-snug text-slate-900 lg:text-[1.0625rem]">
+                          <h3 className="font-display text-lg font-semibold leading-snug text-slate-900 lg:text-xl">
                             {industry.name}
                           </h3>
                         </div>
-                        <p className="border-l-2 border-amber-500/80 pl-3 text-sm leading-6 text-slate-600">
+                        <p className="border-l-2 border-red-500/80 pl-3.5 text-[0.9375rem] leading-relaxed text-slate-600">
                           {industry.description}
                         </p>
                       </div>

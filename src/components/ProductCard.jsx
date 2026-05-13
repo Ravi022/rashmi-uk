@@ -19,10 +19,10 @@ export function ProductCard({ product }) {
   return (
     <motion.article
       whileHover={{ y: -6 }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg hover:border-amber-200"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg hover:border-red-200"
     >
       {/* top accent bar */}
-      <div className="h-1 w-full bg-gradient-to-r from-amber-600 to-amber-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <div className="h-1 w-full bg-gradient-to-r from-red-600 to-red-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
       <div className="flex flex-1 flex-col p-7">
         {/* product image — real photo or placeholder */}
@@ -60,14 +60,14 @@ export function ProductCard({ product }) {
             </div>
           </div>
         ) : (
-          <span className="mb-5 inline-flex w-fit rounded-xl border border-amber-200 bg-amber-50 p-3 text-amber-700">
+          <span className="mb-5 inline-flex w-fit rounded-xl border border-red-200 bg-red-50 p-3 text-red-600">
             <Cylinder size={22} />
           </span>
         )}
 
         <h3 className="font-display text-xl text-slate-900">{product.name}</h3>
         {product.tagline && (
-          <p className="mt-1 font-condensed text-xs font-semibold uppercase tracking-[0.1em] text-amber-700">{product.tagline}</p>
+          <p className="mt-1 font-condensed text-xs font-semibold uppercase tracking-[0.1em] text-red-600">{product.tagline}</p>
         )}
         <p className="mt-3 flex-1 text-sm leading-7 text-slate-500 line-clamp-3">{product.overview}</p>
 
@@ -84,7 +84,7 @@ export function ProductCard({ product }) {
 
           <Link
             to={`/products/${product.slug}`}
-            className="mt-6 inline-flex items-center gap-1.5 font-condensed text-xs font-bold uppercase tracking-[0.1em] text-amber-700 transition hover:gap-3"
+            className="mt-6 inline-flex items-center gap-1.5 font-condensed text-xs font-bold uppercase tracking-[0.1em] text-red-600 transition hover:gap-3"
           >
             Full Product Details <ArrowRight size={13} />
           </Link>

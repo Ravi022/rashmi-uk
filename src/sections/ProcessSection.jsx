@@ -28,7 +28,7 @@ export function ProcessSection({ steps }) {
                   <h3 className="font-condensed text-sm font-bold uppercase tracking-[0.1em] text-slate-900">{step.title}</h3>
                   <p className="mt-2 text-xs leading-6 text-slate-500">{step.description}</p>
                 </div>
-                <div className="h-0.5 w-10 rounded-full bg-amber-400" />
+                <div className="h-0.5 w-10 rounded-full bg-red-400" />
               </div>
             </Reveal>
           ))}

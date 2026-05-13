@@ -24,10 +24,10 @@ export function ContactForm() {
   }
 
   if (ok) {
-    return <div className="rounded-xl border border-emerald-300 bg-emerald-50 p-6 text-emerald-700">Thank you! Your enquiry has been submitted. Our UK team will be in touch shortly.</div>
+    return <div className="rounded-xl border border-red-300 bg-red-50 p-6 text-red-700">Thank you! Your enquiry has been submitted. Our UK team will be in touch shortly.</div>
   }
 
-  const cls = 'w-full rounded border border-slate-300 px-4 py-3 text-sm outline-none focus:border-amber-700'
+  const cls = 'w-full rounded border border-slate-300 px-4 py-3 text-sm outline-none focus:border-red-600'
   return (
     <form onSubmit={onSubmit} className="space-y-4">
       <div className="grid gap-4 md:grid-cols-2">
@@ -36,7 +36,7 @@ export function ContactForm() {
       </div>
       <div><input className={cls} name="email" placeholder="Contact Email *" aria-label="Contact Email" />{errors.email ? <p className="mt-1 text-xs text-red-600">Please enter a valid email address</p> : null}</div>
       <div><textarea className={cls} rows={5} name="message" placeholder="Greetings of the day. How can we help you?" aria-label="Message" />{errors.message ? <p className="mt-1 text-xs text-red-600">Message is required</p> : null}</div>
-      <button className="bronze-glow rounded bg-amber-700 px-6 py-3 font-condensed uppercase tracking-[0.08em] text-white">Send Enquiry</button>
+      <button className="bronze-glow rounded bg-red-600 px-6 py-3 font-condensed uppercase tracking-[0.08em] text-white hover:bg-red-700">Send Enquiry</button>
     </form>
   )
 }

@@ -31,7 +31,7 @@ export function SectionHeader({ label, title, subtitle, centered = false, compac
     >
       <motion.p
         variants={item}
-        className="font-condensed text-sm font-extrabold uppercase tracking-[0.16em] text-amber-700 md:text-base"
+        className="font-condensed text-sm font-extrabold uppercase tracking-[0.16em] text-red-600 md:text-base"
       >
         {label}
       </motion.p>

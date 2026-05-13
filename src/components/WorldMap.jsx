@@ -35,7 +35,7 @@ export function WorldMap() {
       {/* tooltip */}
       {tooltip && (
         <div className="pointer-events-none absolute left-4 top-4 z-10 rounded-xl border border-slate-500/70 bg-slate-900/95 px-4 py-3 shadow-xl backdrop-blur-sm">
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.14em] text-amber-400">{tooltip.name}</p>
+          <p className="font-condensed text-xs font-bold uppercase tracking-[0.14em] text-red-400">{tooltip.name}</p>
           <p className="mt-0.5 text-xs text-slate-200">{tooltip.role}</p>
         </div>
       )}
@@ -119,7 +119,7 @@ export function WorldMap() {
       {/* legend */}
       <div className="relative z-10 flex flex-wrap items-center gap-3 border-t border-slate-700/60 bg-slate-900/75 px-3 pb-4 pt-3 backdrop-blur-sm sm:gap-5 sm:px-6 sm:pb-5 sm:pt-4">
         <div className="flex items-center gap-2">
-          <span className="inline-block h-3 w-3 rounded-full bg-amber-400 ring-2 ring-amber-200/30" />
+          <span className="inline-block h-3 w-3 rounded-full bg-red-500 ring-2 ring-red-200/30" />
           <span className="font-condensed text-[10px] font-bold uppercase tracking-[0.12em] text-slate-200">UK / Primary Office</span>
         </div>
         <div className="flex items-center gap-2">

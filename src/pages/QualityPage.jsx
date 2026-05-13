@@ -160,7 +160,7 @@ export function QualityPage() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-slate-950/30" />
         <DWIBannerBadge wideHeading />
         <div className="section-shell relative max-w-[min(100%,40rem)] sm:max-w-none">
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-amber-400 [text-shadow:0_1px_12px_rgba(0,0,0,0.35)]">
+          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-400 [text-shadow:0_1px_12px_rgba(0,0,0,0.35)]">
             Quality Assurance
           </p>
           <h1 className="font-display mt-4 max-w-4xl text-3xl leading-tight text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.45)] sm:text-4xl md:text-6xl">
@@ -194,7 +194,7 @@ export function QualityPage() {
                     'Dedicated R&D team for new product development and standard updates',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm leading-6 text-slate-700">
-                      <CheckCircle size={15} className="mt-0.5 shrink-0 text-amber-600" />
+                      <CheckCircle size={15} className="mt-0.5 shrink-0 text-red-600" />
                       {item}
                     </li>
                   ))}
@@ -226,7 +226,7 @@ export function QualityPage() {
               <Reveal key={check.label} delay={idx * 0.05}>
                 <div className="flex flex-col gap-3 rounded-2xl border border-white bg-white p-6 shadow-sm">
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-600 font-condensed text-xs font-bold text-white">
+                    <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-600 font-condensed text-xs font-bold text-white">
                       {String(idx + 1).padStart(2, '0')}
                     </span>
                     <p className="font-condensed text-sm font-bold uppercase tracking-[0.08em] text-slate-900">{check.label}</p>
@@ -255,8 +255,8 @@ export function QualityPage() {
               const Icon = test.icon
               return (
                 <Reveal key={test.label} delay={idx * 0.05}>
-                  <article className="group flex flex-col gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-6 transition hover:border-amber-200 hover:bg-amber-50/20">
-                    <span className="inline-flex w-fit rounded-xl border border-amber-200 bg-white p-3 text-amber-700 shadow-sm group-hover:bg-amber-100 transition">
+                  <article className="group flex flex-col gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-6 transition hover:border-red-200 hover:bg-red-50/20">
+                    <span className="inline-flex w-fit rounded-xl border border-red-200 bg-white p-3 text-red-600 shadow-sm group-hover:bg-red-100 transition">
                       <Icon size={20} />
                     </span>
                     <div>
@@ -437,7 +437,7 @@ export function QualityPage() {
                       href: '/products/di-pipes',
                     },
                   ].map((p) => (
-                    <a key={p.title} href={p.href} className="group flex items-center gap-3 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 p-3 transition hover:border-sky-200 hover:bg-sky-50/40 hover:shadow-sm">
+                    <a key={p.title} href={p.href} className="group flex items-center gap-3 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 p-3 transition hover:border-red-200 hover:bg-red-50/40 hover:shadow-sm">
                       <div className="h-16 w-16 shrink-0 overflow-hidden rounded-lg bg-slate-100">
                         <img src={p.img} alt={p.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                       </div>
@@ -445,7 +445,7 @@ export function QualityPage() {
                         <p className="font-condensed text-xs font-bold uppercase tracking-[0.1em] text-slate-900">{p.title}</p>
                         <p className="mt-0.5 text-[11px] leading-5 text-slate-500 line-clamp-2">{p.desc}</p>
                       </div>
-                      <span className="shrink-0 text-sky-500 transition group-hover:translate-x-0.5">›</span>
+                      <span className="shrink-0 text-red-500 transition group-hover:translate-x-0.5">›</span>
                     </a>
                   ))}
                 </div>
@@ -459,7 +459,7 @@ export function QualityPage() {
                   { icon: ShieldCheck, title: 'Engineered for the Future',    sub: 'Sustainable, reliable & built to endure.' },
                 ].map(({ icon: Icon, title, sub }) => (
                   <div key={title} className="flex items-start gap-3 px-5 py-5 md:px-8">
-                    <span className="mt-0.5 inline-flex shrink-0 rounded-full bg-sky-600 p-2 text-white">
+                    <span className="mt-0.5 inline-flex shrink-0 rounded-full bg-red-600 p-2 text-white">
                       <Icon size={15} />
                     </span>
                     <div>
@@ -505,7 +505,7 @@ export function QualityPage() {
                       <button
                         type="button"
                         onClick={() => setCertificateViewer(cert)}
-                        className="inline-flex shrink-0 rounded-md border border-slate-300 bg-white px-2.5 py-1.5 text-[11px] font-semibold text-slate-700 transition hover:border-amber-400 hover:text-amber-700"
+                        className="inline-flex shrink-0 rounded-md border border-slate-300 bg-white px-2.5 py-1.5 text-[11px] font-semibold text-slate-700 transition hover:border-red-400 hover:text-red-600"
                       >
                         View
                       </button>
@@ -519,13 +519,13 @@ export function QualityPage() {
       </section>
 
       {/* ── Why Quality Matters ── */}
-      <section className="py-20 bg-amber-50">
+      <section className="py-20 bg-slate-50">
         <div className="section-shell">
           <Reveal>
-            <div className="rounded-3xl bg-gradient-to-br from-amber-50 via-white to-slate-50 border border-amber-100 p-12 overflow-hidden relative shadow-sm">
-              <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-amber-200/40 blur-3xl" />
+            <div className="rounded-3xl bg-gradient-to-br from-slate-50 via-white to-slate-100 border border-slate-200 p-12 overflow-hidden relative shadow-sm">
+              <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-red-200/30 blur-3xl" />
               <div className="relative">
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.2em] text-amber-600">Why It Matters</p>
+                <p className="font-condensed text-xs font-bold uppercase tracking-[0.2em] text-red-600">Why It Matters</p>
                 <h2 className="font-display mt-3 text-3xl leading-snug text-slate-900 md:text-4xl">Why Quality Matters to Our Clients</h2>
                 <p className="mt-4 max-w-2xl text-sm leading-8 text-slate-600">
                   Infrastructure failures are costly, disruptive, and sometimes irreversible. Our quality assurance system exists to make failure a non-event — giving clients the confidence to specify Rashmi Metaliks products on their most critical projects.
@@ -533,7 +533,7 @@ export function QualityPage() {
                 <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                   {whyQualityPoints.map((point, idx) => (
                     <div key={point.title} className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-amber-100 font-condensed text-xs font-bold text-amber-700">
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-red-100 font-condensed text-xs font-bold text-red-600">
                         {String(idx + 1).padStart(2, '0')}
                       </span>
                       <h3 className="font-condensed text-sm font-bold uppercase tracking-[0.08em] text-slate-900">{point.title}</h3>

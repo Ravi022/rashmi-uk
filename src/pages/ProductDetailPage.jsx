@@ -165,7 +165,7 @@ export function ProductDetailPage() {
                 backgroundSize: '60px 60px',
               }}
             />
-            <div className="pointer-events-none absolute -right-32 top-0 h-[400px] w-[400px] rounded-full bg-amber-600/10 blur-[100px]" />
+            <div className="pointer-events-none absolute -right-32 top-0 h-[400px] w-[400px] rounded-full bg-red-600/10 blur-[100px]" />
           </>
         )}
         <DWIBannerBadge />
@@ -178,7 +178,7 @@ export function ProductDetailPage() {
           >
             <Link
               to="/products"
-              className={`transition ${photoHero ? 'text-slate-800 hover:text-amber-800' : 'hover:text-amber-400'}`}
+              className={`transition ${photoHero ? 'text-slate-800 hover:text-red-700' : 'hover:text-red-400'}`}
             >
               Products
             </Link>
@@ -188,7 +188,7 @@ export function ProductDetailPage() {
 
           <p
             className={`font-condensed text-xs font-bold uppercase tracking-[0.22em] ${
-              photoHero ? 'text-amber-900 [text-shadow:0_1px_8px_rgba(255,255,255,0.85)]' : 'text-amber-400'
+              photoHero ? 'text-red-700 [text-shadow:0_1px_8px_rgba(255,255,255,0.85)]' : 'text-red-400'
             }`}
           >
             Rashmi Metaliks UK Limited
@@ -233,8 +233,8 @@ export function ProductDetailPage() {
                         key={std}
                         className={`inline-flex items-center gap-1.5 rounded border px-3 py-1 font-condensed text-xs uppercase tracking-[0.12em] ${
                           photoHero
-                            ? 'border-amber-200 bg-amber-50 text-amber-900'
-                            : 'border-amber-600/30 bg-amber-600/10 text-amber-300'
+                            ? 'border-red-200 bg-red-50 text-red-900'
+                            : 'border-red-600/30 bg-red-600/10 text-red-300'
                         }`}
                       >
                         <ShieldCheck size={11} /> {std}
@@ -264,7 +264,7 @@ export function ProductDetailPage() {
                   </p>
                 </div>
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
-                  <p className="font-condensed text-xs font-bold uppercase tracking-[0.15em] text-amber-700">Key Specifications</p>
+                  <p className="font-condensed text-xs font-bold uppercase tracking-[0.15em] text-red-600">Key Specifications</p>
                   <Table rows={product.table} />
                 </div>
               </div>
@@ -272,7 +272,7 @@ export function ProductDetailPage() {
               {/* Image gallery — shown only when product has real photos */}
               {gallery.length > 0 && (
                 <div className="mt-14">
-                  <p className="font-condensed text-xs font-bold uppercase tracking-[0.18em] text-amber-700 mb-6">Product Gallery</p>
+                  <p className="font-condensed text-xs font-bold uppercase tracking-[0.18em] text-red-600 mb-6">Product Gallery</p>
                   {/* Main image */}
                   <div
                     className={`overflow-hidden rounded-2xl border border-slate-200 ${product.slug === 'di-fittings' ? 'bg-white' : 'bg-slate-50'}`}
@@ -310,8 +310,8 @@ export function ProductDetailPage() {
                           product.slug === 'di-fittings' ? 'bg-white' : 'bg-slate-50'
                         } ${
                           idx === activeImage
-                            ? 'border-amber-500 shadow-sm'
-                            : 'border-slate-200 hover:border-amber-300'
+                            ? 'border-red-500 shadow-sm'
+                            : 'border-slate-200 hover:border-red-300'
                         }`}
                       >
                         <img src={img.src} alt={img.caption} className="h-12 w-full object-contain sm:h-14" />

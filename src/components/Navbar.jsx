@@ -51,7 +51,7 @@ export function Navbar() {
               className={({ isActive }) =>
                 `rounded px-3 py-2 font-condensed text-[11px] font-bold uppercase tracking-[0.1em] transition ${
                   isActive
-                    ? 'bg-amber-50 text-amber-700'
+                    ? 'bg-red-50 text-red-600'
                     : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                 }`
               }
@@ -64,7 +64,7 @@ export function Navbar() {
         {/* CTA button */}
         <Link
           to="/contact"
-          className="bronze-glow hidden rounded-lg bg-amber-700 px-5 py-2.5 font-condensed text-[11px] font-bold uppercase tracking-[0.1em] text-white lg:inline-flex"
+          className="bronze-glow hidden rounded-lg bg-red-600 px-5 py-2.5 font-condensed text-[11px] font-bold uppercase tracking-[0.1em] text-white hover:bg-red-700 lg:inline-flex"
         >
           Get in Touch
         </Link>
@@ -98,7 +98,7 @@ export function Navbar() {
                   end={to === '/'}
                   className={({ isActive }) =>
                     `rounded-lg px-3 py-2.5 font-condensed text-sm font-bold uppercase tracking-[0.08em] transition ${
-                      isActive ? 'bg-amber-50 text-amber-700' : 'text-slate-700 hover:bg-slate-50'
+                      isActive ? 'bg-red-50 text-red-600' : 'text-slate-700 hover:bg-slate-50'
                     }`
                   }
                 >
@@ -107,7 +107,7 @@ export function Navbar() {
               ))}
               <Link
                 to="/contact"
-                className="mt-3 rounded-lg bg-amber-700 px-4 py-3 text-center font-condensed text-sm font-bold uppercase tracking-[0.1em] text-white"
+                className="mt-3 rounded-lg bg-red-600 px-4 py-3 text-center font-condensed text-sm font-bold uppercase tracking-[0.1em] text-white hover:bg-red-700"
               >
                 Get in Touch
               </Link>

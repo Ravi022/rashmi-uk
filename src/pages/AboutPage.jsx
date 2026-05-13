@@ -1,4 +1,4 @@
-import { Factory, Globe2, Award, Users, Layers, FlaskConical, CheckCircle } from 'lucide-react'
+import { Factory, Globe2, Award, Users, Layers, FlaskConical, CheckCircle, Building2, TrendingUp, Globe, Star, Rocket } from 'lucide-react'
 import aboutHeroRashmiGroup from '../assets/about-hero-rashmi-group.png'
 import mfgFurnaceSparks from '../assets/mfg-furnace-sparks.jpg'
 import mfgMoltenPour from '../assets/mfg-molten-pour.jpg'
@@ -64,7 +64,7 @@ export function AboutPage() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-white/22" />
         <DWIBannerBadge wideHeading />
         <div className="section-shell relative max-w-[min(100%,42rem)] sm:max-w-none">
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-amber-900">
+          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-700">
             About Rashmi Metaliks UK
           </p>
           <h1 className="font-display mt-4 max-w-4xl text-3xl leading-tight text-slate-950 sm:text-4xl md:text-6xl [text-shadow:0_1px_0_rgba(255,255,255,0.9),0_0_24px_rgba(255,255,255,0.75)]">
@@ -100,8 +100,8 @@ export function AboutPage() {
                   { value: '#2', label: "World's Largest DI Mfr." },
                   { value: '20K+', label: 'Global Workforce' },
                 ].map(({ value, label }, i) => (
-                  <div key={label} className={`rounded-2xl border p-6 text-center ${i === 4 ? 'col-span-2 border-amber-300 bg-amber-50' : 'border-slate-200 bg-slate-50'}`}>
-                    <p className="font-condensed text-3xl font-bold text-amber-600">{value}</p>
+                  <div key={label} className="rounded-2xl border border-slate-200 bg-white p-6 text-center">
+                    <p className="font-condensed text-3xl font-bold stat-value">{value}</p>
                     <p className="mt-2 font-condensed text-[10px] font-bold uppercase leading-5 tracking-[0.1em] text-slate-500">{label}</p>
                   </div>
                 ))}
@@ -141,22 +141,22 @@ export function AboutPage() {
           <Reveal>
             <SectionHeader label="Our Manufacturing Strength" title="The Rise of Rashmi Metaliks" subtitle="Backed by state-of-the-art facilities in Kharagpur, India, the company operates one of the most advanced integrated steel plants in the region." centered />
           </Reveal>
-          <div className="mt-12 grid gap-8 lg:grid-cols-2">
+          <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:items-stretch">
             {/* Capacity cards */}
             <Reveal delay={0.05}>
-              <div className="rounded-3xl border border-amber-200 bg-amber-50 p-8">
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Annual Production Capacity</p>
+              <div className="rounded-3xl border border-red-200 bg-red-50 p-8 h-full">
+                <p className="font-condensed text-xs font-bold uppercase tracking-[0.18em] text-red-600">Annual Production Capacity</p>
                 <div className="mt-6 space-y-5">
                   <div className="flex items-end gap-3">
-                    <p className="font-condensed text-5xl font-bold text-amber-600">2.4M</p>
+                    <p className="font-condensed text-5xl font-bold stat-value">2.4M</p>
                     <div>
                       <p className="font-condensed text-lg font-bold text-slate-800">Metric Tonnes</p>
                       <p className="text-sm text-slate-500">Ductile Iron Pipes</p>
                     </div>
                   </div>
-                  <div className="h-px bg-amber-200" />
+                  <div className="h-px bg-red-200" />
                   <div className="flex items-end gap-3">
-                    <p className="font-condensed text-5xl font-bold text-amber-600">26K</p>
+                    <p className="font-condensed text-5xl font-bold stat-value">26K</p>
                     <div>
                       <p className="font-condensed text-lg font-bold text-slate-800">Metric Tonnes</p>
                       <p className="text-sm text-slate-500">DI Fittings</p>
@@ -167,12 +167,12 @@ export function AboutPage() {
             </Reveal>
             {/* Manufacturing strengths */}
             <Reveal delay={0.08}>
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 h-full">
                 <p className="font-condensed text-xs font-bold uppercase tracking-[0.18em] text-slate-500 mb-5">Manufacturing Strength Backed By</p>
                 <ul className="space-y-3">
                   {manufacturingStrengths.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm leading-6 text-slate-700">
-                      <CheckCircle size={16} className="mt-0.5 shrink-0 text-amber-600" />
+                      <CheckCircle size={16} className="mt-0.5 shrink-0 text-red-600" />
                       {item}
                     </li>
                   ))}
@@ -261,7 +261,7 @@ export function AboutPage() {
                 { value: '50+ Countries', label: 'Export Reach', detail: 'Pipes and fittings shipped globally via major ports with full documentation' },
               ].map((item) => (
                 <div key={item.label} className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
-                  <p className="font-condensed text-3xl font-bold text-amber-600">{item.value}</p>
+                  <p className="font-condensed text-3xl font-bold stat-value">{item.value}</p>
                   <p className="mt-1 font-condensed text-xs font-bold uppercase tracking-[0.1em] text-slate-700">{item.label}</p>
                   <p className="mt-2 text-xs leading-5 text-slate-500">{item.detail}</p>
                 </div>
@@ -272,28 +272,68 @@ export function AboutPage() {
       </section>
 
       {/* ── Timeline ── */}
-      <section className="border-t border-b border-slate-100 bg-slate-50 py-20">
+      <section className="border-t border-b border-slate-100 bg-slate-50 py-20 overflow-hidden">
         <div className="section-shell">
           <Reveal>
             <SectionHeader label="Our Journey" title="Two Decades of Growth" subtitle="From a single manufacturing facility to a global infrastructure supply powerhouse." centered />
           </Reveal>
-          <div className="mt-12 relative">
-            <div className="absolute left-[calc(50%-1px)] top-0 hidden h-full w-px bg-slate-200 lg:block" />
-            <div className="space-y-8">
-              {timelineItems.map((item, idx) => (
-                <Reveal key={item.year} delay={idx * 0.06}>
-                  <div className={`relative grid lg:grid-cols-2 lg:gap-12`}>
-                    <div className={`${idx % 2 !== 0 ? 'lg:col-start-2' : ''} rounded-2xl border border-slate-200 bg-white p-7 shadow-sm`}>
-                      <p className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-amber-600">{item.year}</p>
-                      <h3 className="font-display mt-2 text-xl text-slate-900">{item.title}</h3>
-                      <p className="mt-2 text-sm leading-7 text-slate-500">{item.description}</p>
+
+          <div className="mt-16 relative">
+            {/* Central glowing spine */}
+            <div className="absolute left-[calc(50%-1px)] top-0 hidden h-full w-px lg:block"
+              style={{ background: 'linear-gradient(to bottom, transparent, #ef4444 8%, #ef4444 92%, transparent)' }} />
+            <div className="absolute left-[calc(50%-3px)] top-0 hidden h-full w-1.5 lg:block opacity-20 blur-sm"
+              style={{ background: 'linear-gradient(to bottom, transparent, #ef4444 8%, #ef4444 92%, transparent)' }} />
+
+            <div className="space-y-10">
+              {[
+                { ...timelineItems[0], icon: Building2 },
+                { ...timelineItems[1], icon: Globe },
+                { ...timelineItems[2], icon: TrendingUp },
+                { ...timelineItems[3], icon: Star },
+                { ...timelineItems[4], icon: Rocket },
+              ].map((item, idx) => {
+                const Icon = item.icon
+                const isRight = idx % 2 !== 0
+                return (
+                  <Reveal key={item.year} delay={idx * 0.07}>
+                    <div className="relative grid lg:grid-cols-2 lg:gap-0">
+
+                      {/* Card */}
+                      <div className={`relative ${isRight ? 'lg:col-start-2 lg:pl-10' : 'lg:pr-10'}`}>
+                        {/* Connector line from dot to card */}
+                        <div
+                          className={`hidden lg:block absolute top-1/2 -translate-y-1/2 h-px w-10 bg-red-300 opacity-60 ${isRight ? 'left-0' : 'right-0'}`}
+                        />
+                        <div className="rounded-2xl border border-red-100 bg-white p-0 overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                          {/* Top red accent bar */}
+                          <div className="h-1.5 w-full bg-gradient-to-r from-red-600 to-red-400" />
+                          <div className="p-7">
+                            <div className="flex items-start gap-4">
+                              {/* Red icon badge */}
+                              <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center shadow-lg">
+                                <Icon size={18} className="text-white" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <p className="font-condensed text-xs font-bold uppercase tracking-[0.18em] text-red-600">{item.year}</p>
+                                <h3 className="font-display mt-1 text-xl text-slate-900">{item.title}</h3>
+                                <p className="mt-2 text-sm leading-7 text-slate-600">{item.description}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Centre dot */}
+                      <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center" style={{zIndex:2}}>
+                        <span className="flex h-5 w-5 rounded-full border-[3px] border-red-600 bg-red-600 shadow-lg"
+                          style={{ boxShadow: '0 0 0 4px rgba(255,255,255,0.9), 0 0 12px 2px #dc2626' }} />
+                      </div>
+
                     </div>
-                    <div className="hidden lg:flex items-center justify-center">
-                      <span className="absolute left-1/2 flex h-4 w-4 -translate-x-1/2 rounded-full border-2 border-amber-500 bg-white" />
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
+                  </Reveal>
+                )
+              })}
             </div>
           </div>
         </div>
@@ -306,17 +346,17 @@ export function AboutPage() {
             <SectionHeader label="UK Market" title="Expanding into the United Kingdom" subtitle="The United Kingdom is undergoing significant infrastructure modernisation — in water distribution, wastewater management, and urban road safety. Rashmi Metaliks UK Limited has been established to directly support these evolving requirements." centered />
           </Reveal>
 
-          <div className="mt-14 grid gap-8 lg:grid-cols-2">
+          <div className="mt-14 grid gap-8 lg:grid-cols-2 lg:items-stretch">
             {/* Water Infrastructure */}
             <Reveal delay={0.05}>
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-amber-700 mb-4">Supporting Water Infrastructure</p>
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 h-full">
+                <p className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-red-600 mb-4">Supporting Water Infrastructure</p>
                 <h3 className="font-display text-2xl text-slate-900">High-Performance Pipeline Solutions</h3>
                 <p className="mt-4 text-sm leading-7 text-slate-600">Ductile iron pipes remain the preferred choice for water transportation due to their strength, durability, and long lifecycle. With increasing focus on reducing water leakage, improving network efficiency, and ensuring long-term reliability, the UK market demands:</p>
                 <ul className="mt-5 space-y-2.5">
                   {waterInfraNeeds.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm leading-6 text-slate-700">
-                      <CheckCircle size={15} className="mt-0.5 shrink-0 text-amber-600" />
+                      <CheckCircle size={15} className="mt-0.5 shrink-0 text-red-600" />
                       {item}
                     </li>
                   ))}
@@ -326,14 +366,14 @@ export function AboutPage() {
 
             {/* Urban Road Safety */}
             <Reveal delay={0.08}>
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-amber-700 mb-4">Enhancing Urban Road Safety</p>
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 h-full">
+                <p className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-red-600 mb-4">Enhancing Urban Road Safety</p>
                 <h3 className="font-display text-2xl text-slate-900">BS EN 124 Manhole Cover Solutions</h3>
                 <p className="mt-4 text-sm leading-7 text-slate-600">Urban infrastructure in the UK requires robust access solutions, particularly manhole covers and gratings, which play a critical role in road safety. Our BS EN 124 compliant covers with load classes A15 to F900 are engineered for:</p>
                 <ul className="mt-5 space-y-2.5">
                   {manholeNeeds.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm leading-6 text-slate-700">
-                      <CheckCircle size={15} className="mt-0.5 shrink-0 text-amber-600" />
+                      <CheckCircle size={15} className="mt-0.5 shrink-0 text-red-600" />
                       {item}
                     </li>
                   ))}
@@ -344,24 +384,24 @@ export function AboutPage() {
 
           {/* India/UK map */}
           <Reveal delay={0.1}>
-            <IndiaUkMap className="mt-8 h-56 shadow-sm" />
+            <IndiaUkMap className="mt-8 h-80 shadow-sm" />
           </Reveal>
         </div>
       </section>
 
       {/* ── Vision & Mission ── */}
       <section className="bg-slate-950 py-20 text-white">
-        <div className="section-shell grid gap-10 lg:grid-cols-2">
+        <div className="section-shell grid gap-10 lg:grid-cols-2 lg:items-stretch">
           <Reveal>
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur">
-              <p className="font-condensed text-xs font-bold uppercase tracking-[0.2em] text-amber-400">Vision</p>
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur h-full">
+              <p className="font-condensed text-xs font-bold uppercase tracking-[0.2em] text-red-400">Vision</p>
               <h3 className="font-display mt-3 text-2xl text-white">Global Leader in Infrastructure Solutions</h3>
               <p className="mt-4 text-sm leading-8 text-slate-300">To be the world's most trusted supplier of ductile iron infrastructure solutions — delivering excellence through innovation, quality, and sustainability across every market we serve.</p>
             </div>
           </Reveal>
           <Reveal delay={0.06}>
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur">
-              <p className="font-condensed text-xs font-bold uppercase tracking-[0.2em] text-amber-400">Mission</p>
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur h-full">
+              <p className="font-condensed text-xs font-bold uppercase tracking-[0.2em] text-red-400">Mission</p>
               <h3 className="font-display mt-3 text-2xl text-white">Engineering Lifelines. Strengthening Communities.</h3>
               <p className="mt-4 text-sm leading-8 text-slate-300">To engineer and supply world-class ductile iron solutions that strengthen infrastructure, enhance safety, and improve quality of life — for generations to come.</p>
             </div>

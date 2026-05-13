@@ -1,12 +1,15 @@
-import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps'
+import { ComposableMap, Geographies, Geography, Marker, Line } from 'react-simple-maps'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'
 
 const highlightedCountries = new Set(['United Kingdom', 'India'])
 
+const UK_COORDS   = [-1.5, 54.0]   // longitude, latitude — central UK
+const INDIA_COORDS = [78.9, 22.8]  // longitude, latitude — central India
+
 const points = [
-  { name: 'United Kingdom', coordinates: [-1.5, 54], label: 'UK Office & Logistics' },
-  { name: 'India', coordinates: [78.9, 22.8], label: 'India Manufacturing' },
+  { name: 'United Kingdom', coordinates: UK_COORDS,    label: 'UK Office & Logistics' },
+  { name: 'India',          coordinates: INDIA_COORDS, label: 'India Manufacturing' },
 ]
 
 export function IndiaUkMap({ className = '' }) {
@@ -16,9 +19,9 @@ export function IndiaUkMap({ className = '' }) {
 
       <ComposableMap
         projection="geoMercator"
-        projectionConfig={{ scale: 130, center: [22, 24] }}
+        projectionConfig={{ scale: 118, center: [22, 10] }}
         style={{ width: '100%', height: '100%', position: 'relative', zIndex: 1 }}
-        viewBox="0 0 800 440"
+        viewBox="0 0 800 480"
       >
         <Geographies geography={GEO_URL}>
           {({ geographies }) =>
@@ -42,7 +45,16 @@ export function IndiaUkMap({ className = '' }) {
           }
         </Geographies>
 
-        <path d="M456 133C530 94 600 96 664 145C702 176 719 214 726 235" stroke="#f59e0b" strokeWidth="2.2" strokeDasharray="8 7" fill="none" opacity="0.95" />
+        {/* Curved arc using real geographic coordinates */}
+        <Line
+          from={UK_COORDS}
+          to={INDIA_COORDS}
+          stroke="#f59e0b"
+          strokeWidth={2.2}
+          strokeDasharray="8 7"
+          strokeLinecap="round"
+          style={{ opacity: 0.95 }}
+        />
 
         {points.map((point) => (
           <Marker key={point.name} coordinates={point.coordinates}>

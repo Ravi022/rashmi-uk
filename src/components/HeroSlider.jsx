@@ -75,8 +75,8 @@ export function HeroSlider({ slides }) {
             style={{ objectPosition: bgPosition }}
           />
           {/* Cinematic dark overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/92 via-slate-950/65 to-slate-950/25" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-slate-950/35" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/45 to-slate-950/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-slate-950/20" />
         </motion.div>
       </AnimatePresence>
 
@@ -98,10 +98,10 @@ export function HeroSlider({ slides }) {
 
           {/* Slide counter */}
           <div className="mb-4 flex items-center gap-3 sm:mb-6">
-            <span className="font-condensed text-[10px] font-bold tracking-[0.3em] text-amber-400">
+            <span className="font-condensed text-[10px] font-bold tracking-[0.3em] text-red-400">
               {String(current + 1).padStart(2, '0')}
             </span>
-            <div className="h-px w-10 bg-amber-500/50" />
+            <div className="h-px w-10 bg-red-500/50" />
             <span className="font-condensed text-[10px] tracking-[0.2em] text-slate-400">
               {String(TOTAL).padStart(2, '0')}
             </span>
@@ -118,20 +118,20 @@ export function HeroSlider({ slides }) {
                 transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
               >
                 {/* Marketing eyebrow */}
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.28em] text-amber-400">
+                <p className="font-condensed text-xs font-bold uppercase tracking-[0.28em] text-red-400">
                   Official Announcement · UK Water Infrastructure
                 </p>
 
                 {/* Headline */}
-                <h1 className="font-display mt-3 text-[2.1rem] leading-[1.06] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[4.5rem]">
+                <h1 className="font-display mt-3 text-4xl leading-[1.06] tracking-tight text-white sm:text-5xl md:text-5xl lg:text-7xl">
                   Engineered for Trust.{' '}
-                  <span className="text-amber-400">Approved for the UK.</span>
+                  <span className="text-red-400">Approved for the UK.</span>
                 </h1>
 
                 {/* Subtitle */}
                 <p className="mt-4 max-w-lg text-sm leading-7 text-slate-200 sm:mt-5 sm:text-base sm:leading-8">
                   Rashmi Metaliks DI Pipes &amp; Fittings are now{' '}
-                  <strong className="font-semibold text-amber-300">officially DWI-approved</strong>{' '}
+                  <strong className="font-semibold text-red-300">officially DWI-approved</strong>{' '}
                   — delivering safe, certified drinking water infrastructure across the United Kingdom.
                 </p>
 
@@ -143,7 +143,7 @@ export function HeroSlider({ slides }) {
                     { icon: CheckCircle, label: '100+ Year Lifespan'   },
                   ].map(({ icon: Icon, label }) => (
                     <div key={label} className="flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 backdrop-blur-sm">
-                      <Icon size={13} className="text-amber-400" />
+                      <Icon size={13} className="text-red-400" />
                       <span className="font-condensed text-[11px] font-bold uppercase tracking-[0.08em] text-white">{label}</span>
                     </div>
                   ))}
@@ -153,7 +153,7 @@ export function HeroSlider({ slides }) {
                 <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-8 sm:gap-4">
                   <MagneticButton
                     to="/products"
-                    className="bronze-glow inline-flex items-center gap-2 rounded-lg bg-amber-600 px-5 py-3 font-condensed text-xs font-bold uppercase tracking-[0.1em] text-white sm:px-7 sm:py-3.5 sm:text-sm"
+                    className="bronze-glow inline-flex items-center gap-2 rounded-lg bg-red-600 px-5 py-3 font-condensed text-xs font-bold uppercase tracking-[0.1em] text-white hover:bg-red-700 sm:px-7 sm:py-3.5 sm:text-sm"
                   >
                     Explore Products <ChevronRight size={14} />
                   </MagneticButton>
@@ -174,10 +174,10 @@ export function HeroSlider({ slides }) {
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
               >
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-amber-400">
+                <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-400">
                   {slide.tag}
                 </p>
-                <h1 className="font-display mt-3 text-[2rem] leading-[1.1] tracking-tight text-white sm:mt-4 sm:text-4xl md:text-5xl lg:text-7xl">
+                <h1 className="font-display mt-3 text-4xl leading-[1.1] tracking-tight text-white sm:mt-4 sm:text-4xl md:text-5xl lg:text-7xl">
                   {slide.title}
                 </h1>
                 <p className="mt-4 max-w-xl text-sm leading-7 text-slate-200 sm:mt-6 sm:text-base sm:leading-8 md:text-lg">
@@ -186,7 +186,7 @@ export function HeroSlider({ slides }) {
                 <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-4">
                   <MagneticButton
                     to={slide.ctaTo || '/products'}
-                    className="bronze-glow inline-flex items-center gap-2 rounded-lg bg-amber-600 px-5 py-3 font-condensed text-xs font-bold uppercase tracking-[0.1em] text-white sm:px-7 sm:py-3.5 sm:text-sm"
+                    className="bronze-glow inline-flex items-center gap-2 rounded-lg bg-red-600 px-5 py-3 font-condensed text-xs font-bold uppercase tracking-[0.1em] text-white hover:bg-red-700 sm:px-7 sm:py-3.5 sm:text-sm"
                   >
                     {slide.cta || 'Explore Products'} <ChevronRight size={14} />
                   </MagneticButton>
@@ -211,7 +211,7 @@ export function HeroSlider({ slides }) {
               onClick={() => go(idx)}
               className={`h-1 rounded-full transition-all duration-500 ${
                 idx === current
-                  ? 'w-8 bg-amber-500 sm:w-12'
+                  ? 'w-8 bg-red-500 sm:w-12'
                   : 'w-3 bg-white/30 hover:bg-white/50 sm:w-4'
               }`}
             />
@@ -223,14 +223,14 @@ export function HeroSlider({ slides }) {
           <button
             onClick={prev}
             aria-label="Previous slide"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:border-amber-500/60 hover:bg-amber-600/20 sm:h-10 sm:w-10"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:border-red-500/60 hover:bg-red-600/20 sm:h-10 sm:w-10"
           >
             <ChevronLeft size={16} />
           </button>
           <button
             onClick={next}
             aria-label="Next slide"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:border-amber-500/60 hover:bg-amber-600/20 sm:h-10 sm:w-10"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:border-red-500/60 hover:bg-red-600/20 sm:h-10 sm:w-10"
           >
             <ChevronRight size={16} />
           </button>
@@ -248,7 +248,7 @@ export function HeroSlider({ slides }) {
                   i === 4 ? 'col-span-2 border-t border-white/10 sm:col-span-1 sm:border-t-0' : ''
                 }`}
               >
-                <p className="font-condensed text-lg font-bold leading-none text-amber-400 sm:text-2xl">{s.value}</p>
+                <p className="font-condensed text-lg font-bold leading-none text-red-400 sm:text-2xl">{s.value}</p>
                 <p className="mt-1 max-w-[11rem] break-words text-[8px] font-bold uppercase tracking-[0.12em] text-slate-400 sm:mt-1.5 sm:max-w-none sm:text-[9px] sm:tracking-[0.14em]">
                   {s.label}
                 </p>

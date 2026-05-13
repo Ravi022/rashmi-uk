@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { MapPin, Phone, Mail, Link2, ExternalLink } from 'lucide-react'
+import { MapPin, Mail } from 'lucide-react'
 import rashmiMetaliksFooterLogo from '../assets/Logo-01.png'
 
 const productLinks = [
@@ -24,52 +24,38 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-slate-950 text-slate-400">
-      {/* main footer grid */}
-      <div className="section-shell py-16">
-        <div className="grid min-w-0 gap-12 md:grid-cols-2 lg:grid-cols-4">
-          {/* brand column */}
+    <footer className="border-t-2 border-red-600 bg-slate-950 text-slate-400">
+
+      {/* ── Main grid ── */}
+      <div className="section-shell py-10">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+
+          {/* Brand column */}
           <div className="lg:col-span-1">
-            <Link to="/" className="block w-full max-w-sm">
-              <span className="block rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-[0_12px_32px_-20px_rgba(15,23,42,0.75)]">
+            <Link to="/" className="inline-block">
+              <span className="flex items-center rounded-xl border border-slate-700 bg-white px-4 py-2.5">
                 <img
                   src={rashmiMetaliksFooterLogo}
                   alt="Rashmi Metaliks UK Ltd."
-                  className="block h-auto w-full max-h-24 object-contain object-left sm:max-h-28"
+                  className="h-10 w-auto object-contain sm:h-12"
                 />
               </span>
             </Link>
-            <p className="mt-4 max-w-sm text-sm leading-7 text-slate-400">
-              Rashmi Metaliks UK Ltd. — supplying world-class ductile iron pipes, fittings, and infrastructure solutions to the United Kingdom. Part of the USD 5 billion Rashmi Group.
+            <div className="mt-4 h-px w-10 bg-red-600" />
+            <p className="mt-3 max-w-xs text-xs leading-6 text-slate-500">
+              Rashmi Metaliks UK Ltd. — world-class ductile iron pipes &amp; fittings for UK infrastructure. Part of the USD&nbsp;5B Rashmi Group.
             </p>
-            <div className="mt-5 flex gap-3">
-              <a
-                href="https://linkedin.com"
-                aria-label="LinkedIn"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition hover:border-amber-600 hover:text-amber-400"
-              >
-                <Link2 size={15} />
-              </a>
-              <a
-                href="https://twitter.com"
-                aria-label="Twitter / X"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition hover:border-amber-600 hover:text-amber-400"
-              >
-                <ExternalLink size={15} />
-              </a>
-            </div>
           </div>
 
-          {/* products */}
+          {/* Products */}
           <div>
-            <h4 className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-white">Products</h4>
-            <ul className="mt-5 flex flex-col gap-3">
+            <h4 className="border-b border-slate-800 pb-2 font-condensed text-[11px] font-bold uppercase tracking-[0.16em] text-white">
+              Products
+            </h4>
+            <ul className="mt-4 flex flex-col gap-2.5">
               {productLinks.map(([to, label]) => (
                 <li key={to}>
-                  <Link
-                    to={to}
-                    className="text-sm text-slate-400 transition hover:text-amber-400"
-                  >
+                  <Link to={to} className="text-xs text-slate-400 transition hover:text-red-400">
                     {label}
                   </Link>
                 </li>
@@ -77,16 +63,15 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* company */}
+          {/* Company */}
           <div>
-            <h4 className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-white">Company</h4>
-            <ul className="mt-5 flex flex-col gap-3">
+            <h4 className="border-b border-slate-800 pb-2 font-condensed text-[11px] font-bold uppercase tracking-[0.16em] text-white">
+              Company
+            </h4>
+            <ul className="mt-4 flex flex-col gap-2.5">
               {companyLinks.map(([to, label]) => (
                 <li key={to}>
-                  <Link
-                    to={to}
-                    className="text-sm text-slate-400 transition hover:text-amber-400"
-                  >
+                  <Link to={to} className="text-xs text-slate-400 transition hover:text-red-400">
                     {label}
                   </Link>
                 </li>
@@ -94,50 +79,44 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* contact */}
+          {/* Contact */}
           <div>
-            <h4 className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-white">Contact</h4>
-            <ul className="mt-5 flex flex-col gap-4">
-              <li className="flex items-start gap-2.5 text-sm text-slate-400">
-                <MapPin size={14} className="mt-0.5 shrink-0 text-amber-600" />
+            <h4 className="border-b border-slate-800 pb-2 font-condensed text-[11px] font-bold uppercase tracking-[0.16em] text-white">
+              Contact
+            </h4>
+            <ul className="mt-4 flex flex-col gap-3">
+              <li className="flex items-start gap-2 text-xs text-slate-400 leading-5">
+                <MapPin size={13} className="mt-0.5 shrink-0 text-red-500" />
                 Suite 102, Oceanair House, 750–760 High Road, Leytonstone, London, E11 3AW
               </li>
-              <li className="flex items-center gap-2.5 text-sm text-slate-400">
-                <Mail size={14} className="shrink-0 text-amber-600" />
-                <a href="mailto:info.uk@rashmigroup.com" className="transition hover:text-amber-400">
+              <li className="flex items-center gap-2 text-xs text-slate-400">
+                <Mail size={13} className="shrink-0 text-red-500" />
+                <a href="mailto:info.uk@rashmigroup.com" className="transition hover:text-red-400">
                   info.uk@rashmigroup.com
                 </a>
               </li>
-              <li className="flex items-start gap-2.5 text-sm text-slate-400">
-                <Phone size={14} className="mt-0.5 shrink-0 text-amber-600" />
-                <span>
-                  Alternative:{' '}
-                  <a href="tel:+919830085749" className="transition hover:text-amber-400">
-                    +91 9830085749
-                  </a>{' '}
-                  (Indranil Bhattacharya)
-                  <br />
-                  Export enquiries:{' '}
-                  <a href="mailto:mahesh.agarwal@rashmigroup.com" className="transition hover:text-amber-400">
-                    mahesh.agarwal@rashmigroup.com
-                  </a>
-                </span>
+              <li className="flex items-center gap-2 text-xs text-slate-400">
+                <Mail size={13} className="shrink-0 text-red-500" />
+                <a href="mailto:mahesh.agarwal@rashmigroup.com" className="transition hover:text-red-400">
+                  mahesh.agarwal@rashmigroup.com
+                </a>
               </li>
             </ul>
           </div>
+
         </div>
       </div>
 
-      {/* certifications strip */}
-      <div className="border-t border-slate-800 py-6">
-        <div className="section-shell flex min-w-0 flex-wrap items-center justify-center gap-2.5 sm:justify-start sm:gap-3">
-          <span className="mr-1 font-condensed text-[10px] font-bold uppercase tracking-[0.16em] text-amber-500">
+      {/* ── Certifications strip ── */}
+      <div className="border-t border-slate-800 py-4">
+        <div className="section-shell flex flex-wrap items-center gap-2">
+          <span className="font-condensed text-[9px] font-bold uppercase tracking-[0.16em] text-red-400">
             Certified:
           </span>
           {certBadges.map((badge) => (
             <span
               key={badge}
-              className="rounded-md border border-amber-600/80 bg-amber-500/15 px-2.5 py-1 font-condensed text-[10px] font-bold uppercase tracking-[0.12em] text-amber-300 shadow-[0_0_0_1px_rgba(217,119,6,0.15)]"
+              className="rounded border border-red-600/50 bg-red-600/10 px-2 py-0.5 font-condensed text-[9px] font-bold uppercase tracking-[0.1em] text-red-400"
             >
               {badge}
             </span>
@@ -145,19 +124,18 @@ export function Footer() {
         </div>
       </div>
 
-      {/* copyright */}
-      <div className="border-t border-slate-800 py-5">
-        <div className="section-shell flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-slate-600">
-            © {year} Rashmi Metaliks UK Limited. All rights reserved. Company registered in England & Wales.
+      {/* ── Copyright ── */}
+      <div className="border-t border-slate-800 py-4">
+        <div className="section-shell flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-[11px] text-slate-600">
+            © {year} Rashmi Metaliks UK Limited. All rights reserved. Registered in England &amp; Wales.
           </p>
-          <p className="text-xs text-slate-600">
-            Part of the{' '}
-            <span className="text-slate-500">Rashmi Group</span>
-            {' '}— World's 2nd Largest DI Pipe Manufacturer.
+          <p className="text-[11px] text-slate-600">
+            Part of the <span className="text-red-400 font-medium">Rashmi Group</span> — World's 2nd Largest DI Pipe Manufacturer.
           </p>
         </div>
       </div>
+
     </footer>
   )
 }

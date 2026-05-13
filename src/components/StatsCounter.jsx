@@ -19,7 +19,7 @@ export function StatsCounter({ value, label }) {
   const suffix = value.replace(/[0-9]/g, '')
   return (
     <div className="rounded-lg border border-slate-200 bg-white p-5 text-center">
-      <p className="font-condensed text-4xl font-bold text-amber-700">{display}{suffix}</p>
+      <p className="font-condensed text-3xl font-bold stat-value md:text-4xl">{display}{suffix}</p>
       <p className="mt-2 text-xs uppercase tracking-[0.12em] text-slate-500">{label}</p>
     </div>
   )

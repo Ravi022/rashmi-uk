@@ -118,10 +118,10 @@ export function GlobalPresencePage() {
             {globalStats.map(({ icon: Icon, value, label }, idx) => (
               <Reveal key={label} delay={idx * 0.05}>
                 <div className="flex flex-col items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 p-6 text-center">
-                  <span className="inline-flex rounded-xl border border-amber-200 bg-amber-50 p-3 text-amber-700">
+                  <span className="inline-flex rounded-xl border border-red-200 bg-red-50 p-3 text-red-600">
                     <Icon size={20} />
                   </span>
-                  <p className="font-condensed text-3xl font-bold text-slate-900">{value}</p>
+                  <p className="font-condensed text-3xl font-bold stat-value">{value}</p>
                   <p className="font-condensed text-[10px] font-bold uppercase tracking-[0.12em] text-slate-500">{label}</p>
                 </div>
               </Reveal>
@@ -164,9 +164,9 @@ export function GlobalPresencePage() {
             {supplyChainPillars.map((pillar, idx) => {
               const Icon = pillar.icon
               return (
-                <Reveal key={pillar.title} delay={idx * 0.06}>
-                  <div className="group flex flex-col gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-7 transition hover:border-amber-200 hover:bg-amber-50/20">
-                    <span className="inline-flex w-fit rounded-xl border border-amber-200 bg-white p-3 text-amber-700 shadow-sm transition group-hover:bg-amber-100">
+                <Reveal key={pillar.title} delay={idx * 0.06} className="flex">
+                  <div className="group flex flex-col gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-7 transition hover:border-red-200 hover:bg-red-50/20 w-full">
+                    <span className="inline-flex w-fit rounded-xl border border-red-200 bg-white p-3 text-red-600 shadow-sm transition group-hover:bg-red-100">
                       <Icon size={20} />
                     </span>
                     <h3 className="font-condensed text-sm font-bold uppercase tracking-[0.08em] text-slate-900">{pillar.title}</h3>
@@ -180,7 +180,7 @@ export function GlobalPresencePage() {
       </section>
 
       {/* ── UK Presence ── */}
-      <section className="border-t border-slate-100 bg-amber-50 py-20">
+      <section className="border-t border-slate-100 bg-slate-50 py-20">
         <div className="section-shell">
           <Reveal>
             <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
@@ -193,12 +193,12 @@ export function GlobalPresencePage() {
                   Rashmi Metaliks UK Limited is incorporated in England & Wales and operates from our London office in Leytonstone. Our UK team provides local technical sales, project specification support, and supply chain coordination — bringing world-class DI manufacturing capacity directly to the UK market.
                 </p>
                 <div className="mt-6 flex flex-col gap-4">
-                  <div className="flex items-start gap-4 rounded-xl border border-amber-200 bg-white p-5">
-                    <span className="inline-flex shrink-0 rounded-lg border border-amber-200 bg-amber-50 p-2 text-amber-700">
+                  <div className="flex items-start gap-4 rounded-xl border border-red-200 bg-white p-5">
+                    <span className="inline-flex shrink-0 rounded-lg border border-red-200 bg-red-50 p-2 text-red-600">
                       <MapPin size={18} />
                     </span>
                     <div>
-                      <p className="font-condensed text-xs font-bold uppercase tracking-[0.14em] text-amber-700">UK Sales & Technical Office</p>
+                      <p className="font-condensed text-xs font-bold uppercase tracking-[0.14em] text-red-600">UK Sales & Technical Office</p>
                       <p className="mt-1 text-sm font-medium text-slate-800">Suite 102, Oceanair House</p>
                       <p className="text-sm text-slate-600">750–760 High Road, Leytonstone, London, E11 3AW</p>
                     </div>
@@ -215,7 +215,7 @@ export function GlobalPresencePage() {
                   </div>
                 </div>
               </div>
-              <IndiaUkMap className="h-72 border-amber-200 shadow-sm" />
+              <IndiaUkMap className="h-72 border-slate-200 shadow-sm" />
             </div>
           </Reveal>
         </div>
@@ -236,7 +236,7 @@ export function GlobalPresencePage() {
             {projectFootprint.map((item, idx) => (
               <Reveal key={item.region} delay={idx * 0.05}>
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                  <p className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-amber-700">{item.region}</p>
+                  <p className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-red-600">{item.region}</p>
                   <p className="mt-2 text-sm leading-7 text-slate-600">{item.projects}</p>
                 </div>
               </Reveal>
@@ -262,7 +262,7 @@ export function GlobalPresencePage() {
               return (
                 <Reveal key={point.title} delay={idx * 0.06}>
                   <div className="flex gap-5 rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-                    <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-amber-200 bg-amber-50 text-amber-700">
+                    <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-red-200 bg-red-50 text-red-600">
                       <Icon size={20} />
                     </span>
                     <div>
@@ -290,15 +290,15 @@ export function GlobalPresencePage() {
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {regionalOffices.map((office, idx) => (
               <Reveal key={office.region} delay={idx * 0.06}>
-                <div className={`flex flex-col gap-4 rounded-2xl border p-7 ${office.highlight ? 'border-amber-300 bg-amber-50' : 'border-slate-200 bg-slate-50'}`}>
+                <div className={`flex flex-col gap-4 rounded-2xl border p-7 ${office.highlight ? 'border-red-200 bg-red-50' : 'border-slate-200 bg-slate-50'}`}>
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <p className={`font-condensed text-xs font-bold uppercase tracking-[0.14em] ${office.highlight ? 'text-amber-700' : 'text-slate-400'}`}>
+                      <p className={`font-condensed text-xs font-bold uppercase tracking-[0.14em] ${office.highlight ? 'text-red-600' : 'text-slate-400'}`}>
                         {office.highlight ? 'Primary UK Office' : 'Regional Office'}
                       </p>
                       <h3 className="font-display mt-1 text-xl text-slate-900">{office.region}</h3>
                     </div>
-                    <span className={`inline-flex rounded-full p-2 ${office.highlight ? 'bg-amber-200 text-amber-800' : 'bg-slate-200 text-slate-600'}`}>
+                    <span className={`inline-flex rounded-full p-2 ${office.highlight ? 'bg-red-200 text-red-700' : 'bg-slate-200 text-slate-600'}`}>
                       <MapPin size={16} />
                     </span>
                   </div>

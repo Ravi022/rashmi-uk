@@ -41,12 +41,12 @@ export function HomePage() {
       </section>
 
       {/* about/company snapshot */}
-      <section className="bg-amber-50 py-16 text-slate-900 sm:py-24">
+      <section className="bg-slate-50 py-16 text-slate-900 sm:py-24">
         <div className="section-shell">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
             <Reveal>
               <div>
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-amber-600">About Rashmi Metaliks UK</p>
+                <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-600">About Rashmi Metaliks UK</p>
                 <h2 className="font-display mt-4 text-2xl leading-snug text-slate-900 sm:text-3xl md:text-5xl">
                   A Global Leader, Now Rooted in Britain
                 </h2>
@@ -60,7 +60,7 @@ export function HomePage() {
             </Reveal>
 
             <Reveal delay={0.06}>
-              <figure className="group relative overflow-hidden rounded-2xl border border-amber-200/80 bg-slate-200 shadow-xl ring-1 ring-slate-900/5">
+              <figure className="group relative overflow-hidden rounded-2xl border border-red-200/80 bg-slate-200 shadow-xl ring-1 ring-slate-900/5">
                 <img
                   src={aboutRashmiUkPlant}
                   alt="Rashmi Aqua ductile iron pipe at integrated manufacturing plant at sunrise"
@@ -85,7 +85,7 @@ export function HomePage() {
                 { value: 'USD 5B', label: 'Rashmi Group Revenue' },
               ].map(({ value, label }) => (
                 <div key={label} className="rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-sm sm:p-5">
-                  <p className="font-condensed text-xl font-bold text-amber-600 sm:text-2xl">{value}</p>
+                  <p className="font-condensed text-xl font-bold stat-value sm:text-2xl">{value}</p>
                   <p className="mt-1.5 font-condensed text-[9px] font-bold uppercase leading-5 tracking-[0.1em] text-slate-500 sm:text-[10px]">{label}</p>
                 </div>
               ))}
