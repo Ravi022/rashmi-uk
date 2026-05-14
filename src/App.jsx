@@ -6,6 +6,7 @@ import { ScrollProgress } from './components/ScrollProgress'
 import { ScrollToTop } from './components/ScrollToTop'
 import { RouteTransition } from './components/RouteTransition'
 import { AboutPage } from './pages/AboutPage'
+import { BrochurePage } from './pages/BrochurePage'
 import { ContactPage } from './pages/ContactPage'
 import { GlobalPresencePage } from './pages/GlobalPresencePage'
 import { HomePage } from './pages/HomePage'
@@ -31,6 +32,10 @@ function App() {
           <Route path="/sustainability" element={<SustainabilityPage />} />
           <Route path="/global-presence" element={<GlobalPresencePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/brouchure/Manholecover" element={<BrochurePage brochureKey="manhole-cover" />} />
+          <Route path="/brochures/manhole-cover" element={<BrochurePage brochureKey="manhole-cover" />} />
+          <Route path="/DI" element={<BrochurePage brochureKey="di-pipes" />} />
+          <Route path="/brochures/di-pipes" element={<BrochurePage brochureKey="di-pipes" />} />
         </Routes>
       </RouteTransition>
       <Footer />
