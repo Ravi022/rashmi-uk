@@ -18,7 +18,7 @@ const statItems = [
 ]
 
 // Slide 0: DWI (heroPipes bg) | 1: casting | 2: fittings | 3: flanged | 4: plant
-const slideImages    = [heroPipes, heroCasting, heroFittings, heroFlanged, heroPlant]
+const slideImages = [heroPipes, heroCasting, heroFittings, heroFlanged, heroPlant]
 const slidePositions = ['center 65%', 'center 55%', 'center center', 'center 60%', 'center 40%']
 const slideAlts = [
   'DWI Approved Ductile Iron Pipes — Rashmi Metaliks UK',
@@ -50,12 +50,12 @@ export function HeroSlider({ slides }) {
   // Slide 0 = DWI; slides 1–4 map to slides[1–4] (skipping old pipes-yard slide[0])
   const isDWI = current === 0
   const slide = isDWI ? null : (slides[current] ?? slides[1])
-  const bgImage    = slideImages[current]    ?? heroPipes
+  const bgImage = slideImages[current] ?? heroPipes
   const bgPosition = slidePositions[current] ?? 'center center'
-  const bgAlt      = slideAlts[current]      ?? ''
+  const bgAlt = slideAlts[current] ?? ''
 
   return (
-    <section className="relative min-h-[100svh] w-full max-w-[100vw] overflow-hidden bg-slate-950 sm:min-h-[92vh]">
+    <section className="relative h-[calc(100svh-64px)] w-full max-w-[100vw] overflow-hidden bg-slate-950">
 
       {/* ── Background image (shared by all slides) ── */}
       <AnimatePresence initial={false} custom={direction}>
@@ -93,19 +93,9 @@ export function HeroSlider({ slides }) {
       <DWIBannerBadge className="w-[68px] sm:w-[88px] md:w-[110px] xl:top-[80px] xl:right-10 xl:w-[280px] 2xl:right-14 2xl:w-[330px]" />
 
       {/* ── Text content ── */}
-      <div className="section-shell relative flex min-h-[100svh] min-w-0 flex-col justify-center pb-40 pt-20 sm:min-h-[92vh] sm:pb-36 sm:pt-28">
+      <div className="section-shell relative flex h-[calc(100svh-64px)] min-w-0 flex-col justify-center pt-16 pb-32 sm:pt-24 sm:pb-40">
         <div className="min-w-0 max-w-3xl pr-2 sm:pr-0">
 
-          {/* Slide counter */}
-          <div className="mb-4 flex items-center gap-3 sm:mb-6">
-            <span className="font-condensed text-[10px] font-bold tracking-[0.3em] text-red-400">
-              {String(current + 1).padStart(2, '0')}
-            </span>
-            <div className="h-px w-10 bg-red-500/50" />
-            <span className="font-condensed text-[10px] tracking-[0.2em] text-slate-400">
-              {String(TOTAL).padStart(2, '0')}
-            </span>
-          </div>
 
           <AnimatePresence mode="wait">
             {isDWI ? (
@@ -138,9 +128,9 @@ export function HeroSlider({ slides }) {
                 {/* 3 feature pills */}
                 <div className="mt-5 flex flex-wrap gap-2.5 sm:mt-6">
                   {[
-                    { icon: Droplets,    label: 'Potable Water Safe'   },
-                    { icon: ShieldCheck, label: 'DWI Certified'        },
-                    { icon: CheckCircle, label: '100+ Year Lifespan'   },
+                    { icon: Droplets, label: 'Potable Water Safe' },
+                    { icon: ShieldCheck, label: 'DWI Certified' },
+                    { icon: CheckCircle, label: '100+ Year Lifespan' },
                   ].map(({ icon: Icon, label }) => (
                     <div key={label} className="flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 backdrop-blur-sm">
                       <Icon size={13} className="text-red-400" />
@@ -149,8 +139,10 @@ export function HeroSlider({ slides }) {
                   ))}
                 </div>
 
+
+
                 {/* CTAs */}
-                <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-8 sm:gap-4">
+                <div className="mt-8 flex flex-wrap items-center gap-6 sm:gap-8">
                   <MagneticButton
                     to="/products"
                     className="bronze-glow inline-flex items-center gap-2 rounded-lg bg-red-600 px-5 py-3 font-condensed text-xs font-bold uppercase tracking-[0.1em] text-white hover:bg-red-700 sm:px-7 sm:py-3.5 sm:text-sm"
@@ -183,7 +175,9 @@ export function HeroSlider({ slides }) {
                 <p className="mt-4 max-w-xl text-sm leading-7 text-slate-200 sm:mt-6 sm:text-base sm:leading-8 md:text-lg">
                   {slide.subtitle}
                 </p>
-                <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-4">
+
+
+                <div className="mt-8 flex flex-wrap items-center gap-6 sm:gap-8">
                   <MagneticButton
                     to={slide.ctaTo || '/products'}
                     className="bronze-glow inline-flex items-center gap-2 rounded-lg bg-red-600 px-5 py-3 font-condensed text-xs font-bold uppercase tracking-[0.1em] text-white hover:bg-red-700 sm:px-7 sm:py-3.5 sm:text-sm"
@@ -202,37 +196,21 @@ export function HeroSlider({ slides }) {
           </AnimatePresence>
         </div>
 
-        {/* ── Nav dots ── */}
-        <div className="absolute bottom-[7.5rem] left-4 flex items-center gap-2 sm:bottom-44 sm:left-6 lg:left-12">
-          {Array.from({ length: TOTAL }).map((_, idx) => (
-            <button
-              key={idx}
-              aria-label={`Go to slide ${idx + 1}`}
-              onClick={() => go(idx)}
-              className={`h-1 rounded-full transition-all duration-500 ${
-                idx === current
-                  ? 'w-8 bg-red-500 sm:w-12'
-                  : 'w-3 bg-white/30 hover:bg-white/50 sm:w-4'
-              }`}
-            />
-          ))}
-        </div>
-
         {/* ── Prev / next arrows ── */}
-        <div className="absolute bottom-[6.5rem] right-4 flex items-center gap-2 sm:bottom-40 sm:right-6 lg:right-12">
+        <div className="absolute bottom-[7.5rem] right-4 z-40 flex items-center gap-2 sm:bottom-44 sm:right-6 lg:right-12">
           <button
             onClick={prev}
             aria-label="Previous slide"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:border-red-500/60 hover:bg-red-600/20 sm:h-10 sm:w-10"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:border-red-500/60 hover:bg-red-600/20 sm:h-9 sm:w-9"
           >
-            <ChevronLeft size={16} />
+            <ChevronLeft size={14} />
           </button>
           <button
             onClick={next}
             aria-label="Next slide"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:border-red-500/60 hover:bg-red-600/20 sm:h-10 sm:w-10"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:border-red-500/60 hover:bg-red-600/20 sm:h-9 sm:w-9"
           >
-            <ChevronRight size={16} />
+            <ChevronRight size={14} />
           </button>
         </div>
       </div>
@@ -244,8 +222,8 @@ export function HeroSlider({ slides }) {
             {statItems.map((s, i) => (
               <div
                 key={s.value}
-                className={`flex flex-col items-center justify-center px-3 py-3.5 text-center sm:items-start sm:px-6 sm:py-5 sm:text-left ${
-                  i === 4 ? 'col-span-2 border-t border-white/10 sm:col-span-1 sm:border-t-0' : ''
+                className={`flex flex-col items-center justify-center px-3 py-2 text-center sm:items-start sm:px-6 sm:py-2.5 sm:text-left ${
+                  i === 4 ? 'col-span-2 border-t border-white/10 sm:col-span-1 sm:border-t-0 sm:pr-32' : ''
                 }`}
               >
                 <p className="font-condensed text-lg font-bold leading-none text-red-400 sm:text-2xl">{s.value}</p>

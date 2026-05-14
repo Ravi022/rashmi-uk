@@ -28,9 +28,9 @@ export function ScrollToTop() {
       type="button"
       aria-label="Scroll to top"
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className={`fixed bottom-6 right-6 z-50 rounded bg-red-600 p-3 text-white transition ${show ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+      className={`fixed bottom-16 right-5 z-50 rounded bg-red-600 p-2 text-white shadow-lg transition ${show ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
     >
-      <ChevronUp size={18} />
+      <ChevronUp size={14} />
     </button>
   )
 }

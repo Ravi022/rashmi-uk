@@ -30,26 +30,27 @@ export function Navbar() {
   }, [])
 
   return (
-    <header className={`sticky top-0 z-40 transition-shadow ${scrolled ? 'shadow-lg shadow-slate-950/10' : ''} border-b border-slate-200 bg-white/95 backdrop-blur`}>
-      <div className="section-shell flex min-h-[4.5rem] items-center justify-between gap-3 py-2.5 sm:min-h-20 sm:gap-4 sm:py-3">
+    <>
+      <header className={`sticky top-0 z-40 transition-shadow ${scrolled ? 'shadow-lg shadow-slate-950/10' : ''} border-b border-slate-200 bg-white/95 backdrop-blur`}>
+      <div className="section-shell flex items-center justify-between gap-3 py-0.5 sm:gap-4 sm:py-1">
         {/* logo — stack on very narrow viewports to avoid horizontal overflow */}
-        <Link to="/" className="inline-flex min-w-0 shrink-0 items-center">
+        <Link to="/" className="inline-flex min-w-0 shrink-0 items-center -ml-2 -mt-1 lg:-ml-4 lg:-mt-1.5">
           <img
             src={rashmiMetaliksLogo}
             alt="Rashmi Metaliks UK Ltd."
-            className="h-12 w-auto max-w-[min(100%,16rem)] sm:h-14 md:h-16 lg:h-[4.5rem]"
+            className="h-10 w-auto max-w-[min(100%,16rem)] sm:h-12 md:h-14 lg:h-14"
           />
         </Link>
 
         {/* desktop nav */}
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden flex-1 justify-evenly items-center lg:flex">
           {links.map(([to, label]) => (
             <NavLink
               key={to}
               to={to}
               end={to === '/'}
               className={({ isActive }) =>
-                `rounded px-3 py-2 font-condensed text-[11px] font-bold uppercase tracking-[0.1em] transition ${
+                `rounded px-3 py-2 font-condensed text-[13px] font-bold uppercase tracking-[0.1em] transition ${
                   isActive
                     ? 'bg-red-50 text-red-600'
                     : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
@@ -61,13 +62,7 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* CTA button */}
-        <Link
-          to="/contact"
-          className="bronze-glow hidden rounded-lg bg-red-600 px-5 py-2.5 font-condensed text-[11px] font-bold uppercase tracking-[0.1em] text-white hover:bg-red-700 lg:inline-flex"
-        >
-          Get in Touch
-        </Link>
+
 
         {/* mobile toggle */}
         <button
@@ -115,6 +110,15 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+      </header>
+
+      {/* CTA button - Floating bottom right */}
+      <Link
+        to="/contact"
+        className="bronze-glow fixed bottom-5 right-5 z-50 rounded bg-red-600 px-3 py-2 font-condensed text-[10px] font-bold uppercase tracking-[0.05em] text-white shadow-lg hover:bg-red-700"
+      >
+        Get in Touch
+      </Link>
+    </>
   )
 }
