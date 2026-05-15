@@ -90,7 +90,20 @@ export function HeroSlider({ slides }) {
         }}
       />
 
-      <DWIBannerBadge className="w-[68px] sm:w-[88px] md:w-[110px] xl:top-[80px] xl:right-10 xl:w-[280px] 2xl:right-14 2xl:w-[330px]" />
+      {/* DWI Badge - only on first slide, animate from right */}
+      <AnimatePresence>
+        {isDWI && (
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            transition={{ duration: 1.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="pointer-events-none absolute inset-0 z-30"
+          >
+            <DWIBannerBadge className="w-[68px] sm:w-[88px] md:w-[110px] xl:top-[80px] xl:right-10 xl:w-[280px] 2xl:right-14 2xl:w-[330px]" />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ── Text content ── */}
       <div className="section-shell relative flex h-[calc(100svh-64px)] min-w-0 flex-col justify-center pt-16 pb-32 sm:pt-24 sm:pb-40">
@@ -105,7 +118,7 @@ export function HeroSlider({ slides }) {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.75, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
                 {/* Marketing eyebrow */}
                 <p className="font-condensed text-xs font-bold uppercase tracking-[0.28em] text-red-400">
@@ -164,7 +177,7 @@ export function HeroSlider({ slides }) {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.75, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
                 <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-400">
                   {slide.tag}

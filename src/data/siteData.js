@@ -98,7 +98,7 @@ export const products = [
     table: [
       ['Length', 'Up to 5.4 meters'],
       ['Pressure Classes', 'PN 10 / 16 / 25 / 40'],
-      ['Types', 'Welded / Screwed / Puddled'],
+      ['Types', 'Welded, Screwed, Puddled'],
       ['Features', 'Leak-proof joints, high pressure tolerance'],
     ],
     imagePlaceholder: 'Flanged pipe joints',

@@ -25,11 +25,23 @@ export function ProductCard({ product }) {
       <div className="h-1 w-full bg-gradient-to-r from-red-600 to-red-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
       <div className="flex flex-1 flex-col p-7">
-        {/* product image — real photo or placeholder */}
-        {realImage ? (
+        {/* product image or 3D model */}
+        {product.slug === 'di-pipes' ? (
+          <div className="mb-5 flex h-64 w-full items-center justify-center overflow-hidden rounded-xl p-2 bg-white ring-1 ring-slate-200/80 cursor-grab active:cursor-grabbing sm:h-80 md:h-96">
+            <model-viewer
+              src="/@fs/C:/Users/Ayush%20Kumar/Downloads/di-pipe2.glb"
+              auto-rotate
+              rotation-per-second="30deg"
+              camera-controls
+              shadow-intensity="1"
+              environment-image="neutral"
+              exposure="0.8"
+              style={{ width: '100%', height: '100%', filter: 'hue-rotate(25deg) brightness(0.65) saturate(1.4) contrast(1.4)' }}
+            ></model-viewer>
+          </div>
+        ) : realImage ? (
           <div
             className={`mb-5 flex h-48 w-full items-center justify-center overflow-hidden rounded-xl p-2 sm:h-52 ${
-              product.slug === 'di-pipes' ||
               product.slug === 'di-fittings' ||
               product.slug === 'di-flanged-pipes' ||
               product.slug === 'di-manhole-covers'
@@ -41,7 +53,6 @@ export function ProductCard({ product }) {
               src={realImage}
               alt={product.name}
               className={`h-full w-full transition-transform duration-300 group-hover:scale-105 ${
-                product.slug === 'di-pipes' ||
                 product.slug === 'di-fittings' ||
                 product.slug === 'di-flanged-pipes' ||
                 product.slug === 'di-manhole-covers'
@@ -69,14 +80,14 @@ export function ProductCard({ product }) {
         {product.tagline && (
           <p className="mt-1 font-condensed text-xs font-semibold uppercase tracking-[0.1em] text-red-600">{product.tagline}</p>
         )}
-        <p className="mt-3 flex-1 text-sm leading-7 text-slate-500 line-clamp-3">{product.overview}</p>
+        <p className="mt-3 flex-1 text-sm leading-7 text-slate-500">{product.overview}</p>
 
         {/* specs preview — anchored to bottom */}
         <div className="mt-auto pt-5">
-          <div className="space-y-2 rounded-lg bg-slate-50 px-4 py-3">
+          <div className="flex min-h-[108px] flex-col justify-center space-y-2 rounded-lg bg-slate-50 px-4 py-3">
             {product.table.slice(0, 3).map(([k, v]) => (
-              <div key={k} className="flex items-center justify-between gap-3 text-xs">
-                <span className="font-medium text-slate-500">{k}</span>
+              <div key={k} className="flex items-start justify-between gap-4 text-xs">
+                <span className="shrink-0 font-medium text-slate-500">{k}</span>
                 <span className="text-right font-semibold text-slate-800">{v}</span>
               </div>
             ))}

@@ -31,10 +31,10 @@ export function HomePage() {
             centered
           />
         </Reveal>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2" style={{ gridAutoRows: '1fr' }}>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {products.map((product, idx) => (
-            <Reveal key={product.slug} delay={idx * 0.07} className="h-full">
-              <ProductCard product={product} />
+            <Reveal key={product.slug} delay={idx * 0.07} className={`h-full ${idx === 0 ? 'sm:col-span-2 md:col-span-3' : 'col-span-1'}`}>
+              <ProductCard product={product} isFeatured={idx === 0} />
             </Reveal>
           ))}
         </div>
