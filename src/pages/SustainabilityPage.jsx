@@ -6,6 +6,8 @@ import { CTASection } from '../components/CTASection'
 import { DWIBannerBadge } from '../components/DWIBannerBadge'
 import { Reveal } from '../components/Reveal'
 import { SectionHeader } from '../components/SectionHeader'
+import { TextReveal } from '../components/TextReveal'
+import { CountUp } from '../components/CountUp'
 import { useSeo } from '../hooks/useSeo'
 import sustainabilityHeroBg from '../assets/sustainability-hero-bg.png'
 import waterRecyclingPhoto from '../assets/sustainability-water-recycling.png'
@@ -181,9 +183,11 @@ export function SustainabilityPage() {
           <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-400">
             Sustainability
           </p>
-          <h1 className="font-display mt-4 max-w-4xl text-4xl leading-tight text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.55)] md:text-6xl">
-            Engineering Growth. Sustaining the Future.
-          </h1>
+          <TextReveal
+            as="h1"
+            text="Engineering Growth. Sustaining the Future."
+            className="font-display mt-4 max-w-4xl text-4xl leading-tight text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.55)] md:text-6xl"
+          />
           <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 [text-shadow:0_1px_14px_rgba(0,0,0,0.45)]">
             Sustainability at Rashmi Metaliks is embedded in every tonne of steel we melt, every pipe we cast, and every community we touch. Here we share the real data behind our environmental and social performance.
           </p>
@@ -195,7 +199,7 @@ export function SustainabilityPage() {
               { value: '100+ Yrs', label: 'DI Product Lifecycle' },
             ].map(({ value, label }) => (
               <div key={label} className="text-center sm:text-left">
-                <p className="font-condensed text-2xl font-bold stat-value">{value}</p>
+                <CountUp value={value} className="block font-condensed text-2xl font-bold stat-value" />
                 <p className="mt-1 font-condensed text-[9px] font-bold uppercase tracking-[0.14em] text-slate-200 [text-shadow:0_1px_8px_rgba(0,0,0,0.45)]">{label}</p>
               </div>
             ))}
@@ -225,7 +229,7 @@ export function SustainabilityPage() {
                         <Icon size={22} />
                       </span>
                       <div>
-                        <p className="font-condensed text-3xl font-bold leading-none text-slate-900">{pillar.stat}</p>
+                        <CountUp value={pillar.stat} className="block font-condensed text-3xl font-bold leading-none text-slate-900" />
                         <p className="mt-0.5 font-condensed text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400">{pillar.statLabel}</p>
                       </div>
                     </div>
@@ -306,7 +310,11 @@ export function SustainabilityPage() {
                   { value: 'C=140', label: 'Hazen-Williams Coefficient', accent: true },
                 ].map(({ value, label, accent }) => (
                   <div key={label} className={`rounded-2xl border p-6 text-center ${accent ? 'border-red-200 bg-red-50' : 'border-slate-200 bg-slate-50'}`}>
-                    <p className="font-condensed text-3xl font-bold stat-value">{value}</p>
+                    {value === 'C=140' ? (
+                      <p className="font-condensed text-3xl font-bold stat-value">{value}</p>
+                    ) : (
+                      <CountUp value={value} className="block font-condensed text-3xl font-bold stat-value" />
+                    )}
                     <p className="mt-2 font-condensed text-[10px] font-bold uppercase leading-5 tracking-[0.1em] text-slate-500">{label}</p>
                   </div>
                 ))}

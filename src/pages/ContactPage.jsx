@@ -4,6 +4,8 @@ import { ContactForm } from '../components/ContactForm'
 import { DWIBannerBadge } from '../components/DWIBannerBadge'
 import { Reveal } from '../components/Reveal'
 import { SectionHeader } from '../components/SectionHeader'
+import { TextReveal } from '../components/TextReveal'
+import { CountUp } from '../components/CountUp'
 import { useSeo } from '../hooks/useSeo'
 
 const contactDetails = [
@@ -77,9 +79,11 @@ export function ContactPage() {
           <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-700 [text-shadow:0_1px_8px_rgba(255,255,255,0.9)]">
             Contact Us
           </p>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl leading-tight text-slate-950 [text-shadow:0_1px_0_rgba(255,255,255,0.95),0_0_20px_rgba(255,255,255,0.7)] md:text-6xl">
-            Partner with Rashmi Metaliks UK
-          </h1>
+          <TextReveal
+            as="h1"
+            text="Partner with Rashmi Metaliks UK"
+            className="font-display mt-4 max-w-3xl text-4xl leading-tight text-slate-950 [text-shadow:0_1px_0_rgba(255,255,255,0.95),0_0_20px_rgba(255,255,255,0.7)] md:text-6xl"
+          />
           <p className="mt-6 max-w-2xl text-base leading-8 text-slate-800 [text-shadow:0_1px_10px_rgba(255,255,255,0.85)]">
             Whether you're a water utility, contractor, or consultant — our UK team is ready to discuss your project requirements and deliver reliable DI solutions on time.
           </p>
@@ -158,7 +162,11 @@ export function ContactPage() {
                 { value: '50+ Countries', label: 'Active Export Markets' },
               ].map(({ value, label }) => (
                 <div key={label} className="flex flex-col items-center gap-1.5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                  <p className="font-condensed text-2xl font-bold stat-value">{value}</p>
+                  {value === 'UK-Based' || value === 'BS EN 545' ? (
+                    <p className="font-condensed text-2xl font-bold stat-value">{value}</p>
+                  ) : (
+                    <CountUp value={value} className="block font-condensed text-2xl font-bold stat-value" />
+                  )}
                   <p className="font-condensed text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">{label}</p>
                 </div>
               ))}

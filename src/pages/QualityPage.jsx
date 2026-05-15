@@ -35,6 +35,8 @@ import { CTASection } from '../components/CTASection'
 import { DWIBannerBadge } from '../components/DWIBannerBadge'
 import { Reveal } from '../components/Reveal'
 import { SectionHeader } from '../components/SectionHeader'
+import { TextReveal } from '../components/TextReveal'
+
 import { useSeo } from '../hooks/useSeo'
 
 const inProcessChecks = [
@@ -163,9 +165,11 @@ export function QualityPage() {
           <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-400 [text-shadow:0_1px_12px_rgba(0,0,0,0.35)]">
             Quality Assurance
           </p>
-          <h1 className="font-display mt-4 max-w-4xl text-3xl leading-tight text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.45)] sm:text-4xl md:text-6xl">
-            Precision Tested. Globally Trusted.
-          </h1>
+          <TextReveal
+            as="h1"
+            text="Precision Tested. Globally Trusted."
+            className="font-display mt-4 max-w-4xl text-3xl leading-tight text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.45)] sm:text-4xl md:text-6xl"
+          />
           <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-200 sm:mt-6 sm:text-base sm:leading-8 [text-shadow:0_1px_14px_rgba(0,0,0,0.4)]">
             Quality at Rashmi Metaliks is not a final inspection — it is an integrated commitment embedded across every stage of design, manufacturing, and testing. Every product leaving our Kharagpur facility is verified to meet or exceed the exacting requirements of BS EN, ISO, and UK Water Industry standards.
           </p>

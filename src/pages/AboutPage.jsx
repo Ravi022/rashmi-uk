@@ -18,6 +18,8 @@ import { DWIBannerBadge } from '../components/DWIBannerBadge'
 import { IndiaUkMap } from '../components/IndiaUkMap'
 import { Reveal } from '../components/Reveal'
 import { SectionHeader } from '../components/SectionHeader'
+import { TextReveal } from '../components/TextReveal'
+import { CountUp } from '../components/CountUp'
 import { timelineItems } from '../data/siteData'
 import { useSeo } from '../hooks/useSeo'
 
@@ -67,9 +69,11 @@ export function AboutPage() {
           <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-700">
             About Rashmi Metaliks UK
           </p>
-          <h1 className="font-display mt-4 max-w-4xl text-3xl leading-tight text-slate-950 sm:text-4xl md:text-6xl [text-shadow:0_1px_0_rgba(255,255,255,0.9),0_0_24px_rgba(255,255,255,0.75)]">
-            A Legacy of Strength. Delivering Infrastructure for the Future.
-          </h1>
+          <TextReveal
+            as="h1"
+            text="A Legacy of Strength. Delivering Infrastructure for the Future."
+            className="font-display mt-4 max-w-4xl text-3xl leading-tight text-slate-950 sm:text-4xl md:text-6xl [text-shadow:0_1px_0_rgba(255,255,255,0.9),0_0_24px_rgba(255,255,255,0.75)]"
+          />
           <p className="mt-4 max-w-2xl text-sm font-medium leading-7 text-slate-800 sm:mt-6 sm:text-base sm:leading-8 [text-shadow:0_1px_12px_rgba(255,255,255,0.85)]">
             From India to the United Kingdom — engineering reliable, high-performance ductile iron solutions for critical infrastructure across the globe.
           </p>
@@ -101,7 +105,7 @@ export function AboutPage() {
                   { value: '20K+', label: 'Global Workforce' },
                 ].map(({ value, label }, i) => (
                   <div key={label} className="rounded-2xl border border-slate-200 bg-white p-6 text-center">
-                    <p className="font-condensed text-3xl font-bold stat-value">{value}</p>
+                    <CountUp value={value} className="font-condensed text-3xl font-bold stat-value" />
                     <p className="mt-2 font-condensed text-[10px] font-bold uppercase leading-5 tracking-[0.1em] text-slate-500">{label}</p>
                   </div>
                 ))}

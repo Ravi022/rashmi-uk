@@ -5,6 +5,8 @@ import { DWIBannerBadge } from '../components/DWIBannerBadge'
 import { IndiaUkMap } from '../components/IndiaUkMap'
 import { Reveal } from '../components/Reveal'
 import { SectionHeader } from '../components/SectionHeader'
+import { TextReveal } from '../components/TextReveal'
+import { CountUp } from '../components/CountUp'
 import { WorldMap } from '../components/WorldMap'
 import { regionalOffices } from '../data/siteData'
 import { useSeo } from '../hooks/useSeo'
@@ -102,9 +104,11 @@ export function GlobalPresencePage() {
           <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-sky-400 [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
             Global Presence
           </p>
-          <h1 className="font-display mt-4 max-w-4xl text-4xl leading-tight text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.5)] md:text-6xl">
-            Connecting Infrastructure Across the Globe
-          </h1>
+          <TextReveal
+            as="h1"
+            text="Connecting Infrastructure Across the Globe"
+            className="font-display mt-4 max-w-4xl text-4xl leading-tight text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.5)] md:text-6xl"
+          />
           <p className="mt-6 max-w-2xl text-base leading-8 text-slate-200 [text-shadow:0_1px_14px_rgba(0,0,0,0.45)]">
             With manufacturing in India and commercial operations across the UK, Europe, Middle East, Africa, and Asia — Rashmi Metaliks delivers world-class DI infrastructure to every major market. Our global network is built for reliability, speed, and total project support.
           </p>
@@ -121,7 +125,7 @@ export function GlobalPresencePage() {
                   <span className="inline-flex rounded-xl border border-red-200 bg-red-50 p-3 text-red-600">
                     <Icon size={20} />
                   </span>
-                  <p className="font-condensed text-3xl font-bold stat-value">{value}</p>
+                  <CountUp value={value} className="block font-condensed text-3xl font-bold stat-value" />
                   <p className="font-condensed text-[10px] font-bold uppercase tracking-[0.12em] text-slate-500">{label}</p>
                 </div>
               </Reveal>

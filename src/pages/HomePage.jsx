@@ -4,6 +4,7 @@ import { HeroSlider } from '../components/HeroSlider'
 import { ProductCard } from '../components/ProductCard'
 import { Reveal } from '../components/Reveal'
 import { SectionHeader } from '../components/SectionHeader'
+import { CountUp } from '../components/CountUp'
 import { heroSlides, products, industries, processSteps } from '../data/siteData'
 import { useSeo } from '../hooks/useSeo'
 import { WhyChooseUsSection } from '../sections/WhyChooseUsSection'
@@ -85,7 +86,7 @@ export function HomePage() {
                 { value: 'USD 5B', label: 'Rashmi Group Revenue' },
               ].map(({ value, label }) => (
                 <div key={label} className="rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-sm sm:p-5">
-                  <p className="font-condensed text-xl font-bold stat-value sm:text-2xl">{value}</p>
+                  <CountUp value={value} className="block font-condensed text-xl font-bold stat-value sm:text-2xl" />
                   <p className="mt-1.5 font-condensed text-[9px] font-bold uppercase leading-5 tracking-[0.1em] text-slate-500 sm:text-[10px]">{label}</p>
                 </div>
               ))}

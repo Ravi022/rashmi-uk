@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Cylinder } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -15,11 +16,30 @@ const productImageMap = {
 
 export function ProductCard({ product }) {
   const realImage = productImageMap[product.slug]
+  const modelRef = useRef()
+
+  useEffect(() => {
+    if (product.slug === 'di-pipes' && modelRef.current) {
+      const applyColor = () => {
+        const material = modelRef.current.model?.materials[0]
+        if (material) {
+          // Set to DarkBlue #00008B [0, 0, 139/255, 1]
+          material.pbrMetallicRoughness.setBaseColorFactor([0, 0, 0.545, 1])
+        }
+      }
+
+      if (modelRef.current.model) {
+        applyColor()
+      } else {
+        modelRef.current.addEventListener('load', applyColor)
+      }
+    }
+  }, [product.slug])
 
   return (
     <motion.article
       whileHover={{ y: -6 }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg hover:border-red-200"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg hover:border-red-200 card-tilt"
     >
       {/* top accent bar */}
       <div className="h-1 w-full bg-gradient-to-r from-red-600 to-red-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -29,14 +49,17 @@ export function ProductCard({ product }) {
         {product.slug === 'di-pipes' ? (
           <div className="mb-5 flex h-64 w-full items-center justify-center overflow-hidden rounded-xl p-2 bg-white ring-1 ring-slate-200/80 cursor-grab active:cursor-grabbing sm:h-80 md:h-96">
             <model-viewer
+              ref={modelRef}
               src="/@fs/C:/Users/Ayush%20Kumar/Downloads/di-pipe2.glb"
               auto-rotate
               rotation-per-second="30deg"
               camera-controls
+              disable-zoom
               shadow-intensity="1"
               environment-image="neutral"
-              exposure="0.8"
-              style={{ width: '100%', height: '100%', filter: 'hue-rotate(25deg) brightness(0.65) saturate(1.4) contrast(1.4)' }}
+              exposure="1.0"
+              scale="1.4 1.4 1.4"
+              style={{ width: '100%', height: '100%' }}
             ></model-viewer>
           </div>
         ) : realImage ? (

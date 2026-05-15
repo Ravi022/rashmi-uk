@@ -1,6 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap');
 @import 'tailwindcss';
 
+@theme {
+  /* Union Jack Red (#C8102E) */
+  --color-red-50: #fdf3f4;
+  --color-red-100: #fbe4e7;
+  --color-red-200: #f5c4cb;
+  --color-red-300: #ee9aa6;
+  --color-red-400: #e46577;
+  --color-red-500: #d73b52;
+  --color-red-600: #C8102E;
+  --color-red-700: #a70a22;
+  --color-red-800: #8c0b20;
+  --color-red-900: #760e1f;
+  --color-red-950: #42030d;
+
+  /* Union Jack Blue (#012169) */
+  --color-blue-50: #f2f5fb;
+  --color-blue-100: #e1e9f6;
+  --color-blue-200: #c8d9ee;
+  --color-blue-300: #a0c0e2;
+  --color-blue-400: #729fd2;
+  --color-blue-500: #5082c3;
+  --color-blue-600: #3b66ab;
+  --color-blue-700: #30518d;
+  --color-blue-800: #2a4475;
+  --color-blue-900: #012169;
+  --color-blue-950: #011646;
+
+  /* Adjust slate to be more in line with the deep UK Blue for dark themes */
+  --color-slate-900: #021a52;
+  --color-slate-950: #01123a;
+
+  /* Force all standard body text shades to solid black */
+  --color-slate-400: #000000;
+  --color-slate-500: #000000;
+  --color-slate-600: #000000;
+  --color-slate-700: #000000;
+  --color-slate-800: #000000;
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
@@ -8,14 +47,14 @@ html {
 
 :root {
   font-family: 'Barlow', sans-serif;
-  color: #1e3040;
+  color: #000000;
   background: #f5f8fb;
 }
 
 body {
   margin: 0;
   background: #f5f8fb;
-  color: #1e3040;
+  color: #000000;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   overscroll-behavior: contain;
@@ -38,7 +77,25 @@ body {
 }
 
 .section-shell {
-  @apply mx-auto w-full min-w-0 max-w-7xl px-3 sm:px-6 lg:px-12;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  min-width: 0;
+  max-width: 80rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+@media (min-width: 640px) {
+  .section-shell {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-shell {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
 h1,
@@ -63,7 +120,7 @@ h4 {
 
 /* ── Stat value gradient — red brand numbers ── */
 .stat-value {
-  background: linear-gradient(135deg, #dc2626, #991b1b);
+  background: linear-gradient(135deg, #C8102E, #8c0b20);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -137,4 +194,92 @@ img {
   background: linear-gradient(105deg, transparent 40%, rgba(147,197,253,0.18) 50%, transparent 60%);
   background-size: 200% auto;
   animation: dwi-shimmer-sweep 3.5s linear infinite;
+}
+
+/* ── Premium Animations & Micro-interactions ── */
+
+/* Floating elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Gentle pulse for badges/icons */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Shimmer for loading/accent */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Gradient shift for backgrounds */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Draw line — for decorative accents */
+@keyframes draw-line {
+  0% { width: 0; }
+  100% { width: var(--line-target, 3rem); }
+}
+
+/* Card tilt on hover (subtle 3D) */
+.card-tilt {
+  transition: transform 400ms ease;
+  transform-style: preserve-3d;
+}
+.card-tilt:hover {
+  transform: perspective(800px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
+}
+
+/* Magnetic button pull effect — enhanced */
+.btn-magnetic {
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Image container overflow zoom */
+.img-zoom-container {
+  overflow: hidden;
+}
+.img-zoom-container img {
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-zoom-container:hover img {
+  transform: scale(1.06);
+}
+
+/* Underline grow on hover */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 300ms ease;
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Accent line that grows on scroll-into-view */
+.accent-line {
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, #C8102E, #d73b52);
+  border-radius: 9999px;
+  transition: width 800ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.accent-line.in-view {
+  width: 3rem;
 }

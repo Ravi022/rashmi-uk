@@ -10,6 +10,7 @@ import { products } from '../data/siteData'
 import { useSeo } from '../hooks/useSeo'
 import { ShieldCheck, ChevronRight } from 'lucide-react'
 import { Reveal } from '../components/Reveal'
+import { TextReveal } from '../components/TextReveal'
 import manholeRound from '../assets/manhole-cover-round.png'
 import manholeFront from '../assets/manhole-cover-front.png'
 import manholeSquare from '../assets/manhole-cover-square.png'
@@ -193,15 +194,15 @@ export function ProductDetailPage() {
           >
             Rashmi Metaliks UK Limited
           </p>
-          <h1
+          <TextReveal
+            as="h1"
+            text={product.name}
             className={`font-display mt-4 text-3xl leading-tight sm:text-4xl md:text-6xl ${
               photoHero
                 ? 'text-slate-950 [text-shadow:0_1px_0_rgba(255,255,255,0.9),0_0_24px_rgba(255,255,255,0.75)]'
                 : 'text-white'
             }`}
-          >
-            {product.name}
-          </h1>
+          />
           <p
             className={`mt-4 max-w-2xl text-sm font-medium leading-7 sm:mt-5 sm:text-base sm:leading-8 ${
               photoHero

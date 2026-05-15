@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { TextReveal } from './TextReveal'
 
 const EASE = [0.16, 1, 0.3, 1]
 
@@ -35,15 +36,14 @@ export function SectionHeader({ label, title, subtitle, centered = false, compac
       >
         {label}
       </motion.p>
-      <motion.h2
-        variants={item}
-        className={`font-display font-bold tracking-tight text-3xl leading-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl ${compact ? 'mt-1.5' : 'mt-2'}`}
-      >
-        {title}
-      </motion.h2>
+      <TextReveal
+        as="h2"
+        text={title}
+        className={`font-display font-bold tracking-tight text-3xl leading-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl ${compact ? 'mt-1.5' : 'mt-2'} ${centered ? 'justify-center text-center mx-auto' : ''}`}
+      />
       {subtitle ? (
         <motion.p
-          variants={item}
+          variants={{ ...item, hidden: { ...item.hidden, filter: 'blur(8px)' }, show: { ...item.show, filter: 'blur(0px)' } }}
           className={`max-w-2xl text-sm text-slate-600 ${compact ? 'mt-2.5 leading-6' : 'mt-4 leading-7'} ${centered ? 'mx-auto' : ''}`}
         >
           {subtitle}

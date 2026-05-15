@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { ChevronRight, ChevronLeft, ShieldCheck, Droplets, CheckCircle } from 'lucide-react'
 import { MagneticButton } from './MagneticButton'
 import { DWIBannerBadge } from './DWIBannerBadge'
+import { TextReveal } from './TextReveal'
+import { CountUp } from './CountUp'
 import heroPipes from '../assets/hero-pipes.jpg'
 import heroCasting from '../assets/hero-casting.jpg'
 import heroFittings from '../assets/hero-fittings.png'
@@ -126,10 +128,11 @@ export function HeroSlider({ slides }) {
                 </p>
 
                 {/* Headline */}
-                <h1 className="font-display mt-3 text-4xl leading-[1.06] tracking-tight text-white sm:text-5xl md:text-5xl lg:text-7xl">
-                  Engineered for Trust.{' '}
-                  <span className="text-red-400">Approved for the UK.</span>
-                </h1>
+                <TextReveal
+                  as="h1"
+                  text="Engineered for Trust. Approved for the UK."
+                  className="font-display mt-3 text-4xl leading-[1.06] tracking-tight text-white sm:text-5xl md:text-5xl lg:text-7xl"
+                />
 
                 {/* Subtitle */}
                 <p className="mt-4 max-w-lg text-sm leading-7 text-slate-200 sm:mt-5 sm:text-base sm:leading-8">
@@ -182,9 +185,11 @@ export function HeroSlider({ slides }) {
                 <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-400">
                   {slide.tag}
                 </p>
-                <h1 className="font-display mt-3 text-4xl leading-[1.1] tracking-tight text-white sm:mt-4 sm:text-4xl md:text-5xl lg:text-7xl">
-                  {slide.title}
-                </h1>
+                <TextReveal
+                  as="h1"
+                  text={slide.title}
+                  className="font-display mt-3 text-4xl leading-[1.1] tracking-tight text-white sm:mt-4 sm:text-4xl md:text-5xl lg:text-7xl"
+                />
                 <p className="mt-4 max-w-xl text-sm leading-7 text-slate-200 sm:mt-6 sm:text-base sm:leading-8 md:text-lg">
                   {slide.subtitle}
                 </p>
@@ -239,7 +244,7 @@ export function HeroSlider({ slides }) {
                   i === 4 ? 'col-span-2 border-t border-white/10 sm:col-span-1 sm:border-t-0 sm:pr-32' : ''
                 }`}
               >
-                <p className="font-condensed text-lg font-bold leading-none text-red-400 sm:text-2xl">{s.value}</p>
+                <CountUp value={s.value} className="block font-condensed text-lg font-bold leading-none text-red-400 sm:text-2xl" />
                 <p className="mt-1 max-w-[11rem] break-words text-[8px] font-bold uppercase tracking-[0.12em] text-slate-400 sm:mt-1.5 sm:max-w-none sm:text-[9px] sm:tracking-[0.14em]">
                   {s.label}
                 </p>
