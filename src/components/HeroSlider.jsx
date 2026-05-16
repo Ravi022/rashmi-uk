@@ -123,7 +123,7 @@ export function HeroSlider({ slides }) {
                 transition={{ duration: 0.75, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
                 {/* Marketing eyebrow */}
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.28em] text-red-400">
+                <p className="font-condensed text-sm font-bold uppercase tracking-[0.28em] text-red-400">
                   Official Announcement · UK Water Infrastructure
                 </p>
 
@@ -161,13 +161,13 @@ export function HeroSlider({ slides }) {
                 <div className="mt-8 flex flex-wrap items-center gap-6 sm:gap-8">
                   <MagneticButton
                     to="/products"
-                    className="bronze-glow inline-flex items-center gap-2 rounded-lg bg-red-600 px-5 py-3 font-condensed text-xs font-bold uppercase tracking-[0.1em] text-white hover:bg-red-700 sm:px-7 sm:py-3.5 sm:text-sm"
+                    className="bronze-glow inline-flex items-center gap-2 rounded-lg bg-red-600 px-5 py-3 font-condensed text-sm font-bold uppercase tracking-[0.1em] text-white hover:bg-red-700 sm:px-7 sm:py-3.5 sm:text-sm"
                   >
                     Explore Products <ChevronRight size={14} />
                   </MagneticButton>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-5 py-3 font-condensed text-xs font-bold uppercase tracking-[0.1em] text-white backdrop-blur-sm transition hover:border-white/50 hover:bg-white/15 sm:px-7 sm:py-3.5 sm:text-sm"
+                    className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-5 py-3 font-condensed text-sm font-bold uppercase tracking-[0.1em] text-white backdrop-blur-sm transition hover:border-white/50 hover:bg-white/15 sm:px-7 sm:py-3.5 sm:text-sm"
                   >
                     Request Consultation
                   </Link>
@@ -182,7 +182,7 @@ export function HeroSlider({ slides }) {
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.75, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-400">
+                <p className="font-condensed text-sm font-bold uppercase tracking-[0.22em] text-red-400">
                   {slide.tag}
                 </p>
                 <TextReveal
@@ -198,13 +198,13 @@ export function HeroSlider({ slides }) {
                 <div className="mt-8 flex flex-wrap items-center gap-6 sm:gap-8">
                   <MagneticButton
                     to={slide.ctaTo || '/products'}
-                    className="bronze-glow inline-flex items-center gap-2 rounded-lg bg-red-600 px-5 py-3 font-condensed text-xs font-bold uppercase tracking-[0.1em] text-white hover:bg-red-700 sm:px-7 sm:py-3.5 sm:text-sm"
+                    className="bronze-glow inline-flex items-center gap-2 rounded-lg bg-red-600 px-5 py-3 font-condensed text-sm font-bold uppercase tracking-[0.1em] text-white hover:bg-red-700 sm:px-7 sm:py-3.5 sm:text-sm"
                   >
                     {slide.cta || 'Explore Products'} <ChevronRight size={14} />
                   </MagneticButton>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-5 py-3 font-condensed text-xs font-bold uppercase tracking-[0.1em] text-white backdrop-blur-sm transition hover:border-white/50 hover:bg-white/15 sm:px-7 sm:py-3.5 sm:text-sm"
+                    className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-5 py-3 font-condensed text-sm font-bold uppercase tracking-[0.1em] text-white backdrop-blur-sm transition hover:border-white/50 hover:bg-white/15 sm:px-7 sm:py-3.5 sm:text-sm"
                   >
                     Request Consultation
                   </Link>
@@ -245,7 +245,7 @@ export function HeroSlider({ slides }) {
                 }`}
               >
                 <CountUp value={s.value} className="block font-condensed text-lg font-bold leading-none text-red-400 sm:text-2xl" />
-                <p className="mt-1 max-w-[11rem] break-words text-[8px] font-bold uppercase tracking-[0.12em] text-slate-400 sm:mt-1.5 sm:max-w-none sm:text-[9px] sm:tracking-[0.14em]">
+                <p className="mt-1 max-w-[11rem] break-words text-[8px] font-bold uppercase tracking-[0.12em] text-white/70 sm:mt-1.5 sm:max-w-none sm:text-[9px] sm:tracking-[0.14em]">
                   {s.label}
                 </p>
               </div>

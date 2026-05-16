@@ -1,4 +1,5 @@
 import { Factory, Globe2, Award, Users, Layers, FlaskConical, CheckCircle, Building2, TrendingUp, Globe, Star, Rocket } from 'lucide-react'
+import { motion } from 'framer-motion'
 import aboutHeroRashmiGroup from '../assets/about-hero-rashmi-group.png'
 import mfgFurnaceSparks from '../assets/mfg-furnace-sparks.jpg'
 import mfgMoltenPour from '../assets/mfg-molten-pour.jpg'
@@ -54,44 +55,111 @@ export function AboutPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative min-h-[300px] overflow-hidden pb-16 pt-20 sm:min-h-[360px] sm:pb-20 sm:pt-24">
+      <section className="relative min-h-[380px] overflow-hidden pb-20 pt-24 sm:min-h-[460px] sm:pb-28 sm:pt-32">
+        {/* Background image — Ken Burns slow zoom */}
         <img
           src={aboutHeroRashmiGroup}
           alt=""
           aria-hidden
-          className="absolute inset-0 h-full w-full object-cover object-[center_35%] sm:object-[center_32%]"
+          className="absolute inset-0 h-full w-full object-cover object-[center_40%]"
+          style={{
+            filter: 'brightness(0.9) saturate(1.05)',
+            animation: 'about-kenburns 14s ease-in-out infinite alternate',
+          }}
         />
-        {/* Light left scrim — strong band under copy; fades so photo stays visible on the right */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/95 via-white/58 to-transparent sm:from-white/92 sm:via-white/42" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-white/22" />
+
+        {/* Minimal dark vignette just for text legibility — left side only */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(105deg, rgba(1,18,70,0.5) 0%, rgba(1,18,70,0.25) 40%, rgba(1,18,70,0.05) 70%, transparent 100%)',
+          }}
+        />
+        {/* Bottom vignette */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#01123a]/40 via-transparent to-transparent" />
+        {/* Top thin red rule */}
+        <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-red-700 via-red-600 to-transparent" />
+
         <DWIBannerBadge wideHeading />
-        <div className="section-shell relative max-w-[min(100%,42rem)] sm:max-w-none">
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-700">
+
+        <div className="section-shell relative max-w-[min(100%,46rem)] sm:max-w-none">
+
+          {/* Label */}
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="inline-flex items-center gap-2 rounded-full border border-red-500/40 bg-red-600/20 px-3 py-1 font-condensed text-[10px] font-bold uppercase tracking-[0.22em] text-red-200 backdrop-blur-sm"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-red-400" />
             About Rashmi Metaliks UK
-          </p>
-          <TextReveal
-            as="h1"
-            text="A Legacy of Strength. Delivering Infrastructure for the Future."
-            className="font-display mt-4 max-w-4xl text-3xl leading-tight text-slate-950 sm:text-4xl md:text-6xl [text-shadow:0_1px_0_rgba(255,255,255,0.9),0_0_24px_rgba(255,255,255,0.75)]"
-          />
-          <p className="mt-4 max-w-2xl text-sm font-medium leading-7 text-slate-800 sm:mt-6 sm:text-base sm:leading-8 [text-shadow:0_1px_12px_rgba(255,255,255,0.85)]">
+          </motion.span>
+
+          {/* Headline */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-4"
+          >
+            <TextReveal
+              as="h1"
+              text="A Legacy of Strength. Delivering Infrastructure for the Future."
+              className="font-display max-w-4xl text-3xl leading-tight text-white sm:text-4xl md:text-6xl [text-shadow:0_2px_20px_rgba(1,18,70,0.8)]"
+            />
+          </motion.div>
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-5 max-w-2xl text-sm leading-8 text-slate-200 sm:mt-6 sm:text-base [text-shadow:0_1px_12px_rgba(1,18,70,0.7)]"
+          >
             From India to the United Kingdom — engineering reliable, high-performance ductile iron solutions for critical infrastructure across the globe.
-          </p>
+          </motion.p>
+
+          {/* Quick stats bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-8 flex flex-wrap gap-6 border-t border-white/20 pt-7"
+          >
+            {[
+              { value: 'USD 5B', label: 'Rashmi Group' },
+              { value: '#2', label: 'World DI Producer' },
+              { value: '50+', label: 'Countries' },
+              { value: '2004', label: 'Est.' },
+            ].map(({ value, label }) => (
+              <div key={label} className="text-left">
+                <p className="font-condensed text-2xl font-bold text-white [text-shadow:0_2px_12px_rgba(1,18,70,0.6)] sm:text-3xl">{value}</p>
+                <p className="mt-0.5 font-condensed text-[9px] font-bold uppercase tracking-[0.16em] text-slate-300">{label}</p>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
+
+
 
       {/* ── Company Overview ── */}
       <section className="py-16 bg-white sm:py-24">
         <div className="section-shell">
-          <div className="grid gap-10 lg:gap-16 lg:grid-cols-2 lg:items-start">
+
+          {/* Heading — full width at top */}
+          <Reveal>
+            <SectionHeader label="Company Overview" title="A USD 5 Billion Global Conglomerate" />
+          </Reveal>
+
+          {/* Body text + stat grid side by side */}
+          <div className="mt-10 grid gap-10 lg:gap-16 lg:grid-cols-2 lg:items-center">
             <Reveal>
-              <div>
-                <SectionHeader label="Company Overview" title="A USD 5 Billion Global Conglomerate" />
-                <div className="mt-6 space-y-5 text-sm leading-8 text-slate-600">
+              <div className="space-y-5 text-sm leading-8 text-slate-600">
                   <p>Rashmi Metaliks Ltd. is the flagship company of the USD 5 billion Rashmi Group — a globally recognised conglomerate with diversified operations across iron & steel, cement, power, and infrastructure solutions.</p>
                   <p>Established in 2004, Rashmi Metaliks has rapidly emerged as India's largest and the world's second-largest manufacturer of ductile iron pipes, delivering high-performance pipeline solutions across more than 50 countries.</p>
                   <p>With a fully integrated steel manufacturing ecosystem, the company ensures complete control over raw materials, production processes, and quality — resulting in consistent, reliable, and globally compliant products.</p>
-                </div>
               </div>
             </Reveal>
             <Reveal delay={0.06}>
@@ -104,7 +172,7 @@ export function AboutPage() {
                   { value: '#2', label: "World's Largest DI Mfr." },
                   { value: '20K+', label: 'Global Workforce' },
                 ].map(({ value, label }, i) => (
-                  <div key={label} className="rounded-2xl border border-slate-200 bg-white p-6 text-center">
+                  <div key={label} className="rounded-2xl border border-slate-200 bg-white p-6 text-center card-red-hover">
                     <CountUp value={value} className="font-condensed text-3xl font-bold stat-value" />
                     <p className="mt-2 font-condensed text-[10px] font-bold uppercase leading-5 tracking-[0.1em] text-slate-500">{label}</p>
                   </div>
@@ -119,13 +187,13 @@ export function AboutPage() {
       <section className="border-t border-slate-100 bg-slate-50 py-20">
         <div className="section-shell">
           <Reveal>
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-              <div>
-                <SectionHeader label="The Rashmi Group" title="The Legacy of Rashmi Group" />
-                <div className="mt-6 space-y-5 text-sm leading-8 text-slate-600">
-                  <p>Founded with a vision of industrial excellence, Rashmi Group has grown into a global powerhouse with a strong presence across continents. With operations spanning over 50 countries and a workforce of more than 20,000, the group has built its reputation on innovation, integrity, and long-term value creation.</p>
-                  <p>From steel and cement to advanced manufacturing and infrastructure solutions, Rashmi Group has consistently contributed to nation-building and global development. Its integrated approach to manufacturing, combined with sustainable practices and technological advancement, has positioned it as a trusted partner for large-scale infrastructure projects worldwide.</p>
-                </div>
+            <SectionHeader label="The Rashmi Group" title="The Legacy of Rashmi Group" />
+          </Reveal>
+          <Reveal>
+            <div className="mt-10 grid gap-12 lg:grid-cols-2 lg:items-center">
+              <div className="space-y-5 text-sm leading-8 text-slate-600">
+                <p>Founded with a vision of industrial excellence, Rashmi Group has grown into a global powerhouse with a strong presence across continents. With operations spanning over 50 countries and a workforce of more than 20,000, the group has built its reputation on innovation, integrity, and long-term value creation.</p>
+                <p>From steel and cement to advanced manufacturing and infrastructure solutions, Rashmi Group has consistently contributed to nation-building and global development. Its integrated approach to manufacturing, combined with sustainable practices and technological advancement, has positioned it as a trusted partner for large-scale infrastructure projects worldwide.</p>
               </div>
               <div className="w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-3 shadow-sm">
                 <img
@@ -143,13 +211,13 @@ export function AboutPage() {
       <section className="py-16 bg-white sm:py-24">
         <div className="section-shell">
           <Reveal>
-            <SectionHeader label="Our Manufacturing Strength" title="The Rise of Rashmi Metaliks" subtitle="Backed by state-of-the-art facilities in Kharagpur, India, the company operates one of the most advanced integrated steel plants in the region." centered />
+            <SectionHeader label="Our Manufacturing Strength" title="The Rise of Rashmi Metaliks" subtitle="Backed by state-of-the-art facilities in Kharagpur, India, the company operates one of the most advanced integrated steel plants in the region." />
           </Reveal>
           <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:items-stretch">
             {/* Capacity cards */}
             <Reveal delay={0.05}>
-              <div className="rounded-3xl border border-red-200 bg-red-50 p-8 h-full">
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.18em] text-red-600">Annual Production Capacity</p>
+              <div className="rounded-3xl border border-red-200 bg-red-50 p-8 h-full card-red-hover">
+                <p className="font-condensed text-sm font-bold uppercase tracking-[0.18em] text-red-600">Annual Production Capacity</p>
                 <div className="mt-6 space-y-5">
                   <div className="flex items-end gap-3">
                     <p className="font-condensed text-5xl font-bold stat-value">2.4M</p>
@@ -171,8 +239,8 @@ export function AboutPage() {
             </Reveal>
             {/* Manufacturing strengths */}
             <Reveal delay={0.08}>
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 h-full">
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.18em] text-slate-500 mb-5">Manufacturing Strength Backed By</p>
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 h-full card-red-hover">
+                <p className="font-condensed text-sm font-bold uppercase tracking-[0.18em] text-slate-500 mb-5">Manufacturing Strength Backed By</p>
                 <ul className="space-y-3">
                   {manufacturingStrengths.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm leading-6 text-slate-700">
@@ -215,47 +283,51 @@ export function AboutPage() {
               label="Stockyard & Logistics"
               title="Ready to Ship. Stocked for Scale."
               subtitle="Our extensive on-site stockyard holds thousands of metric tonnes of DI pipes and fittings ready for rapid dispatch — ensuring project timelines are met without compromise."
-              centered
             />
           </Reveal>
-          <div className="mt-12 overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-            <div className="grid gap-0 md:auto-rows-[220px] md:grid-cols-3">
-              <Reveal delay={0.02} className="md:col-span-2 md:row-span-2">
-                <div className="h-[420px] overflow-hidden bg-slate-100 md:h-full">
-                  <img src={stockyardLogistics6} alt="Large stockyard lot of wrapped DI pipes in warehouse" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
-                </div>
-              </Reveal>
-              <Reveal delay={0.04}>
-                <div className="h-[220px] overflow-hidden bg-slate-100 md:h-full">
-                  <img src={stockyardLogistics1} alt="Stacked DI pipe lengths ready for loading" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
-                </div>
-              </Reveal>
-              <Reveal delay={0.06}>
-                <div className="h-[220px] overflow-hidden bg-slate-100 md:h-full">
-                  <img src={stockyardLogistics3} alt="Wrapped DI pipe bundles in warehouse for dispatch" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
-                </div>
-              </Reveal>
-              <Reveal delay={0.08}>
-                <div className="h-[220px] overflow-hidden bg-slate-100 md:h-full">
-                  <img src={stockyardLogistics4} alt="Truck loaded with bundled DI pipes indoors" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
-                </div>
-              </Reveal>
-              <Reveal delay={0.1}>
-                <div className="h-[220px] overflow-hidden bg-slate-100 md:h-full">
-                  <img src={stockyardLogistics5} alt="Front view of loaded DI pipes prepared for shipment" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
-                </div>
-              </Reveal>
-              <Reveal delay={0.12}>
-                <div className="h-[220px] overflow-hidden bg-slate-100 md:h-full">
-                  <img src={stockyardLogistics2} alt="DI pipes loaded on truck at logistics yard" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
-                </div>
-              </Reveal>
-              <Reveal delay={0.14} className="md:col-span-3 md:row-span-3">
-                <div className="h-[420px] overflow-hidden bg-slate-100 md:h-full">
-                  <img src={stockyardLogistics7} alt="Outdoor logistics dispatch with DI pipes on trailers" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
-                </div>
-              </Reveal>
-            </div>
+          <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:auto-rows-[240px] md:grid-cols-4">
+            <Reveal delay={0.02} className="sm:col-span-2 md:col-span-2 md:row-span-2">
+              <div className="group relative h-[320px] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-sm md:h-full">
+                <div className="pointer-events-none absolute inset-0 z-10 bg-slate-900/10 transition-colors duration-500 group-hover:bg-transparent" />
+                <img src={stockyardLogistics6} alt="Large stockyard lot of wrapped DI pipes in warehouse" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+              </div>
+            </Reveal>
+            <Reveal delay={0.04} className="sm:col-span-1 md:col-span-1 md:row-span-1">
+              <div className="group relative h-[240px] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-sm md:h-full">
+                <div className="pointer-events-none absolute inset-0 z-10 bg-slate-900/10 transition-colors duration-500 group-hover:bg-transparent" />
+                <img src={stockyardLogistics1} alt="Stacked DI pipe lengths ready for loading" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+              </div>
+            </Reveal>
+            <Reveal delay={0.06} className="sm:col-span-1 md:col-span-1 md:row-span-1">
+              <div className="group relative h-[240px] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-sm md:h-full">
+                <div className="pointer-events-none absolute inset-0 z-10 bg-slate-900/10 transition-colors duration-500 group-hover:bg-transparent" />
+                <img src={stockyardLogistics3} alt="Wrapped DI pipe bundles in warehouse for dispatch" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+              </div>
+            </Reveal>
+            <Reveal delay={0.08} className="sm:col-span-2 md:col-span-2 md:row-span-1">
+              <div className="group relative h-[240px] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-sm md:h-full">
+                <div className="pointer-events-none absolute inset-0 z-10 bg-slate-900/10 transition-colors duration-500 group-hover:bg-transparent" />
+                <img src={stockyardLogistics4} alt="Truck loaded with bundled DI pipes indoors" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+              </div>
+            </Reveal>
+            <Reveal delay={0.10} className="sm:col-span-1 md:col-span-1 md:row-span-1">
+              <div className="group relative h-[240px] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-sm md:h-full">
+                <div className="pointer-events-none absolute inset-0 z-10 bg-slate-900/10 transition-colors duration-500 group-hover:bg-transparent" />
+                <img src={stockyardLogistics5} alt="Front view of loaded DI pipes prepared for shipment" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+              </div>
+            </Reveal>
+            <Reveal delay={0.12} className="sm:col-span-1 md:col-span-1 md:row-span-1">
+              <div className="group relative h-[240px] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-sm md:h-full">
+                <div className="pointer-events-none absolute inset-0 z-10 bg-slate-900/10 transition-colors duration-500 group-hover:bg-transparent" />
+                <img src={stockyardLogistics2} alt="DI pipes loaded on truck at logistics yard" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+              </div>
+            </Reveal>
+            <Reveal delay={0.14} className="sm:col-span-2 md:col-span-2 md:row-span-1">
+              <div className="group relative h-[320px] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-sm md:h-full">
+                <div className="pointer-events-none absolute inset-0 z-10 bg-slate-900/10 transition-colors duration-500 group-hover:bg-transparent" />
+                <img src={stockyardLogistics7} alt="Outdoor logistics dispatch with DI pipes on trailers" className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110" />
+              </div>
+            </Reveal>
           </div>
           <Reveal delay={0.08}>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -264,9 +336,9 @@ export function AboutPage() {
                 { value: '48 hrs', label: 'Dispatch Lead Time', detail: 'Rapid turnaround from order confirmation to loading — minimising project delays' },
                 { value: '50+ Countries', label: 'Export Reach', detail: 'Pipes and fittings shipped globally via major ports with full documentation' },
               ].map((item) => (
-                <div key={item.label} className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
+                <div key={item.label} className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center card-red-hover">
                   <p className="font-condensed text-3xl font-bold stat-value">{item.value}</p>
-                  <p className="mt-1 font-condensed text-xs font-bold uppercase tracking-[0.1em] text-slate-700">{item.label}</p>
+                  <p className="mt-1 font-condensed text-sm font-bold uppercase tracking-[0.1em] text-slate-700">{item.label}</p>
                   <p className="mt-2 text-xs leading-5 text-slate-500">{item.detail}</p>
                 </div>
               ))}
@@ -279,7 +351,7 @@ export function AboutPage() {
       <section className="border-t border-b border-slate-100 bg-slate-50 py-20 overflow-hidden">
         <div className="section-shell">
           <Reveal>
-            <SectionHeader label="Our Journey" title="Two Decades of Growth" subtitle="From a single manufacturing facility to a global infrastructure supply powerhouse." centered />
+            <SectionHeader label="Our Journey" title="Two Decades of Growth" subtitle="From a single manufacturing facility to a global infrastructure supply powerhouse." />
           </Reveal>
 
           <div className="mt-16 relative">
@@ -319,7 +391,7 @@ export function AboutPage() {
                                 <Icon size={18} className="text-white" />
                               </div>
                               <div className="flex-1 min-w-0">
-                                <p className="font-condensed text-xs font-bold uppercase tracking-[0.18em] text-red-600">{item.year}</p>
+                                <p className="font-condensed text-sm font-bold uppercase tracking-[0.18em] text-red-600">{item.year}</p>
                                 <h3 className="font-display mt-1 text-xl text-slate-900">{item.title}</h3>
                                 <p className="mt-2 text-sm leading-7 text-slate-600">{item.description}</p>
                               </div>
@@ -347,14 +419,14 @@ export function AboutPage() {
       <section className="py-24 bg-white">
         <div className="section-shell">
           <Reveal>
-            <SectionHeader label="UK Market" title="Expanding into the United Kingdom" subtitle="The United Kingdom is undergoing significant infrastructure modernisation — in water distribution, wastewater management, and urban road safety. Rashmi Metaliks UK Limited has been established to directly support these evolving requirements." centered />
+            <SectionHeader label="UK Market" title="Expanding into the United Kingdom" subtitle="The United Kingdom is undergoing significant infrastructure modernisation — in water distribution, wastewater management, and urban road safety. Rashmi Metaliks UK Limited has been established to directly support these evolving requirements." />
           </Reveal>
 
           <div className="mt-14 grid gap-8 lg:grid-cols-2 lg:items-stretch">
             {/* Water Infrastructure */}
             <Reveal delay={0.05}>
               <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 h-full">
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-red-600 mb-4">Supporting Water Infrastructure</p>
+                <p className="font-condensed text-sm font-bold uppercase tracking-[0.16em] text-red-600 mb-4">Supporting Water Infrastructure</p>
                 <h3 className="font-display text-2xl text-slate-900">High-Performance Pipeline Solutions</h3>
                 <p className="mt-4 text-sm leading-7 text-slate-600">Ductile iron pipes remain the preferred choice for water transportation due to their strength, durability, and long lifecycle. With increasing focus on reducing water leakage, improving network efficiency, and ensuring long-term reliability, the UK market demands:</p>
                 <ul className="mt-5 space-y-2.5">
@@ -371,7 +443,7 @@ export function AboutPage() {
             {/* Urban Road Safety */}
             <Reveal delay={0.08}>
               <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 h-full">
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-red-600 mb-4">Enhancing Urban Road Safety</p>
+                <p className="font-condensed text-sm font-bold uppercase tracking-[0.16em] text-red-600 mb-4">Enhancing Urban Road Safety</p>
                 <h3 className="font-display text-2xl text-slate-900">BS EN 124 Manhole Cover Solutions</h3>
                 <p className="mt-4 text-sm leading-7 text-slate-600">Urban infrastructure in the UK requires robust access solutions, particularly manhole covers and gratings, which play a critical role in road safety. Our BS EN 124 compliant covers with load classes A15 to F900 are engineered for:</p>
                 <ul className="mt-5 space-y-2.5">
@@ -397,15 +469,15 @@ export function AboutPage() {
       <section className="bg-slate-950 py-20 text-white">
         <div className="section-shell grid gap-10 lg:grid-cols-2 lg:items-stretch">
           <Reveal>
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur h-full">
-              <p className="font-condensed text-xs font-bold uppercase tracking-[0.2em] text-red-400">Vision</p>
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur h-full card-red-hover">
+              <p className="font-condensed text-sm font-bold uppercase tracking-[0.2em] text-red-400">Vision</p>
               <h3 className="font-display mt-3 text-2xl text-white">Global Leader in Infrastructure Solutions</h3>
               <p className="mt-4 text-sm leading-8 text-slate-300">To be the world's most trusted supplier of ductile iron infrastructure solutions — delivering excellence through innovation, quality, and sustainability across every market we serve.</p>
             </div>
           </Reveal>
           <Reveal delay={0.06}>
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur h-full">
-              <p className="font-condensed text-xs font-bold uppercase tracking-[0.2em] text-red-400">Mission</p>
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur h-full card-red-hover">
+              <p className="font-condensed text-sm font-bold uppercase tracking-[0.2em] text-red-400">Mission</p>
               <h3 className="font-display mt-3 text-2xl text-white">Engineering Lifelines. Strengthening Communities.</h3>
               <p className="mt-4 text-sm leading-8 text-slate-300">To engineer and supply world-class ductile iron solutions that strengthen infrastructure, enhance safety, and improve quality of life — for generations to come.</p>
             </div>

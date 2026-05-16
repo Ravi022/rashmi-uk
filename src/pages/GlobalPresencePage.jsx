@@ -101,7 +101,7 @@ export function GlobalPresencePage() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/45" />
         <DWIBannerBadge wideHeading />
         <div className="section-shell relative max-w-[min(100%,40rem)] sm:max-w-none">
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-sky-400 [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
+          <p className="font-condensed text-sm font-bold uppercase tracking-[0.22em] text-sky-400 [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
             Global Presence
           </p>
           <TextReveal
@@ -142,7 +142,6 @@ export function GlobalPresencePage() {
               label="Our Network"
               title="A Truly Global Supply Chain"
               subtitle="From our Kharagpur manufacturing campus to project sites across 5 continents — our supply network is built for reliability, speed, and total project support."
-              centered
             />
           </Reveal>
           <Reveal delay={0.08}>
@@ -161,7 +160,6 @@ export function GlobalPresencePage() {
               label="Supply Chain"
               title="How Our Global Supply Chain Works"
               subtitle="Four integrated pillars deliver consistent, documented, on-time supply from Kharagpur to any project site in the world."
-              centered
             />
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -187,13 +185,15 @@ export function GlobalPresencePage() {
       <section className="border-t border-slate-100 bg-slate-50 py-20">
         <div className="section-shell">
           <Reveal>
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
+            <SectionHeader
+              label="UK Presence"
+              title="Established in the United Kingdom"
+            />
+          </Reveal>
+          <Reveal>
+            <div className="mt-10 grid gap-12 lg:grid-cols-2 lg:items-center">
               <div>
-                <SectionHeader
-                  label="UK Presence"
-                  title="Established in the United Kingdom"
-                />
-                <p className="mt-5 text-sm leading-8 text-slate-600">
+                <p className="text-sm leading-8 text-slate-600">
                   Rashmi Metaliks UK Limited is incorporated in England & Wales and operates from our London office in Leytonstone. Our UK team provides local technical sales, project specification support, and supply chain coordination — bringing world-class DI manufacturing capacity directly to the UK market.
                 </p>
                 <div className="mt-6 flex flex-col gap-4">
@@ -202,7 +202,7 @@ export function GlobalPresencePage() {
                       <MapPin size={18} />
                     </span>
                     <div>
-                      <p className="font-condensed text-xs font-bold uppercase tracking-[0.14em] text-red-600">UK Sales & Technical Office</p>
+                      <p className="font-condensed text-sm font-bold uppercase tracking-[0.14em] text-red-600">UK Sales & Technical Office</p>
                       <p className="mt-1 text-sm font-medium text-slate-800">Suite 102, Oceanair House</p>
                       <p className="text-sm text-slate-600">750–760 High Road, Leytonstone, London, E11 3AW</p>
                     </div>
@@ -212,7 +212,7 @@ export function GlobalPresencePage() {
                       <Warehouse size={18} />
                     </span>
                     <div>
-                      <p className="font-condensed text-xs font-bold uppercase tracking-[0.14em] text-slate-500">UK Warehouse & Logistics</p>
+                      <p className="font-condensed text-sm font-bold uppercase tracking-[0.14em] text-slate-500">UK Warehouse & Logistics</p>
                       <p className="mt-1 text-sm font-medium text-slate-800">UK Warehouse Facility</p>
                       <p className="text-sm text-slate-600">Strategic stockholding for fast-track UK project requirements</p>
                     </div>
@@ -233,14 +233,13 @@ export function GlobalPresencePage() {
               label="Project Footprint"
               title="Where Our Products Are Installed"
               subtitle="From UK water mains to Middle East mega-projects — Rashmi Metaliks DI infrastructure is installed in some of the world's most critical water and wastewater networks."
-              centered
             />
           </Reveal>
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {projectFootprint.map((item, idx) => (
               <Reveal key={item.region} delay={idx * 0.05}>
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                  <p className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-red-600">{item.region}</p>
+                  <p className="font-condensed text-sm font-bold uppercase tracking-[0.16em] text-red-600">{item.region}</p>
                   <p className="mt-2 text-sm leading-7 text-slate-600">{item.projects}</p>
                 </div>
               </Reveal>
@@ -257,7 +256,6 @@ export function GlobalPresencePage() {
               label="Why It Matters"
               title="Why Our Global Network Matters for UK Clients"
               subtitle="Choosing Rashmi Metaliks UK means access to global manufacturing scale with local UK accountability — a combination no purely domestic supplier can match."
-              centered
             />
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -297,7 +295,7 @@ export function GlobalPresencePage() {
                 <div className={`flex flex-col gap-4 rounded-2xl border p-7 ${office.highlight ? 'border-red-200 bg-red-50' : 'border-slate-200 bg-slate-50'}`}>
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <p className={`font-condensed text-xs font-bold uppercase tracking-[0.14em] ${office.highlight ? 'text-red-600' : 'text-slate-400'}`}>
+                      <p className={`font-condensed text-sm font-bold uppercase tracking-[0.14em] ${office.highlight ? 'text-red-600' : 'text-slate-400'}`}>
                         {office.highlight ? 'Primary UK Office' : 'Regional Office'}
                       </p>
                       <h3 className="font-display mt-1 text-xl text-slate-900">{office.region}</h3>

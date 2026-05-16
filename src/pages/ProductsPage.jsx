@@ -12,10 +12,9 @@ export function ProductsPage() {
       <div className="section-shell relative">
         <Reveal>
           <SectionHeader
-            label="Our Products"
-            title="Engineered Ductile Iron Solutions"
-            subtitle="Compliant with BS EN 545, BS EN 598, BS EN 124, and ISO standards — built for over 100 years of reliable service."
-            centered
+            label="Product Portfolio"
+            title="Engineered Infrastructure Solutions"
+            subtitle="Premium ductile iron pipes, fittings, and manhole covers — manufactured to stringent UK and European standards for water, wastewater, and urban infrastructure."
           />
         </Reveal>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3">

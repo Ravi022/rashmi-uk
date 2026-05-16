@@ -35,7 +35,7 @@ export function WorldMap() {
       {/* tooltip */}
       {tooltip && (
         <div className="pointer-events-none absolute left-4 top-4 z-10 rounded-xl border border-slate-500/70 bg-slate-900/95 px-4 py-3 shadow-xl backdrop-blur-sm">
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.14em] text-red-400">{tooltip.name}</p>
+          <p className="font-condensed text-sm font-bold uppercase tracking-[0.14em] text-red-400">{tooltip.name}</p>
           <p className="mt-0.5 text-xs text-slate-200">{tooltip.role}</p>
         </div>
       )}

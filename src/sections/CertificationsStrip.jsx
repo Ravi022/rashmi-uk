@@ -6,7 +6,7 @@ export function CertificationsStrip({ certifications }) {
     <section className="border-y border-slate-200 bg-white py-14">
       <div className="section-shell">
         <Reveal>
-          <p className="mb-8 text-center font-condensed text-xs font-bold uppercase tracking-[0.2em] text-red-600">
+          <p className="mb-8 text-center font-condensed text-sm font-bold uppercase tracking-[0.2em] text-red-600">
             Standards &amp; Certifications
           </p>
         </Reveal>

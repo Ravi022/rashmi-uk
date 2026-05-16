@@ -173,7 +173,7 @@ export function ProductDetailPage() {
 
         <div className={`section-shell relative ${photoHero ? 'max-w-[min(100%,42rem)] sm:max-w-none' : ''}`}>
           <nav
-            className={`mb-6 flex items-center gap-2 font-condensed text-xs font-semibold uppercase tracking-[0.12em] ${
+            className={`mb-6 flex items-center gap-2 font-condensed text-sm font-semibold uppercase tracking-[0.12em] ${
               photoHero ? 'text-slate-700 [text-shadow:0_1px_8px_rgba(255,255,255,0.9)]' : 'text-slate-400'
             }`}
           >
@@ -188,7 +188,7 @@ export function ProductDetailPage() {
           </nav>
 
           <p
-            className={`font-condensed text-xs font-bold uppercase tracking-[0.22em] ${
+            className={`font-condensed text-sm font-bold uppercase tracking-[0.22em] ${
               photoHero ? 'text-red-700 [text-shadow:0_1px_8px_rgba(255,255,255,0.85)]' : 'text-red-400'
             }`}
           >
@@ -220,7 +220,7 @@ export function ProductDetailPage() {
                   ? (
                       <span
                         key={std}
-                        className={`inline-flex items-center gap-1.5 rounded border px-3 py-1 font-condensed text-xs uppercase tracking-[0.12em] ${
+                        className={`inline-flex items-center gap-1.5 rounded border px-3 py-1 font-condensed text-sm uppercase tracking-[0.12em] ${
                           photoHero
                             ? 'border-blue-200 bg-blue-50 text-blue-900'
                             : 'border-blue-400/40 bg-blue-500/15 text-blue-300 shadow-[0_0_12px_rgba(59,130,246,0.15)]'
@@ -232,7 +232,7 @@ export function ProductDetailPage() {
                   : (
                       <span
                         key={std}
-                        className={`inline-flex items-center gap-1.5 rounded border px-3 py-1 font-condensed text-xs uppercase tracking-[0.12em] ${
+                        className={`inline-flex items-center gap-1.5 rounded border px-3 py-1 font-condensed text-sm uppercase tracking-[0.12em] ${
                           photoHero
                             ? 'border-red-200 bg-red-50 text-red-900'
                             : 'border-red-600/30 bg-red-600/10 text-red-300'
@@ -265,7 +265,7 @@ export function ProductDetailPage() {
                   </p>
                 </div>
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
-                  <p className="font-condensed text-xs font-bold uppercase tracking-[0.15em] text-red-600">Key Specifications</p>
+                  <p className="font-condensed text-sm font-bold uppercase tracking-[0.15em] text-red-600">Key Specifications</p>
                   <Table rows={product.table} />
                 </div>
               </div>
@@ -273,7 +273,7 @@ export function ProductDetailPage() {
               {/* Image gallery — shown only when product has real photos */}
               {gallery.length > 0 && (
                 <div className="mt-14">
-                  <p className="font-condensed text-xs font-bold uppercase tracking-[0.18em] text-red-600 mb-6">Product Gallery</p>
+                  <p className="font-condensed text-sm font-bold uppercase tracking-[0.18em] text-red-600 mb-6">Product Gallery</p>
                   {/* Main image */}
                   <div
                     className={`overflow-hidden rounded-2xl border border-slate-200 ${product.slug === 'di-fittings' ? 'bg-white' : 'bg-slate-50'}`}

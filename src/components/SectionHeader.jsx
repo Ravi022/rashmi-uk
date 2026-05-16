@@ -32,14 +32,14 @@ export function SectionHeader({ label, title, subtitle, centered = false, compac
     >
       <motion.p
         variants={item}
-        className="font-condensed text-sm font-extrabold uppercase tracking-[0.16em] text-red-600 md:text-base"
+        className="font-condensed text-base font-extrabold uppercase tracking-[0.16em] text-red-600 md:text-3xl"
       >
         {label}
       </motion.p>
       <TextReveal
         as="h2"
         text={title}
-        className={`font-display font-bold tracking-tight text-3xl leading-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl ${compact ? 'mt-1.5' : 'mt-2'} ${centered ? 'justify-center text-center mx-auto' : ''}`}
+        className={`font-display font-bold tracking-tight text-3xl leading-tight text-slate-900 sm:text-4xl md:text-4xl lg:text-5xl ${compact ? 'mt-1.5' : 'mt-2'} ${centered ? 'justify-center text-center mx-auto' : ''}`}
       />
       {subtitle ? (
         <motion.p

@@ -204,6 +204,12 @@ img {
   50% { transform: translateY(-8px); }
 }
 
+/* Ken Burns slow zoom — About page hero */
+@keyframes about-kenburns {
+  0%   { transform: scale(1)    translate(0%, 0%); }
+  100% { transform: scale(1.08) translate(-1.5%, -1%); }
+}
+
 /* Gentle pulse for badges/icons */
 @keyframes pulse-soft {
   0%, 100% { opacity: 1; }
@@ -282,4 +288,15 @@ img {
 }
 .accent-line.in-view {
   width: 3rem;
+}
+
+/* ── Global Card Red Hover Animation ── */
+.card-red-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-red-hover:hover {
+  border-color: #C8102E !important; /* Union Jack Red */
+  box-shadow: 0 12px 30px -8px rgba(200, 16, 46, 0.18);
+  transform: translateY(-4px);
 }

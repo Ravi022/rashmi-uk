@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import dwiBannerSlide1 from '../assets/dwi-banner-slide1.png'
 
 /**
@@ -20,12 +21,17 @@ export function DWIBannerBadge({ className = '', wideHeading = false }) {
     : 'lg:top-[76px] lg:right-8 lg:w-[148px] xl:top-[80px] xl:right-12 xl:w-[180px] 2xl:right-16 2xl:w-[210px]'
 
   return (
-    <div className={`${base} ${desktopClasses} ${className}`}>
+    <motion.div
+      initial={{ opacity: 0, x: 60 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
+      className={`${base} ${desktopClasses} ${className}`}
+    >
       <img
         src={dwiBannerSlide1}
         alt="DWI approved drinking water inspectorate banner"
         className="h-auto w-full rounded-xl object-contain shadow-[0_8px_40px_rgba(0,0,0,0.45)] ring-1 ring-white/15"
       />
-    </div>
+    </motion.div>
   )
 }

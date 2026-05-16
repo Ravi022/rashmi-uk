@@ -180,7 +180,7 @@ export function SustainabilityPage() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/15 to-slate-950/35" />
         <DWIBannerBadge wideHeading />
         <div className="section-shell relative max-w-[min(100%,40rem)] sm:max-w-none">
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-400">
+          <p className="font-condensed text-sm font-bold uppercase tracking-[0.22em] text-red-400">
             Sustainability
           </p>
           <TextReveal
@@ -262,7 +262,7 @@ export function SustainabilityPage() {
                       <div className="flex h-72 items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50">
                         <div className="text-center">
                           <Icon size={36} className="mx-auto text-slate-300" />
-                          <p className="mt-3 font-condensed text-xs font-bold uppercase tracking-[0.14em] text-slate-400">{pillar.title} Photo</p>
+                          <p className="mt-3 font-condensed text-sm font-bold uppercase tracking-[0.14em] text-slate-400">{pillar.title} Photo</p>
                           <p className="mt-1 text-xs text-slate-300">Image Placeholder</p>
                         </div>
                       </div>
@@ -281,7 +281,7 @@ export function SustainabilityPage() {
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
               <div>
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.2em] text-red-600">Supporting UK Policy</p>
+                <p className="font-condensed text-sm font-bold uppercase tracking-[0.2em] text-red-600">Supporting UK Policy</p>
                 <h2 className="font-display mt-4 text-3xl leading-snug text-slate-900 md:text-4xl">
                   Aligned with UK Water Sector Net Zero 2030
                 </h2>
@@ -309,7 +309,7 @@ export function SustainabilityPage() {
                   { value: '100%', label: 'Recyclable at EOL', accent: false },
                   { value: 'C=140', label: 'Hazen-Williams Coefficient', accent: true },
                 ].map(({ value, label, accent }) => (
-                  <div key={label} className={`rounded-2xl border p-6 text-center ${accent ? 'border-red-200 bg-red-50' : 'border-slate-200 bg-slate-50'}`}>
+                  <div key={label} className={`rounded-2xl border p-6 text-center card-red-hover ${accent ? 'border-red-200 bg-red-50' : 'border-slate-200 bg-slate-50'}`}>
                     {value === 'C=140' ? (
                       <p className="font-condensed text-3xl font-bold stat-value">{value}</p>
                     ) : (

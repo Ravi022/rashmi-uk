@@ -60,10 +60,9 @@ export function IndustriesSection({ industries }) {
       <div className="section-shell relative">
         <Reveal>
           <SectionHeader
-            label="Markets Served"
+            label="Sectors"
             title="Industries We Supply"
-            subtitle="From water utilities to industrial process — our DI infrastructure solutions serve the full spectrum of UK and global infrastructure sectors."
-            centered
+            subtitle="Engineered ductile iron solutions built to handle the unique demands of municipal water, industrial processes, and civil infrastructure."
             compact
           />
         </Reveal>
@@ -82,8 +81,7 @@ export function IndustriesSection({ industries }) {
                   <li>
                     <div
                       className={[
-                        'group flex flex-col gap-2 overflow-hidden rounded-lg border border-slate-200/90 bg-white/95 p-2.5 shadow-sm backdrop-blur-sm transition sm:flex-row sm:items-center sm:gap-0 sm:p-0 sm:shadow-[0_2px_16px_rgba(15,23,42,0.035)]',
-                        'hover:border-red-300/60 hover:shadow-[0_12px_36px_-12px_rgba(15,23,42,0.12)]',
+                        'group flex flex-col gap-2 overflow-hidden rounded-lg border border-slate-200/90 bg-white/95 p-2.5 shadow-sm backdrop-blur-sm transition sm:flex-row sm:items-center sm:gap-0 sm:p-0 sm:shadow-[0_2px_16px_rgba(15,23,42,0.035)] card-red-hover',
                         reverse ? 'sm:flex-row-reverse' : '',
                       ].join(' ')}
                     >
@@ -104,7 +102,7 @@ export function IndustriesSection({ industries }) {
 
                       <div className="flex min-w-0 flex-1 flex-col justify-center gap-2.5 px-2 sm:px-6 sm:py-5 lg:px-8 lg:py-6">
                         <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-                          <span className="font-condensed text-xs font-bold tabular-nums tracking-[0.2em] text-red-600">
+                          <span className="font-condensed text-sm font-bold tabular-nums tracking-[0.2em] text-red-600">
                             {n}
                           </span>
                           <span className="inline-flex rounded-md border border-slate-200 bg-slate-50 p-1.5 text-red-600">

@@ -8,10 +8,9 @@ export function ProcessSection({ steps }) {
       <div className="section-shell">
         <Reveal>
           <SectionHeader
-            label="How We Work"
-            title="From Specification to Delivery"
-            subtitle="A streamlined, fully-supported supply process — designed to make specifying and procuring Rashmi Metaliks products as simple as possible for UK projects."
-            centered
+            label="Manufacturing Process"
+            title="From Iron Ore to Infrastructure"
+            subtitle="Explore our fully integrated manufacturing process. By controlling every step from raw materials to final coating, we guarantee the structural integrity and longevity of every product."
           />
         </Reveal>
         <div className="mt-10 grid gap-0 sm:mt-14 md:grid-cols-2 lg:grid-cols-4">

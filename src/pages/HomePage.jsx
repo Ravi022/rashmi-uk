@@ -25,12 +25,11 @@ export function HomePage() {
       {/* Products section */}
       <section className="section-shell py-24 lg:py-28">
         <Reveal>
-          <SectionHeader
-            label="Product Portfolio"
-            title="Ductile Iron Infrastructure Solutions"
-            subtitle="Rashmi Metaliks UK supplies utilities, contractors, and councils with premium DI pipes, fittings, and engineered pipeline systems — all compliant with UK and European standards."
-            centered
-          />
+            <SectionHeader
+              label="Product Portfolio"
+              title="Ductile Iron Infrastructure Solutions"
+              subtitle="Rashmi Metaliks UK supplies utilities, contractors, and councils with premium DI pipes, fittings, and engineered pipeline systems — all compliant with UK and European standards."
+            />
         </Reveal>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {products.map((product, idx) => (
@@ -44,14 +43,16 @@ export function HomePage() {
       {/* about/company snapshot */}
       <section className="bg-slate-50 py-16 text-slate-900 sm:py-24">
         <div className="section-shell">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
+          <Reveal>
+            <SectionHeader
+              label="About Rashmi Metaliks UK"
+              title="A Global Leader, Now Rooted in Britain"
+            />
+          </Reveal>
+          <div className="mt-12 grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
             <Reveal>
               <div>
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-600">About Rashmi Metaliks UK</p>
-                <h2 className="font-display mt-4 text-2xl leading-snug text-slate-900 sm:text-3xl md:text-5xl">
-                  A Global Leader, Now Rooted in Britain
-                </h2>
-                <p className="mt-5 text-sm leading-8 text-slate-700">
+                <p className="text-sm leading-8 text-slate-700">
                   Rashmi Metaliks Ltd., the flagship company of the USD 5 billion Rashmi Group, is a globally trusted manufacturer of Ductile Iron Pipes and Fittings. With presence across 50+ countries and a robust integrated steel manufacturing setup, the company delivers high-performance infrastructure solutions designed for longevity and sustainability.
                 </p>
                 <p className="mt-4 text-sm leading-8 text-slate-600">
@@ -65,7 +66,7 @@ export function HomePage() {
                 <img
                   src={aboutRashmiUkPlant}
                   alt="Rashmi Aqua ductile iron pipe at integrated manufacturing plant at sunrise"
-                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02] sm:aspect-[16/10] lg:aspect-[5/4] lg:min-h-[min(100%,22rem)] xl:aspect-[16/10]"
+                  className="aspect-[16/9] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02] lg:aspect-[21/9] xl:aspect-[21/9]"
                   style={{ objectPosition: 'center 42%' }}
                 />
                 <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/75 via-slate-950/25 to-transparent px-4 pb-3 pt-16 text-[10px] font-condensed font-bold uppercase tracking-[0.14em] text-white/90 sm:px-5 sm:pb-4 sm:text-[11px]">

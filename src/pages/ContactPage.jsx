@@ -76,7 +76,7 @@ export function ContactPage() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/25 via-transparent to-white/18" />
         <DWIBannerBadge />
         <div className="section-shell relative max-w-[min(100%,40rem)] sm:max-w-none">
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-700 [text-shadow:0_1px_8px_rgba(255,255,255,0.9)]">
+          <p className="font-condensed text-sm font-bold uppercase tracking-[0.22em] text-red-700 [text-shadow:0_1px_8px_rgba(255,255,255,0.9)]">
             Contact Us
           </p>
           <TextReveal
@@ -93,18 +93,20 @@ export function ContactPage() {
       {/* contact section */}
       <section className="py-24 bg-white">
         <div className="section-shell">
-          <div className="grid gap-12 lg:grid-cols-5 lg:items-start">
+          <Reveal>
+            <SectionHeader label="Get In Touch" title="We're Ready to Help" />
+          </Reveal>
+          <div className="mt-10 grid gap-12 lg:grid-cols-5 lg:items-start">
             {/* contact info panel — spans 2 of 5 cols */}
             <Reveal className="lg:col-span-2">
               <div className="flex flex-col gap-5">
-                <SectionHeader label="Get In Touch" title="We're Ready to Help" />
                 <p className="text-sm leading-8 text-slate-500">
                   Send us an enquiry and a member of our UK technical team will respond within one business day.
                 </p>
 
                 <div className="flex flex-col gap-3">
                   {contactDetails.map(({ icon: Icon, label, value }) => (
-                    <div key={label} className="flex items-start gap-4 rounded-xl border border-slate-100 bg-slate-50 p-4">
+                    <div key={label} className="flex items-start gap-4 rounded-xl border border-slate-100 bg-slate-50 p-4 card-red-hover">
                       <span className="mt-0.5 inline-flex shrink-0 rounded-lg border border-red-200 bg-red-50 p-2 text-red-600">
                         <Icon size={16} />
                       </span>
@@ -117,10 +119,10 @@ export function ContactPage() {
                 </div>
 
                 {/* what to expect */}
-                <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
+                <div className="rounded-2xl border border-red-200 bg-red-50 p-5 card-red-hover">
                   <div className="flex items-center gap-2 mb-3">
                     <MessageSquare size={15} className="text-red-600" />
-                    <p className="font-condensed text-xs font-bold uppercase tracking-[0.14em] text-red-600">What to Expect</p>
+                    <p className="font-condensed text-sm font-bold uppercase tracking-[0.14em] text-red-600">What to Expect</p>
                   </div>
                   <ul className="space-y-2">
                     {[
@@ -142,7 +144,7 @@ export function ContactPage() {
             {/* form — spans 3 of 5 cols */}
             <Reveal delay={0.08} className="lg:col-span-3">
               <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 lg:p-10">
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.16em] text-red-600 mb-6">Send an Enquiry</p>
+                <p className="font-condensed text-sm font-bold uppercase tracking-[0.16em] text-red-600 mb-6">Send an Enquiry</p>
                 <ContactForm />
               </div>
             </Reveal>
@@ -161,7 +163,7 @@ export function ContactPage() {
                 { value: 'BS EN 545', label: 'Primary UK Standard' },
                 { value: '50+ Countries', label: 'Active Export Markets' },
               ].map(({ value, label }) => (
-                <div key={label} className="flex flex-col items-center gap-1.5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div key={label} className="flex flex-col items-center gap-1.5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm card-red-hover">
                   {value === 'UK-Based' || value === 'BS EN 545' ? (
                     <p className="font-condensed text-2xl font-bold stat-value">{value}</p>
                   ) : (

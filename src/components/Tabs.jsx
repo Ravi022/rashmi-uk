@@ -7,7 +7,7 @@ export function Tabs({ items, active, onChange }) {
         <button
           key={it}
           onClick={() => onChange(it)}
-          className="relative rounded-lg px-3 py-2 font-condensed text-xs uppercase tracking-[0.08em] sm:px-4 sm:text-sm"
+          className="relative rounded-lg px-3 py-2 font-condensed text-sm uppercase tracking-[0.08em] sm:px-4 sm:text-sm"
         >
           {active === it && (
             <motion.span

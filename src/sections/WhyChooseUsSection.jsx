@@ -65,7 +65,6 @@ export function WhyChooseUsSection() {
             label="Why Choose Us"
             title="Why Rashmi Metaliks UK Limited"
             subtitle="Six powerful reasons why leading water utilities, contractors, and councils across the UK choose Rashmi Metaliks — backed by real plant capability, standards, and global reach."
-            centered
           />
         </Reveal>
 

@@ -162,7 +162,7 @@ export function QualityPage() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-slate-950/30" />
         <DWIBannerBadge wideHeading />
         <div className="section-shell relative max-w-[min(100%,40rem)] sm:max-w-none">
-          <p className="font-condensed text-xs font-bold uppercase tracking-[0.22em] text-red-400 [text-shadow:0_1px_12px_rgba(0,0,0,0.35)]">
+          <p className="font-condensed text-sm font-bold uppercase tracking-[0.22em] text-red-400 [text-shadow:0_1px_12px_rgba(0,0,0,0.35)]">
             Quality Assurance
           </p>
           <TextReveal
@@ -179,14 +179,16 @@ export function QualityPage() {
       {/* ── Design & Engineering Excellence ── */}
       <section className="py-24 bg-white">
         <div className="section-shell">
-          <div className="grid gap-14 lg:grid-cols-2 lg:items-start">
+          <Reveal>
+            <SectionHeader
+              label="Design & Engineering"
+              title="Design & Engineering Excellence"
+            />
+          </Reveal>
+          <div className="mt-10 grid gap-14 lg:grid-cols-2 lg:items-center">
             <Reveal>
               <div>
-                <SectionHeader
-                  label="Design & Engineering"
-                  title="Design & Engineering Excellence"
-                />
-                <p className="mt-5 text-sm leading-8 text-slate-600">
+                <p className="text-sm leading-8 text-slate-600">
                   Our products begin with precision engineering. Using AutoCAD and PTC Creo, our design team models every pipe, fitting, and cover to exact dimensional tolerances — then validates each design through finite element stress analysis before pattern creation.
                 </p>
                 <ul className="mt-6 space-y-3">
@@ -222,13 +224,12 @@ export function QualityPage() {
               label="In-Process Quality Control"
               title="Quality Controlled at Every Production Stage"
               subtitle="From raw material receipt to final annealing, our in-process controls ensure zero deviation from specification before any product reaches the finishing stage."
-              centered
             />
           </Reveal>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {inProcessChecks.map((check, idx) => (
               <Reveal key={check.label} delay={idx * 0.05}>
-                <div className="flex flex-col gap-3 rounded-2xl border border-white bg-white p-6 shadow-sm">
+                <div className="flex flex-col gap-3 rounded-2xl border border-white bg-white p-6 shadow-sm card-red-hover">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-600 font-condensed text-xs font-bold text-white">
                       {String(idx + 1).padStart(2, '0')}
@@ -251,7 +252,6 @@ export function QualityPage() {
               label="Finished Product Testing"
               title="Comprehensive Testing Before Every Dispatch"
               subtitle="No pipe, fitting, or cover leaves our facility without passing a full suite of finished product tests — individually for pipes, batch-based for fittings and covers."
-              centered
             />
           </Reveal>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
@@ -259,7 +259,7 @@ export function QualityPage() {
               const Icon = test.icon
               return (
                 <Reveal key={test.label} delay={idx * 0.05}>
-                  <article className="group flex flex-col gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-6 transition hover:border-red-200 hover:bg-red-50/20">
+                  <article className="group flex flex-col gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-6 card-red-hover">
                     <span className="inline-flex w-fit rounded-xl border border-red-200 bg-white p-3 text-red-600 shadow-sm group-hover:bg-red-100 transition">
                       <Icon size={20} />
                     </span>
@@ -283,7 +283,6 @@ export function QualityPage() {
               label="Facility"
               title="Quality Lab Pictures"
               subtitle="Inside our quality control laboratories and inspection areas — from sand and metallurgy to physical testing and dimensional verification."
-              centered
             />
           </Reveal>
         </div>
@@ -293,11 +292,11 @@ export function QualityPage() {
             <div key={block.title}>
               <div className="section-shell">
                 <Reveal delay={blockIdx * 0.04}>
-                  <div className="mb-6 text-center sm:mb-8">
+                  <div className="mb-6 sm:mb-8">
                     <h3 className="font-display text-xl text-slate-900 sm:text-2xl md:text-3xl">
                       {blockIdx + 1}. {block.title}
                     </h3>
-                    <p className="mx-auto mt-2 max-w-2xl text-sm leading-7 text-slate-600">{block.description}</p>
+                    <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600">{block.description}</p>
                   </div>
                 </Reveal>
               </div>
@@ -334,7 +333,6 @@ export function QualityPage() {
               label="Standards & Certifications"
               title="Certified to the Standards That Matter"
               subtitle="Full compliance with UK, European, and international standards — documented and third-party verified on every export consignment."
-              centered
             />
           </Reveal>
 
@@ -446,7 +444,7 @@ export function QualityPage() {
                         <img src={p.img} alt={p.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-condensed text-xs font-bold uppercase tracking-[0.1em] text-slate-900">{p.title}</p>
+                        <p className="font-condensed text-sm font-bold uppercase tracking-[0.1em] text-slate-900">{p.title}</p>
                         <p className="mt-0.5 text-[11px] leading-5 text-slate-500 line-clamp-2">{p.desc}</p>
                       </div>
                       <span className="shrink-0 text-red-500 transition group-hover:translate-x-0.5">›</span>
@@ -467,7 +465,7 @@ export function QualityPage() {
                       <Icon size={15} />
                     </span>
                     <div>
-                      <p className="font-condensed text-xs font-bold uppercase tracking-[0.08em] text-slate-800">{title}</p>
+                      <p className="font-condensed text-sm font-bold uppercase tracking-[0.08em] text-slate-800">{title}</p>
                       <p className="mt-0.5 text-[11px] leading-5 text-slate-500">{sub}</p>
                     </div>
                   </div>
@@ -529,14 +527,14 @@ export function QualityPage() {
             <div className="rounded-3xl bg-gradient-to-br from-slate-50 via-white to-slate-100 border border-slate-200 p-12 overflow-hidden relative shadow-sm">
               <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-red-200/30 blur-3xl" />
               <div className="relative">
-                <p className="font-condensed text-xs font-bold uppercase tracking-[0.2em] text-red-600">Why It Matters</p>
+                <p className="font-condensed text-sm font-bold uppercase tracking-[0.2em] text-red-600">Why It Matters</p>
                 <h2 className="font-display mt-3 text-3xl leading-snug text-slate-900 md:text-4xl">Why Quality Matters to Our Clients</h2>
                 <p className="mt-4 max-w-2xl text-sm leading-8 text-slate-600">
                   Infrastructure failures are costly, disruptive, and sometimes irreversible. Our quality assurance system exists to make failure a non-event — giving clients the confidence to specify Rashmi Metaliks products on their most critical projects.
                 </p>
                 <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                   {whyQualityPoints.map((point, idx) => (
-                    <div key={point.title} className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <div key={point.title} className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm card-red-hover">
                       <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-red-100 font-condensed text-xs font-bold text-red-600">
                         {String(idx + 1).padStart(2, '0')}
                       </span>
